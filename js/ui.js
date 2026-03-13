@@ -128,7 +128,7 @@ const _showLoading = () => {
 };
 
 /**
- * Renderiza estado de pagina nao encontrada.
+ * Renderiza estado de pagina não encontrada.
  */
 const _renderNotFound = () => {
   if (!_contentEl) return;
@@ -136,12 +136,12 @@ const _renderNotFound = () => {
     <div class="container not-found">
       <span class="section-label">404</span>
       <h1 class="not-found__title" style="font-family: var(--font-serif); font-size: var(--text-2xl); margin-block: 1rem 0.75rem;">
-        Pagina nao encontrada
+        Pagina não encontrada
       </h1>
       <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
         O conteudo que voce procura nao existe ou foi movido.
       </p>
-      <a href="#/" class="btn btn--primary">Voltar ao inicio</a>
+      <a href="#/" class="btn btn--primary">Voltar ao início</a>
     </div>
   `;
 };
@@ -161,7 +161,7 @@ const _renderError = (err) => {
       <p style="color: var(--color-text-secondary); margin-bottom: 2rem; font-family: var(--font-mono); font-size: var(--text-sm);">
         ${err.message}
       </p>
-      <a href="#/" class="btn btn--secondary">Voltar ao inicio</a>
+      <a href="#/" class="btn btn--secondary">Voltar ao início</a>
     </div>
   `;
 };

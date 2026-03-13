@@ -80,8 +80,8 @@ const render = (container, params) => {
   if (!scaleData) {
     container.innerHTML = `
       <div class="container">
-        <p class="section-label">Escala nao encontrada</p>
-        <a href="#/" class="btn btn--secondary" style="margin-top: 1rem;">Voltar</a>
+        <p class="section-label">Escala não encontrada</p>
+        <a href="#/" class="btn btn--secondary" class="error-action">Voltar</a>
       </div>
     `;
     return;
@@ -92,10 +92,10 @@ const render = (container, params) => {
   const relatedModules = getRelatedModules(scaleId);
 
   container.innerHTML = `
-    <div class="container">
-      <nav aria-label="Escalas" style="margin-bottom: var(--space-8); padding-top: var(--space-8);">
+    <div class="container page-body">
+      <nav aria-label="Escalas" class="page-breadcrumb">
         <ol class="breadcrumb">
-          <li><a href="#/">Inicio</a></li>
+          <li><a href="#/">Início</a></li>
           <li class="breadcrumb__sep" aria-hidden="true">/</li>
           <li aria-current="page">Escala ${scaleData.label}</li>
         </ol>
@@ -118,44 +118,35 @@ const render = (container, params) => {
       </header>
 
       <!-- Navegacao entre escalas vizinhas -->
-      <nav aria-label="Navegacao de escala" style="display: flex; gap: 1rem; margin-bottom: var(--space-12); flex-wrap: wrap;">
+      <nav aria-label="Navegação de escala" class="scale-page-nav">
         ${prev ? `<a href="#/escala/${prev}" class="btn btn--ghost">
           Escala anterior: ${_capitalize(prev)}
         </a>` : ''}
         ${next ? `<a href="#/escala/${next}" class="btn btn--secondary">
-          Proxima escala: ${_capitalize(next)}
+          Próxima escala: ${_capitalize(next)}
         </a>` : ''}
       </nav>
 
-      <!-- Exemplos -->
-      <section aria-labelledby="examples-heading" style="margin-bottom: var(--space-12);">
-        <h2 id="examples-heading" style="font-size: var(--text-xl); margin-bottom: var(--space-6);">
-          Exemplos nesta escala
-        </h2>
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+      <section aria-labelledby="examples-heading" class="module-section">
+        <h2 id="examples-heading" class="section-heading">Exemplos nesta escala</h2>
+        <div class="tag-row">
           ${scaleData.examples.map(ex => `<span class="tag">${ex}</span>`).join('')}
         </div>
       </section>
 
-      <!-- Processos relacionados -->
-      <section aria-labelledby="processes-heading" style="margin-bottom: var(--space-12);">
-        <h2 id="processes-heading" style="font-size: var(--text-xl); margin-bottom: var(--space-6);">
-          Processos nesta escala
-        </h2>
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+      <section aria-labelledby="processes-heading" class="module-section">
+        <h2 id="processes-heading" class="section-heading">Processos nesta escala</h2>
+        <div class="tag-row">
           ${scaleData.relatedProcesses.map(p => `
             <a href="#/processo/${p}" class="badge badge--neutral">${p}</a>
           `).join('')}
         </div>
       </section>
 
-      <!-- Modulos relacionados -->
       ${relatedModules.length > 0 ? `
-        <section aria-labelledby="modules-heading">
-          <h2 id="modules-heading" style="font-size: var(--text-xl); margin-bottom: var(--space-6);">
-            Modulos que cobrem esta escala
-          </h2>
-          <div class="card-grid--3">
+        <section aria-labelledby="modules-heading" class="module-section">
+          <h2 id="modules-heading" class="section-heading">Módulos que cobrem esta escala</h2>
+          <div class="card-grid card-grid--3">
             ${relatedModules.map(m => _renderModuleCard(m)).join('')}
           </div>
         </section>
@@ -175,7 +166,7 @@ const buildHeroDiagram = (scales) => {
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', '0 0 480 400');
-  svg.setAttribute('aria-label', 'Diagrama das escalas biologicas, de molecular a ecossistema');
+  svg.setAttribute('aria-label', 'Diagrama das escalas biológicas, de molecular a ecossistema');
   svg.setAttribute('role', 'img');
   svg.classList.add('hero-diagram');
 
@@ -262,11 +253,9 @@ const buildHeroDiagram = (scales) => {
 
 /** Renderiza um card de modulo compacto. */
 const _renderModuleCard = (m) => `
-  <a href="#/modulo/${m.slug}" class="module-card" style="display: flex; flex-direction: column; gap: 0.5rem;">
-    <span class="module-card__number">Modulo ${m.number}</span>
-    <span class="module-card__title" style="font-family: var(--font-serif); font-size: var(--text-md); font-weight: 600;">
-      ${m.title}
-    </span>
+  <a href="#/modulo/${m.slug}" class="module-card">
+    <span class="module-card__number">Módulo ${m.number}</span>
+    <span class="module-card__title">${m.title}</span>
     <span class="module-card__description">${m.subtitle}</span>
   </a>
 `;

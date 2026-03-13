@@ -2,15 +2,15 @@
  * home-hero.js
  * Darwin — Atlas dos Processos da Vida
  *
- * Renderiza a pagina inicial completa:
+ * Renderiza a página inicial completa:
  *  1. Hero com diagrama SVG de escalas
- *  2. Secao dos 4 eixos
- *  3. Progressao de escalas biologicas
- *  4. Aplicacoes reais
- *  5. Modulos da V1
+ *  2. Seção dos 4 eixos
+ *  3. Progressão de escalas biológicas
+ *  4. Aplicações reais
+ *  5. Módulos da V1
  */
 
-import State from '../js/state.js';
+import State       from '../js/state.js';
 import ScaleEngine from '../engine/scale-engine.js';
 
 /**
@@ -23,7 +23,7 @@ const render = (container, params) => {
 
   if (!data.axes || !data.modules || !data.scales || !data.applications) {
     container.innerHTML = `
-      <div class="container" style="padding-block: 4rem; text-align: center;">
+      <div class="container" class="page-error">
         <p class="section-label" style="color: var(--color-accent-rare);">Carregando dados...</p>
       </div>
     `;
@@ -48,7 +48,7 @@ const render = (container, params) => {
 };
 
 /* ============================================================
-   SECOES DA HOME
+   SEÇÕES DA HOME
    ============================================================ */
 
 const _renderHero = (scales) => `
@@ -56,7 +56,6 @@ const _renderHero = (scales) => `
     <div class="container">
       <div class="hero-layout">
 
-        <!-- Texto -->
         <div>
           <span class="home-hero__eyebrow">Sistema de Biologia</span>
           <h1 id="hero-title" class="home-hero__title">
@@ -64,12 +63,12 @@ const _renderHero = (scales) => `
             <em>Atlas dos Processos da Vida</em>
           </h1>
           <p class="home-hero__subtitle">
-            Da molecula ao ecossistema: compreender a vida como sistema.
-            Nao uma enciclopedia — uma rede navegavel de processos, escalas e relacoes.
+            Da molécula ao ecossistema: compreender a vida como sistema.
+            Não uma enciclopédia — uma rede navegável de processos, escalas e relações.
           </p>
           <div class="home-hero__actions">
             <a href="#/modulo/celula" class="btn btn--primary btn--lg">
-              Comecar pela celula
+              Começar pela célula
             </a>
             <a href="#/glossario" class="btn btn--ghost btn--lg">
               Explorar conceitos
@@ -77,10 +76,7 @@ const _renderHero = (scales) => `
           </div>
         </div>
 
-        <!-- Diagrama SVG — inserido via JS -->
-        <div id="hero-diagram-container" aria-hidden="true">
-          <!-- ScaleEngine.buildHeroDiagram() inserido aqui -->
-        </div>
+        <div id="hero-diagram-container" aria-hidden="true"></div>
 
       </div>
     </div>
@@ -92,14 +88,12 @@ const _renderAxesSection = (axes) => `
     <div class="container">
       <header class="section-header">
         <span class="section-label">Quatro eixos</span>
-        <h2 id="axes-title"
-            style="font-family: var(--font-serif); font-size: var(--text-2xl);
-                   font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-3);">
-          A estrutura do conhecimento biologico
+        <h2 id="axes-title" class="section-heading">
+          A estrutura do conhecimento biológico
         </h2>
-        <p style="color: var(--color-text-secondary); max-width: 58ch;">
-          A Biologia nao e uma lista de topicos. Sao quatro eixos que se cruzam:
-          organizacao, informacao, energia e evolucao.
+        <p class="section-intro">
+          A Biologia não é uma lista de tópicos. São quatro eixos que se cruzam:
+          organização, informação, energia e evolução.
         </p>
       </header>
 
@@ -111,14 +105,20 @@ const _renderAxesSection = (axes) => `
 `;
 
 const _renderAxisCard = (axis) => {
-  const axisMod = {
+  const clsMap = {
     organization: 'axis-card--org',
     information:  'axis-card--info',
     energy:       'axis-card--energy',
     evolution:    'axis-card--evo',
   };
-  const cls = axisMod[axis.id] ?? '';
-  const badgeClass = `badge--${axis.colorToken.replace('axis-', '')}`;
+  const badgeMap = {
+    organization: 'badge--org',
+    information:  'badge--info',
+    energy:       'badge--energy',
+    evolution:    'badge--evo',
+  };
+  const cls        = clsMap[axis.id]   ?? '';
+  const badgeClass = badgeMap[axis.id] ?? 'badge--neutral';
 
   return `
     <article class="axis-card ${cls}" aria-label="${axis.title}">
@@ -127,7 +127,8 @@ const _renderAxisCard = (axis) => {
       <p class="axis-card__description">${axis.description}</p>
       <div class="axis-card__modules">
         ${axis.modules.map(id => `
-          <a href="#/modulo/${id}" class="badge ${badgeClass}" style="text-decoration: none;">${id}</a>
+          <a href="#/modulo/${id}" class="badge ${badgeClass}"
+             style="text-decoration: none;">${id}</a>
         `).join('')}
       </div>
     </article>
@@ -139,22 +140,18 @@ const _renderScalesSection = (scales) => `
     <div class="container">
       <header class="section-header section-header--centered">
         <span class="section-label">Sete escalas</span>
-        <h2 id="scales-title"
-            style="font-family: var(--font-serif); font-size: var(--text-2xl);
-                   font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-3);">
-          Navegue pela escala da vida
-        </h2>
-        <p style="color: var(--color-text-secondary); max-width: 55ch; margin-inline: auto;">
-          Do atomo ao ecossistema. Cada escala tem processos proprios e se conecta
-          as escalas adjacentes.
+        <h2 id="scales-title" class="section-heading">Navegue pela escala da vida</h2>
+        <p class="section-intro section-intro--centered">
+          Do átomo ao ecossistema. Cada escala tem processos próprios e se conecta
+          às escalas adjacentes.
         </p>
       </header>
 
-      <nav aria-label="Escalas biologicas" class="scale-progression">
+      <nav aria-label="Escalas biológicas" class="scale-progression">
         ${[...scales].sort((a, b) => a.order - b.order).map(scale => `
           <a href="#/escala/${scale.id}"
              class="scale-step"
-             aria-label="Escala ${scale.label}: ${scale.description.substring(0, 80)}...">
+             aria-label="Escala ${scale.label}: ${scale.description.substring(0, 80)}">
             <div class="scale-step__circle">
               <svg class="scale-step__icon" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -166,7 +163,6 @@ const _renderScalesSection = (scales) => `
           </a>
         `).join('')}
       </nav>
-
     </div>
   </section>
 `;
@@ -175,15 +171,11 @@ const _renderApplicationsSection = (applications) => `
   <section class="section" aria-labelledby="applications-title">
     <div class="container">
       <header class="section-header">
-        <span class="section-label">Aplicacoes</span>
-        <h2 id="applications-title"
-            style="font-family: var(--font-serif); font-size: var(--text-2xl);
-                   font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-3);">
-          Onde a biologia aparece
-        </h2>
-        <p style="color: var(--color-text-secondary); max-width: 56ch;">
-          Entre por um contexto concreto. Cada aplicacao conecta voce aos
-          processos e modulos relevantes.
+        <span class="section-label">Aplicações</span>
+        <h2 id="applications-title" class="section-heading">Onde a biologia aparece</h2>
+        <p class="section-intro">
+          Entre por um contexto concreto. Cada aplicação conecta você aos
+          processos e módulos relevantes.
         </p>
       </header>
 
@@ -206,19 +198,14 @@ const _renderApplicationsSection = (applications) => `
 `;
 
 const _renderModulesSection = (modules) => `
-  <section class="section" aria-labelledby="modules-title"
-           style="background: var(--color-surface); padding-block: var(--space-16);">
+  <section class="section section--alt" aria-labelledby="modules-title">
     <div class="container">
       <header class="section-header">
-        <span class="section-label">V1 — Seis modulos</span>
-        <h2 id="modules-title"
-            style="font-family: var(--font-serif); font-size: var(--text-2xl);
-                   font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--space-3);">
-          Nucleo do Darwin
-        </h2>
-        <p style="color: var(--color-text-secondary); max-width: 56ch;">
-          A primeira versao cobre os processos fundamentais. Cada modulo e uma
-          entrada no sistema, nao um capitulo isolado.
+        <span class="section-label">V1 — Seis módulos</span>
+        <h2 id="modules-title" class="section-heading">Núcleo do Darwin</h2>
+        <p class="section-intro">
+          A primeira versão cobre os processos fundamentais. Cada módulo é uma
+          entrada no sistema, não um capítulo isolado.
         </p>
       </header>
 
@@ -244,23 +231,22 @@ const _renderModuleCard = (mod) => {
 
   return `
     <a href="#/modulo/${mod.slug}" class="module-card"
-       aria-label="Modulo ${mod.number}: ${mod.title}">
-      <span class="module-card__number"
-            style="color: ${accentColor};">
+       aria-label="Módulo ${mod.number}: ${mod.title}">
+      <span class="module-card__number" style="color: ${accentColor};">
         ${mod.number} — ${mod.title.toUpperCase()}
       </span>
       <h3 class="module-card__title">${mod.title}</h3>
       <p class="module-card__description">${mod.subtitle}</p>
       <div class="module-card__meta">
         <span>${mod.estimatedTime}</span>
-        <span>${mod.lessons.length} licoes</span>
+        <span>${mod.lessons.length} lições</span>
       </div>
     </a>
   `;
 };
 
 /* ============================================================
-   SVG E INTERACOES
+   SVG E INTERAÇÕES
    ============================================================ */
 
 /**
@@ -271,18 +257,16 @@ const _renderModuleCard = (mod) => {
 const _initHeroSVG = (container, scales) => {
   const diagramContainer = container.querySelector('#hero-diagram-container');
   if (!diagramContainer) return;
-
   const sorted = [...scales].sort((a, b) => a.order - b.order);
   const svg    = ScaleEngine.buildHeroDiagram(sorted);
   diagramContainer.appendChild(svg);
 };
 
 /**
- * Inicializa interacoes da home.
+ * Inicializa interações da home (hover states).
  * @param {HTMLElement} container
  */
 const _initInteractions = (container) => {
-  // Highlight do scale-step ao hover
   container.querySelectorAll('.scale-step').forEach(step => {
     step.addEventListener('mouseenter', () => step.classList.add('is-active'));
     step.addEventListener('mouseleave', () => step.classList.remove('is-active'));
@@ -290,7 +274,7 @@ const _initInteractions = (container) => {
 };
 
 /* ============================================================
-   ICONES SVG INLINE
+   ÍCONES SVG INLINE
    ============================================================ */
 
 const _scaleIcon = (icon) => {
@@ -313,7 +297,7 @@ const _applicationIcon = (icon) => {
   const icons = {
     health:     `<path d="M16 4 L16 12 L24 12 L24 20 L16 20 L16 28 L8 28 L8 20 L0 20 L0 12 L8 12 L8 4 Z"/>`,
     food:       `<circle cx="16" cy="14" r="10"/><path d="M16 4 Q 24 10 24 18"/><path d="M8 10 Q 10 6 16 4"/>`,
-    dna:        `<path d="M8 4 C 12 10 20 10 24 16 C 20 22 12 22 8 28"/><path d="M24 4 C 20 10 12 10 8 16 C 12 22 20 22 24 28"/><line x1="11" y1="10" x2="21" y2="10"/><line x1="11" y1="22" x2="21" y2="22"/>`,
+    dna:        `<path d="M8 4 C 12 10 20 10 24 16 C 20 22 12 22 8 28"/><path d="M24 4 C 20 10 12 10 8 16 C 12 22 20 22 24 28"/>`,
     disease:    `<circle cx="16" cy="16" r="12"/><line x1="16" y1="8" x2="16" y2="24"/><line x1="8" y1="16" x2="24" y2="16"/>`,
     environment:`<path d="M4 28 Q 16 4 28 28 Z"/><circle cx="16" cy="16" r="4"/>`,
     agriculture:`<path d="M16 28 L16 8"/><path d="M8 16 Q 16 4 24 16"/><path d="M10 20 Q 16 8 22 20"/>`,

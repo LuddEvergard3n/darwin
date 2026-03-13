@@ -273,8 +273,8 @@
 
 .layout-with-sidebar {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: var(--space-12);
+  grid-template-columns: 1fr 220px;
+  gap: var(--space-16);
   align-items: start;
 }
 

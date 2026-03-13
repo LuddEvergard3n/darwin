@@ -2,14 +2,22 @@
  * concept-engine.js
  * Darwin — Atlas dos Processos da Vida
  *
- * Motor responsavel por:
- *  - Glossario contextual de conceitos
- *  - Relacoes entre conceitos
- *  - Ligacoes conceito <-> modulo <-> escala
- *  - Renderizacao da view de glossario
+ * Motor responsável por:
+ *  - Glossário contextual de conceitos
+ *  - Relações entre conceitos
+ *  - Ligações conceito <-> módulo <-> escala
+ *  - Renderização da view de glossário
  */
 
 import State from '../js/state.js';
+
+/** Metadados de cada eixo para exibição no glossário. */
+const AXIS_META = {
+  organization: { label: 'Organização da Vida',          colorClass: 'badge--org' },
+  information:  { label: 'Informação e Hereditariedade', colorClass: 'badge--info' },
+  energy:       { label: 'Energia e Função',             colorClass: 'badge--energy' },
+  evolution:    { label: 'Evolução e Ecologia',          colorClass: 'badge--evo' },
+};
 
 /**
  * Retorna um conceito pelo ID.
@@ -65,57 +73,42 @@ const search = (query) => {
 };
 
 /**
- * Renderiza a view completa do glossario.
+ * Renderiza a view completa do glossário.
  * @param {HTMLElement} container
  * @param {object} params
  */
 const render = (container, params) => {
   const data = State.getValue('data.glossary');
   if (!data) {
-    container.innerHTML = `<div class="container"><p>Dados do glossario nao carregados.</p></div>`;
+    container.innerHTML = `<div class="container page-body"><p>Dados do glossário não carregados.</p></div>`;
     return;
   }
 
   const groupedByAxis = _groupByAxis(data.glossary);
 
   container.innerHTML = `
-    <div class="container" style="padding-block: var(--space-12);">
-      <header style="margin-bottom: var(--space-12);">
-        <span class="section-label">Glossario</span>
-        <h1 style="font-family: var(--font-serif); font-size: var(--text-2xl); font-weight: 700;
-                   letter-spacing: -0.02em; margin-bottom: var(--space-4);">
-          Conceitos biologicos
-        </h1>
-        <p style="color: var(--color-text-secondary); max-width: 60ch;">
-          Termos organizados por eixo tematico. Cada conceito esta conectado aos
-          modulos e escalas em que aparece.
+    <div class="container page-body">
+      <header class="page-header">
+        <span class="section-label">Glossário</span>
+        <h1 class="page-header__title">Conceitos biológicos</h1>
+        <p class="page-header__description">
+          Termos organizados por eixo temático. Cada conceito está conectado aos
+          módulos e escalas em que aparece.
         </p>
       </header>
 
-      <!-- Busca -->
-      <div style="margin-bottom: var(--space-8);">
+      <div class="search-bar">
         <label for="glossary-search" class="sr-only">Buscar conceitos</label>
         <input
           id="glossary-search"
           type="search"
           placeholder="Buscar conceito..."
-          aria-label="Buscar no glossario"
-          style="
-            width: 100%;
-            max-width: 400px;
-            padding: 0.625rem 1rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            background: var(--color-surface);
-            font-family: var(--font-sans);
-            font-size: var(--text-sm);
-            color: var(--color-text);
-          "
+          aria-label="Buscar no glossário"
+          class="search-bar__input"
         />
-        <div id="glossary-search-results" style="margin-top: 1rem; display: none;"></div>
+        <div id="glossary-search-results" style="display: none;"></div>
       </div>
 
-      <!-- Conceitos por eixo -->
       <div class="stack stack--xl" id="glossary-content">
         ${Object.entries(groupedByAxis).map(([axisId, concepts]) =>
           _renderAxisSection(axisId, concepts)
@@ -132,23 +125,15 @@ const render = (container, params) => {
  * @param {Array} concepts
  * @returns {object}
  */
-const _groupByAxis = (concepts) => {
-  return concepts.reduce((acc, concept) => {
+const _groupByAxis = (concepts) =>
+  concepts.reduce((acc, concept) => {
     if (!acc[concept.axis]) acc[concept.axis] = [];
     acc[concept.axis].push(concept);
     return acc;
   }, {});
-};
-
-const AXIS_META = {
-  organization: { label: 'Organizacao da Vida',          colorClass: 'badge--org' },
-  information:  { label: 'Informacao e Hereditariedade', colorClass: 'badge--info' },
-  energy:       { label: 'Energia e Funcao',             colorClass: 'badge--energy' },
-  evolution:    { label: 'Evolucao e Ecologia',          colorClass: 'badge--evo' },
-};
 
 /**
- * Renderiza uma secao de eixo no glossario.
+ * Renderiza uma seção de eixo no glossário.
  * @param {string} axisId
  * @param {Array} concepts
  * @returns {string} HTML
@@ -157,9 +142,8 @@ const _renderAxisSection = (axisId, concepts) => {
   const meta = AXIS_META[axisId] ?? { label: axisId, colorClass: 'badge--neutral' };
   return `
     <section aria-labelledby="axis-heading-${axisId}">
-      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: var(--space-6);">
-        <h2 id="axis-heading-${axisId}"
-            style="font-family: var(--font-serif); font-size: var(--text-xl); font-weight: 600;">
+      <div class="axis-section-header">
+        <h2 id="axis-heading-${axisId}" class="axis-section-header__title">
           ${meta.label}
         </h2>
         <span class="badge ${meta.colorClass}">${concepts.length} conceitos</span>
@@ -174,7 +158,7 @@ const _renderAxisSection = (axisId, concepts) => {
 };
 
 /**
- * Renderiza um item do glossario.
+ * Renderiza um item do glossário.
  * @param {object} concept
  * @returns {string} HTML
  */
@@ -186,26 +170,24 @@ const _renderGlossaryItem = (concept) => `
       data-concept-id="${concept.id}">
     <p class="glossary-panel__term">${concept.term}</p>
     <div class="glossary-panel__definition">
-      <p style="margin-bottom: 0.75rem;">${concept.definition}</p>
+      <p class="glossary-definition">${concept.definition}</p>
       ${concept.relatedTerms.length > 0 ? `
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">
-          <span style="font-size: var(--text-xs); color: var(--color-text-muted); font-family: var(--font-mono);">
-            Relacionados:
-          </span>
+        <div class="concept-links">
+          <span class="concept-links__label">Relacionados:</span>
           ${concept.relatedTerms.map(id => `
-            <button class="tag" data-concept-link="${id}" style="cursor: pointer; border: none; background: var(--color-surface-alt);">
+            <button class="tag" data-concept-link="${id}"
+                    style="cursor: pointer; border: none; background: var(--color-surface-alt);">
               ${id}
             </button>
           `).join('')}
         </div>
       ` : ''}
       ${concept.modules.length > 0 ? `
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
-          <span style="font-size: var(--text-xs); color: var(--color-text-muted); font-family: var(--font-mono);">
-            Modulos:
-          </span>
+        <div class="concept-links">
+          <span class="concept-links__label">Módulos:</span>
           ${concept.modules.map(id => `
-            <a href="#/modulo/${id}" class="badge badge--neutral" style="text-decoration: none;">${id}</a>
+            <a href="#/modulo/${id}" class="badge badge--neutral"
+               style="text-decoration: none;">${id}</a>
           `).join('')}
         </div>
       ` : ''}
@@ -214,7 +196,7 @@ const _renderGlossaryItem = (concept) => `
 `;
 
 /**
- * Inicializa as interacoes do glossario.
+ * Inicializa as interações do glossário.
  * @param {HTMLElement} container
  */
 const _initGlossaryInteractions = (container) => {
@@ -233,47 +215,44 @@ const _initGlossaryInteractions = (container) => {
     });
   });
 
-  // Busca
-  const searchInput = container.querySelector('#glossary-search');
-  const searchResults = container.querySelector('#glossary-search-results');
+  // Busca live
+  const searchInput    = container.querySelector('#glossary-search');
+  const searchResults  = container.querySelector('#glossary-search-results');
   const glossaryContent = container.querySelector('#glossary-content');
 
-  if (searchInput && searchResults && glossaryContent) {
-    searchInput.addEventListener('input', () => {
-      const query = searchInput.value.trim();
-      if (query.length < 2) {
-        searchResults.style.display = 'none';
-        glossaryContent.style.display = '';
-        return;
-      }
+  if (!searchInput || !searchResults || !glossaryContent) return;
 
-      const results = search(query);
-      glossaryContent.style.display = 'none';
-      searchResults.style.display = '';
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim();
 
-      if (results.length === 0) {
-        searchResults.innerHTML = `
-          <p style="color: var(--color-text-muted); font-size: var(--text-sm);">
-            Nenhum conceito encontrado para "${query}".
-          </p>
-        `;
-      } else {
-        searchResults.innerHTML = `
-          <div class="glossary-panel">
-            <ul class="glossary-panel__list" role="list">
-              ${results.map(c => _renderGlossaryItem(c)).join('')}
-            </ul>
-          </div>
-        `;
-        // Re-inicializar interacoes nos resultados
-        searchResults.querySelectorAll('.glossary-panel__item').forEach(item => {
-          item.addEventListener('click', () => {
-            item.classList.toggle('is-open');
-          });
-        });
-      }
-    });
-  }
+    if (query.length < 2) {
+      searchResults.style.display  = 'none';
+      glossaryContent.style.display = '';
+      return;
+    }
+
+    const results = search(query);
+    glossaryContent.style.display = 'none';
+    searchResults.style.display   = '';
+
+    if (results.length === 0) {
+      searchResults.innerHTML = `
+        <p class="empty-state__text">Nenhum conceito encontrado para &ldquo;${query}&rdquo;.</p>
+      `;
+    } else {
+      searchResults.innerHTML = `
+        <div class="glossary-panel">
+          <ul class="glossary-panel__list" role="list">
+            ${results.map(c => _renderGlossaryItem(c)).join('')}
+          </ul>
+        </div>
+      `;
+      // Re-inicializar toggle nos resultados dinâmicos
+      searchResults.querySelectorAll('.glossary-panel__item').forEach(item => {
+        item.addEventListener('click', () => item.classList.toggle('is-open'));
+      });
+    }
+  });
 };
 
 const ConceptEngine = { render, getConcept, getRelated, getByAxis, search };

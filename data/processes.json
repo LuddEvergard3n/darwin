@@ -3,65 +3,65 @@
     {
       "id": "estrutura",
       "label": "Estrutura",
-      "description": "Organizacao fisico-quimica dos sistemas biologicos. Como a forma determina a funcao.",
+      "description": "Organização físico-química dos sistemas biológicos. Como a forma determina a função.",
       "axis": "organization",
       "scales": ["molecular", "cellular", "tissue", "system"],
       "modules": ["cell", "systems"],
-      "examples": ["bicamada lipidica", "dupla helice", "sarcomero muscular", "nefrón renal"]
+      "examples": ["bicamada lipídica", "dupla hélice", "sarcômero muscular", "néfron renal"]
     },
     {
       "id": "informacao",
-      "label": "Informacao",
-      "description": "Armazenamento, replicacao, transmissao e expressao de informacao biologica.",
+      "label": "Informação",
+      "description": "Armazenamento, replicação, transmissão e expressão de informação biológica.",
       "axis": "information",
       "scales": ["molecular", "cellular"],
       "modules": ["genetics"],
-      "examples": ["replicacao do DNA", "transcricao", "traducao", "heranca mendeliana"]
+      "examples": ["replicação do DNA", "transcrição", "tradução", "herança mendeliana"]
     },
     {
       "id": "reproducao",
-      "label": "Reproducao",
-      "description": "Geracao de novos individuos por processos asexuais ou sexuais. Mecanismo fundamental de perpetuacao da vida.",
+      "label": "Reprodução",
+      "description": "Geração de novos indivíduos por processos assexuais ou sexuais. Mecanismo fundamental de perpetuação da vida.",
       "axis": "information",
       "scales": ["cellular", "organism"],
       "modules": ["genetics", "evolution"],
-      "examples": ["mitose", "meiose", "fecundacao", "partenogenese"]
+      "examples": ["mitose", "meiose", "fecundação", "partenogênese"]
     },
     {
       "id": "metabolismo",
       "label": "Metabolismo",
-      "description": "Conjunto de reacoes quimicas que convertem materia e energia para sustentar as funcoes vitais.",
+      "description": "Conjunto de reações químicas que convertem matéria e energia para sustentar as funções vitais.",
       "axis": "energy",
       "scales": ["molecular", "cellular"],
       "modules": ["metabolism"],
-      "examples": ["glicolise", "ciclo de Krebs", "cadeia respiratoria", "ciclo de Calvin"]
+      "examples": ["glicólise", "ciclo de Krebs", "cadeia respiratória", "ciclo de Calvin"]
     },
     {
       "id": "regulacao",
-      "label": "Regulacao",
-      "description": "Mecanismos de controle e ajuste dos processos biologicos para manter o equilibrio funcional.",
+      "label": "Regulação",
+      "description": "Mecanismos de controle e ajuste dos processos biológicos para manter o equilíbrio funcional.",
       "axis": "energy",
       "scales": ["molecular", "cellular", "system", "organism"],
       "modules": ["systems"],
-      "examples": ["feedback negativo", "hormonios", "neurotransmissores", "termorregulacao"]
+      "examples": ["feedback negativo", "hormônios", "neurotransmissores", "termorregulação"]
     },
     {
       "id": "adaptacao",
-      "label": "Adaptacao",
-      "description": "Ajuste das caracteristicas dos organismos as demandas do ambiente ao longo de geracoes.",
+      "label": "Adaptação",
+      "description": "Ajuste das características dos organismos às demandas do ambiente ao longo de gerações.",
       "axis": "evolution",
       "scales": ["organism", "population"],
       "modules": ["evolution"],
-      "examples": ["camuflagem", "mimetismo", "anatomia de cactos", "resistencia a antibioticos"]
+      "examples": ["camuflagem", "mimetismo", "anatomia de cactos", "resistência a antibióticos"]
     },
     {
       "id": "interacao-ecologica",
-      "label": "Interacao ecologica",
-      "description": "Relacoes entre organismos dentro de um ecossistema: predacao, parasitismo, mutualismo, comensalismo.",
+      "label": "Interação ecológica",
+      "description": "Relações entre organismos dentro de um ecossistema: predação, parasitismo, mutualismo, comensalismo.",
       "axis": "evolution",
       "scales": ["organism", "population", "ecosystem"],
       "modules": ["ecology"],
-      "examples": ["predador-presa", "polinizacao", "coevolucao", "competicao"]
+      "examples": ["predador-presa", "polinização", "coevolução", "competição"]
     }
   ]
 }

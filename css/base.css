@@ -135,8 +135,14 @@ h5 { font-size: var(--text-md); }
 h6 { font-size: var(--text-base); }
 
 p {
-  max-width: var(--measure);
   line-height: 1.75;
+}
+
+/* max-width de leitura apenas em prosa corrida */
+.prose p,
+.lesson-phase p,
+.module-header__description {
+  max-width: var(--measure);
 }
 
 a {

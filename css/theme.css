@@ -280,6 +280,35 @@
   margin-bottom: var(--space-6);
 }
 
+/* Cabeçalho de fase: rótulo + descrição */
+.lesson-phase__header {
+  margin-bottom: var(--space-6);
+}
+
+.lesson-phase__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--color-primary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.lesson-phase__description {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.lesson-phase__body {
+  /* corpo da fase — sem estilo próprio, herda do contexto */
+}
+
 /* ============================================================
    VISUALIZACAO SVG — estilos compartilhados
    ============================================================ */
@@ -396,4 +425,384 @@
   .scale-progression {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* ============================================================
+   UTILITARIOS DE PAGINA — usados pelos componentes e motores
+   ============================================================ */
+
+/* Padding superior/inferior padrão do corpo de uma página */
+.page-body {
+  padding-block: var(--space-12);
+}
+
+/* Breadcrumb com padding superior */
+.page-breadcrumb {
+  margin-bottom: var(--space-6);
+}
+
+/* Cabeçalho genérico de página (glossário, processos, etc.) */
+.page-header {
+  margin-bottom: var(--space-10);
+}
+
+.page-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.page-header__description {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  line-height: 1.65;
+}
+
+/* Heading de seção dentro de uma página */
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+}
+
+/* Parágrafo introdutório de seção */
+.section-intro {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+.section-intro--centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Seção com espaçamento padrão */
+.module-section {
+  margin-bottom: var(--space-12);
+}
+
+/* Seção alternativa com fundo */
+.section--alt {
+  background: var(--color-surface);
+  padding-block: var(--space-16);
+}
+
+/* ============================================================
+   LESSON HEADER
+   ============================================================ */
+
+.lesson-header {
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lesson-header__meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.lesson-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+}
+
+.lesson-header__phenomenon {
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   LESSON NAVIGATION (prev / next)
+   ============================================================ */
+
+.lesson-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.lesson-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-base);
+}
+
+.lesson-nav__link:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+/* --prev: alinhamento padrão (left) — declarado para completude */
+.lesson-nav__link--prev { }
+
+.lesson-nav__link--next {
+  text-align: right;
+}
+
+.lesson-nav__direction {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lesson-nav__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ============================================================
+   SIDEBAR BLOCKS
+   ============================================================ */
+
+.sidebar-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.sidebar-block__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--text-xs);
+}
+
+.sidebar-block__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   AXIS SECTION HEADER (glossário)
+   ============================================================ */
+
+.axis-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.axis-section-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+/* ============================================================
+   CONCEPT LINKS (glossário)
+   ============================================================ */
+
+.concept-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.concept-links__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
+
+.search-bar {
+  margin-bottom: var(--space-8);
+}
+
+.search-bar__input {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-bar__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(63, 107, 75, 0.12);
+}
+
+/* ============================================================
+   RELATED MODULES ROW
+   ============================================================ */
+
+.related-modules-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ============================================================
+   LESSON LIST
+   ============================================================ */
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ============================================================
+   DIAGRAM PLACEHOLDER (visualização — fase 2 da lição)
+   ============================================================ */
+
+.diagram-placeholder {
+  background: var(--color-surface-alt);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .lesson-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-nav__link--next {
+    text-align: left;
+  }
+
+  .page-header__title {
+    font-size: var(--text-xl);
+  }
+
+  .lesson-header__title {
+    font-size: var(--text-xl);
+  }
+}
+
+/* ============================================================
+   ESTADO DE ERRO DE PÁGINA — container de 404 / not found
+   ============================================================ */
+
+.page-error {
+  padding-block: var(--space-16);
+  text-align: center;
+}
+
+/* Botão de ação em estado de erro */
+.error-action {
+  margin-top: var(--space-4);
+}
+
+/* ============================================================
+   SCALE PAGE — navegação e linhas de tags
+   ============================================================ */
+
+/* Navegação prev/next entre escalas */
+.scale-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+}
+
+/* Linha de tags/badges (exemplos, processos, escalas) */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ============================================================
+   CALLOUT — variantes extras
+   ============================================================ */
+
+/* Nota de rodapé dentro de callout (texto secundário) */
+.callout__note {
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   DIAGRAM PLACEHOLDER — sub-elementos
+   ============================================================ */
+
+.diagram-placeholder__title {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.diagram-placeholder__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+/* ============================================================
+   TAG ROW — variantes de espaçamento
+   ============================================================ */
+
+/* Versão compacta — gap menor (usada em relação/aplicação das fases de lição) */
+.tag-row--sm {
+  gap: var(--space-2);
+  margin-top: var(--space-4);
 }

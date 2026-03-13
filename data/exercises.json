@@ -5,24 +5,24 @@
       "module": "cell",
       "lesson": "cell-what-is-life",
       "type": "association",
-      "title": "Associando estrutura e funcao",
-      "question": "Associe cada organela com sua funcao principal.",
+      "title": "Associando estrutura e função",
+      "question": "Associe cada organela com sua função principal.",
       "items": [
-        { "id": "a", "text": "Mitocondria", "matchId": "1" },
-        { "id": "b", "text": "Ribossomo", "matchId": "2" },
-        { "id": "c", "text": "Lisossomo", "matchId": "3" },
+        { "id": "a", "text": "Mitocôndria",      "matchId": "1" },
+        { "id": "b", "text": "Ribossomo",         "matchId": "2" },
+        { "id": "c", "text": "Lisossomo",         "matchId": "3" },
         { "id": "d", "text": "Aparelho de Golgi", "matchId": "4" }
       ],
       "matches": [
-        { "id": "1", "text": "Producao de ATP por respiracao aerobica" },
-        { "id": "2", "text": "Sintese de proteinas" },
-        { "id": "3", "text": "Digestao intracelular de materiais" },
-        { "id": "4", "text": "Processamento e distribuicao de proteinas" }
+        { "id": "1", "text": "Produção de ATP por respiração aeróbica" },
+        { "id": "2", "text": "Síntese de proteínas" },
+        { "id": "3", "text": "Digestão intracelular de materiais" },
+        { "id": "4", "text": "Processamento e distribuição de proteínas" }
       ],
       "teacherGuide": {
-        "objective": "Consolidar a relacao estrutura-funcao das organelas",
-        "centralConcept": "Compartimentalizacao celular e divisao do trabalho",
-        "scaleRelation": "Escala celular como integracao de funcoes moleculares",
+        "objective": "Consolidar a relação estrutura-função das organelas",
+        "centralConcept": "Compartimentalização celular e divisão do trabalho",
+        "scaleRelation": "Escala celular como integração de funções moleculares",
         "estimatedMinutes": 10
       }
     },
@@ -31,19 +31,19 @@
       "module": "cell",
       "lesson": "cell-membrane",
       "type": "ordering",
-      "title": "Sequencia de transporte",
-      "question": "Ordene os eventos do transporte de uma molecula de glicose do sangue ate o interior da celula.",
+      "title": "Sequência de transporte",
+      "question": "Ordene os eventos do transporte de uma molécula de glicose do sangue até o interior da célula.",
       "steps": [
-        { "id": "a", "text": "A glicose se liga a um receptor proteico na membrana", "order": 2 },
-        { "id": "b", "text": "A glicose circula no sangue", "order": 1 },
-        { "id": "c", "text": "A proteina transportadora sofre mudanca conformacional", "order": 3 },
-        { "id": "d", "text": "A glicose e liberada no citoplasma", "order": 4 },
-        { "id": "e", "text": "A glicose e fosforilada e entra no metabolismo", "order": 5 }
+        { "id": "a", "text": "A glicose se liga a um receptor proteico na membrana",         "order": 2 },
+        { "id": "b", "text": "A glicose circula no sangue",                                   "order": 1 },
+        { "id": "c", "text": "A proteína transportadora sofre mudança conformacional",         "order": 3 },
+        { "id": "d", "text": "A glicose é liberada no citoplasma",                            "order": 4 },
+        { "id": "e", "text": "A glicose é fosforilada e entra no metabolismo",                "order": 5 }
       ],
       "teacherGuide": {
         "objective": "Compreender o transporte facilitado como processo sequencial",
-        "centralConcept": "Selectividade da membrana e proteinas de transporte",
-        "scaleRelation": "Relacao entre molecula (glicose) e escala celular (metabolismo)",
+        "centralConcept": "Seletividade da membrana e proteínas de transporte",
+        "scaleRelation": "Relação entre molécula (glicose) e escala celular (metabolismo)",
         "estimatedMinutes": 8
       }
     },
@@ -53,14 +53,14 @@
       "lesson": "gen-expression",
       "type": "flow",
       "title": "Dogma central da biologia molecular",
-      "question": "Organize as etapas do fluxo de informacao genetica, da molecula a funcao.",
-      "nodes": ["DNA", "RNA mensageiro", "Proteina", "Funcao biologica"],
+      "question": "Organize as etapas do fluxo de informação genética, da molécula à função.",
+      "nodes": ["DNA", "RNA mensageiro", "Proteína", "Função biológica"],
       "correctFlow": [0, 1, 2, 3],
-      "processNames": ["Transcricao", "Traducao", "Dobramento/Atividade"],
+      "processNames": ["Transcrição", "Tradução", "Dobramento / Atividade"],
       "teacherGuide": {
-        "objective": "Estabelecer o fluxo direcional da informacao genetica",
-        "centralConcept": "Dogma central — DNA > RNA > Proteina",
-        "scaleRelation": "Nivel molecular com consequencia funcional nos niveis celular e sistemico",
+        "objective": "Estabelecer o fluxo direcional da informação genética",
+        "centralConcept": "Dogma central — DNA > RNA > Proteína",
+        "scaleRelation": "Nível molecular com consequência funcional nos níveis celular e sistêmico",
         "estimatedMinutes": 12
       }
     },
@@ -69,19 +69,19 @@
       "module": "metabolism",
       "lesson": "met-comparison",
       "type": "comparison",
-      "title": "Fotossintese vs Respiracao celular",
-      "question": "Classifique cada caracteristica como exclusiva da fotossintese (F), da respiracao celular (R) ou de ambas (A).",
+      "title": "Fotossíntese vs Respiração celular",
+      "question": "Classifique cada característica como exclusiva da fotossíntese (F), da respiração celular (R) ou de ambas (A).",
       "items": [
-        { "id": "a", "text": "Produz ATP", "answer": "A", "explanation": "Ambos os processos produzem ATP, mas por caminhos diferentes" },
-        { "id": "b", "text": "Consume CO2", "answer": "F", "explanation": "Apenas a fotossintese usa CO2 como materia-prima" },
-        { "id": "c", "text": "Ocorre na mitocondria", "answer": "R", "explanation": "A respiracao aerobica ocorre na mitocondria; a fotossintese ocorre no cloroplasto" },
-        { "id": "d", "text": "Envolve transporte de eletrons", "answer": "A", "explanation": "Ambos utilizam cadeias de transporte de eletrons em suas membranas" },
-        { "id": "e", "text": "Libera oxigenio", "answer": "F", "explanation": "O O2 e subproduto da fotossintese; a respiracao o consome" },
-        { "id": "f", "text": "Depende de enzimas", "answer": "A", "explanation": "Todos os processos metabolicos sao catalisados por enzimas" }
+        { "id": "a", "text": "Produz ATP",                       "answer": "A", "explanation": "Ambos os processos produzem ATP, mas por caminhos diferentes." },
+        { "id": "b", "text": "Consome CO₂",                      "answer": "F", "explanation": "Apenas a fotossíntese usa CO₂ como matéria-prima." },
+        { "id": "c", "text": "Ocorre na mitocôndria",            "answer": "R", "explanation": "A respiração aeróbica ocorre na mitocôndria; a fotossíntese ocorre no cloroplasto." },
+        { "id": "d", "text": "Envolve transporte de elétrons",   "answer": "A", "explanation": "Ambos utilizam cadeias de transporte de elétrons em suas membranas." },
+        { "id": "e", "text": "Libera oxigênio",                  "answer": "F", "explanation": "O O₂ é subproduto da fotossíntese; a respiração o consome." },
+        { "id": "f", "text": "Depende de enzimas",               "answer": "A", "explanation": "Todos os processos metabólicos são catalisados por enzimas." }
       ],
       "teacherGuide": {
-        "objective": "Identificar diferencas e complementaridades entre fotossintese e respiracao",
-        "centralConcept": "Os dois processos sao complementares no ciclo do carbono",
+        "objective": "Identificar diferenças e complementaridades entre fotossíntese e respiração",
+        "centralConcept": "Os dois processos são complementares no ciclo do carbono",
         "scaleRelation": "Processos celulares com impacto direto na escala ecossistema",
         "estimatedMinutes": 15
       }
@@ -92,18 +92,18 @@
       "lesson": "eco-food-chains",
       "type": "ordering",
       "title": "Fluxo de energia na cadeia alimentar",
-      "question": "Ordene os organismos abaixo de acordo com a posicao que ocupam na cadeia alimentar.",
+      "question": "Ordene os organismos de acordo com a posição que ocupam na cadeia alimentar.",
       "steps": [
         { "id": "a", "text": "Capim (Poaceae)", "order": 1 },
-        { "id": "b", "text": "Gafanhoto", "order": 2 },
-        { "id": "c", "text": "Sapo", "order": 3 },
-        { "id": "d", "text": "Serpente", "order": 4 },
-        { "id": "e", "text": "Gaviao", "order": 5 }
+        { "id": "b", "text": "Gafanhoto",       "order": 2 },
+        { "id": "c", "text": "Sapo",            "order": 3 },
+        { "id": "d", "text": "Serpente",         "order": 4 },
+        { "id": "e", "text": "Gavião",           "order": 5 }
       ],
       "teacherGuide": {
-        "objective": "Compreender niveis troficos e direcao do fluxo de energia",
-        "centralConcept": "Energia flui em um unico sentido: produtor > consumidores",
-        "scaleRelation": "Organismos individuais como componentes de relacoes ecossistêmicas",
+        "objective": "Compreender níveis tróficos e direção do fluxo de energia",
+        "centralConcept": "Energia flui em um único sentido: produtor > consumidores",
+        "scaleRelation": "Organismos individuais como componentes de relações ecossistêmicas",
         "estimatedMinutes": 8
       }
     },
@@ -112,39 +112,39 @@
       "module": "evolution",
       "lesson": "evo-natural-selection",
       "type": "analysis",
-      "title": "Resistencia bacteriana",
-      "question": "Uma populacao de bacterias e exposta a um antibiotico. Inicialmente, 99% morrem. Mas em 3 semanas, a populacao se recupera e o antibiotico nao surte mais efeito. Qual dos cenarios abaixo melhor explica esse fenomeno?",
+      "title": "Resistência bacteriana",
+      "question": "Uma população de bactérias é exposta a um antibiótico. Inicialmente, 99% morrem. Em 3 semanas, a população se recupera e o antibiótico não surte mais efeito. Qual dos cenários abaixo melhor explica esse fenômeno?",
       "options": [
         {
           "id": "a",
-          "text": "As bacterias perceberam que precisavam se adaptar e desenvolveram resistencia intencionalmente",
+          "text": "As bactérias perceberam que precisavam se adaptar e desenvolveram resistência intencionalmente.",
           "isCorrect": false,
-          "feedback": "A evolucao nao tem direcao ou intencao. As bacterias nao 'percebem' nada — a selecao opera sobre variacao preexistente."
+          "feedback": "A evolução não tem direção ou intenção. As bactérias não 'percebem' nada — a seleção opera sobre variação preexistente."
         },
         {
           "id": "b",
-          "text": "O antibiotico causou mutacoes nas bacterias sobreviventes que as tornaram resistentes",
+          "text": "O antibiótico causou mutações nas bactérias sobreviventes que as tornaram resistentes.",
           "isCorrect": false,
-          "feedback": "O antibiotico e agente seletivo, nao mutagenico nesse contexto. A resistencia ja existia antes da exposicao como variacao genetica."
+          "feedback": "O antibiótico é agente seletivo, não mutagênico nesse contexto. A resistência já existia antes da exposição como variação genética."
         },
         {
           "id": "c",
-          "text": "As bacterias resistentes ja existiam na populacao original; o antibiotico eliminou as suscetiveis, e as resistentes se reproduziram",
+          "text": "As bactérias resistentes já existiam na população original; o antibiótico eliminou as suscetíveis, e as resistentes se reproduziram.",
           "isCorrect": true,
-          "feedback": "Exatamente. Selecao natural opera sobre variacao preexistente. O antibiotico nao criou resistencia — selecionou para as bacterias que ja a possuiam."
+          "feedback": "Exatamente. Seleção natural opera sobre variação preexistente. O antibiótico não criou resistência — selecionou para as bactérias que já a possuíam."
         },
         {
           "id": "d",
-          "text": "Bacterias sobreviventes transmitiram sua experiencia de exposicao para as seguintes",
+          "text": "Bactérias sobreviventes transmitiram sua experiência de exposição para as seguintes.",
           "isCorrect": false,
-          "feedback": "Isso descreveria heranca de caracteristicas adquiridas (lamarckismo), hipotese descartada. Somente informacao genetica e transmitida."
+          "feedback": "Isso descreveria herança de características adquiridas (lamarckismo), hipótese descartada. Somente informação genética é transmitida."
         }
       ],
       "teacherGuide": {
-        "objective": "Distinguir o mecanismo real da selecao natural de concepcoes equivocadas comuns",
-        "centralConcept": "Selecao opera sobre variacao preexistente, nao cria adaptacoes sob demanda",
-        "scaleRelation": "Processo populacional com consequencia direta para saude publica (escala aplicada)",
-        "mediationSuggestion": "Perguntar: 'Se o antibiotico causasse as mutacoes, o que esperariamos observar diferente?'",
+        "objective": "Distinguir o mecanismo real da seleção natural de concepções equivocadas comuns",
+        "centralConcept": "Seleção opera sobre variação preexistente, não cria adaptações sob demanda",
+        "scaleRelation": "Processo populacional com consequência direta para saúde pública",
+        "mediationSuggestion": "Perguntar: 'Se o antibiótico causasse as mutações, o que esperaríamos observar diferente?'",
         "estimatedMinutes": 15
       }
     }

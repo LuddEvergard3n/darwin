@@ -3,32 +3,32 @@
     {
       "id": "health",
       "slug": "saude",
-      "label": "Saude",
-      "description": "Como a biologia celular e sistêmica explica doencas, tratamentos e o funcionamento do corpo",
+      "label": "Saúde",
+      "description": "Como a biologia celular e sistêmica explica doenças, tratamentos e o funcionamento do corpo.",
       "relatedModules": ["cell", "systems", "genetics"],
       "icon": "health"
     },
     {
       "id": "food",
       "slug": "alimentacao",
-      "label": "Alimentacao",
-      "description": "Da digestao ao metabolismo: o que acontece com o que voce come",
+      "label": "Alimentação",
+      "description": "Da digestão ao metabolismo: o que acontece com o que você come.",
       "relatedModules": ["metabolism", "systems", "ecology"],
       "icon": "food"
     },
     {
       "id": "genetics-app",
       "slug": "genetica",
-      "label": "Genetica",
-      "description": "Heranca, variacao, testes geneticos e edição genomica",
+      "label": "Genética",
+      "description": "Herança, variação, testes genéticos e edição genômica.",
       "relatedModules": ["genetics", "evolution"],
       "icon": "dna"
     },
     {
       "id": "diseases",
       "slug": "doencas",
-      "label": "Doencas",
-      "description": "Patologias como disfuncoes dos sistemas biologicos",
+      "label": "Doenças",
+      "description": "Patologias como disfunções dos sistemas biológicos.",
       "relatedModules": ["cell", "genetics", "systems"],
       "icon": "disease"
     },
@@ -36,7 +36,7 @@
       "id": "environment",
       "slug": "ambiente",
       "label": "Ambiente",
-      "description": "Ecossistemas, biodiversidade e os efeitos das acoes humanas",
+      "description": "Ecossistemas, biodiversidade e os efeitos das ações humanas.",
       "relatedModules": ["ecology", "evolution"],
       "icon": "environment"
     },
@@ -44,15 +44,15 @@
       "id": "agriculture",
       "slug": "agricultura",
       "label": "Agricultura",
-      "description": "Selecao artificial, organismos transgênicos e producao de alimentos",
+      "description": "Seleção artificial, organismos transgênicos e produção de alimentos.",
       "relatedModules": ["genetics", "evolution", "ecology"],
       "icon": "agriculture"
     },
     {
       "id": "antibiotics",
       "slug": "antibioticos",
-      "label": "Antibioticos",
-      "description": "Resistencia bacteriana como exemplo em tempo real de evolucao por selecao natural",
+      "label": "Antibióticos",
+      "description": "Resistência bacteriana como exemplo em tempo real de evolução por seleção natural.",
       "relatedModules": ["evolution", "cell"],
       "icon": "antibiotics"
     },
@@ -60,7 +60,7 @@
       "id": "epidemics",
       "slug": "epidemias",
       "label": "Epidemias",
-      "description": "Como patogenos se espalham, evoluem e interagem com populacoes humanas",
+      "description": "Como patógenos se espalham, evoluem e interagem com populações humanas.",
       "relatedModules": ["evolution", "ecology", "genetics"],
       "icon": "epidemics"
     },
@@ -68,7 +68,7 @@
       "id": "biotech",
       "slug": "biotecnologia",
       "label": "Biotecnologia",
-      "description": "CRISPR, vacinas de mRNA, biorremediacão e as fronteiras da biologia aplicada",
+      "description": "CRISPR, vacinas de mRNA, biorremediação e as fronteiras da biologia aplicada.",
       "relatedModules": ["genetics", "cell"],
       "icon": "biotech"
     }

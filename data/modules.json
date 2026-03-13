@@ -5,17 +5,17 @@
       "slug": "celula",
       "number": "01",
       "axis": "organization",
-      "title": "Celula",
+      "title": "Célula",
       "subtitle": "A unidade fundamental da vida",
-      "description": "Toda a vida conhecida e composta por celulas. Este modulo explora como a celula funciona como sistema integrado: membrana, organelas, nucleo, e a logica da compartimentalizacao.",
+      "description": "Toda a vida conhecida é composta por células. Este módulo explora como a célula funciona como sistema integrado: membrana, organelas, núcleo e a lógica da compartimentalização.",
       "scales": ["molecular", "cellular"],
-      "processes": ["estrutura", "metabolismo", "divisao"],
+      "processes": ["estrutura", "metabolismo", "reproducao"],
       "estimatedTime": "3h",
       "lessons": [
         {
           "id": "cell-what-is-life",
           "order": 1,
-          "title": "O que e uma celula",
+          "title": "O que é uma célula",
           "phenomenon": "Por que um corte na pele sangra, coagula e cicatriza sozinho?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
@@ -23,33 +23,33 @@
           "id": "cell-types",
           "order": 2,
           "title": "Tipos celulares",
-          "phenomenon": "Como um neuronio e uma hemacia sao tao diferentes se partem do mesmo DNA?",
+          "phenomenon": "Como um neurônio e uma hemácia são tão diferentes se partem do mesmo DNA?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "cell-membrane",
           "order": 3,
-          "title": "Membrana plasmatica",
-          "phenomenon": "Como a celula decide o que entra e o que sai?",
+          "title": "Membrana plasmática",
+          "phenomenon": "Como a célula decide o que entra e o que sai?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "cell-nucleus",
           "order": 4,
-          "title": "Nucleo e informacao genetica",
-          "phenomenon": "Por que o nucleo e separado do citoplasma?",
+          "title": "Núcleo e informação genética",
+          "phenomenon": "Por que o núcleo é separado do citoplasma?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "cell-organelles",
           "order": 5,
-          "title": "Organelas: a divisao do trabalho",
-          "phenomenon": "Como uma celula consegue fazer tantas coisas ao mesmo tempo?",
+          "title": "Organelas: a divisão do trabalho",
+          "phenomenon": "Como uma célula consegue fazer tantas coisas ao mesmo tempo?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
       "keyConceptLinks": ["genetics", "metabolism"],
-      "applications": ["saude", "doenças", "biotecnologia"],
+      "applications": ["saude", "doencas", "biotecnologia"],
       "status": "available"
     },
     {
@@ -58,50 +58,50 @@
       "number": "02",
       "axis": "information",
       "title": "DNA e Hereditariedade",
-      "subtitle": "O fluxo da informacao biologica",
-      "description": "O DNA nao e apenas um arquivo morto: e um sistema dinamico de instrucoes que a celula le, copia, exprime e transmite. Este modulo mostra como a informacao flui desde a molecula ate as caracteristicas visiveis do organismo.",
+      "subtitle": "O fluxo da informação biológica",
+      "description": "O DNA não é apenas um arquivo morto: é um sistema dinâmico de instruções que a célula lê, copia, exprime e transmite. Este módulo mostra como a informação flui desde a molécula até as características visíveis do organismo.",
       "scales": ["molecular", "cellular"],
-      "processes": ["informacao", "replicacao", "expressao-genica", "heranca"],
+      "processes": ["informacao", "reproducao", "adaptacao"],
       "estimatedTime": "4h",
       "lessons": [
         {
           "id": "gen-dna-structure",
           "order": 1,
-          "title": "O que e o DNA",
-          "phenomenon": "Como um fio de 2 metros de DNA cabe dentro de um nucleo microscopico?",
+          "title": "O que é o DNA",
+          "phenomenon": "Como um fio de 2 metros de DNA cabe dentro de um núcleo microscópico?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "gen-genes",
           "order": 2,
           "title": "Genes e cromossomos",
-          "phenomenon": "O que exatamente e um gene?",
+          "phenomenon": "O que exatamente é um gene?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "gen-expression",
           "order": 3,
-          "title": "Expressao genica",
-          "phenomenon": "Como o DNA vira proteina?",
+          "title": "Expressão gênica",
+          "phenomenon": "Como o DNA vira proteína?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "gen-inheritance",
           "order": 4,
-          "title": "Heranca genetica",
-          "phenomenon": "Por que irmaos podem ser tao diferentes entre si?",
+          "title": "Herança genética",
+          "phenomenon": "Por que irmãos podem ser tão diferentes entre si?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "gen-mutation",
           "order": 5,
-          "title": "Mutacao e variacao",
-          "phenomenon": "O que acontece quando o DNA e copiado com erro?",
+          "title": "Mutação e variação",
+          "phenomenon": "O que acontece quando o DNA é copiado com erro?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
       "keyConceptLinks": ["cell", "evolution"],
-      "applications": ["genetica", "doenças", "biotecnologia"],
+      "applications": ["genetica", "doencas", "biotecnologia"],
       "status": "available"
     },
     {
@@ -109,46 +109,46 @@
       "slug": "respiracao-fotossintese",
       "number": "03",
       "axis": "energy",
-      "title": "Respiracao e Fotossintese",
+      "title": "Respiração e Fotossíntese",
       "subtitle": "Como a vida captura e usa energia",
-      "description": "Toda atividade celular consome energia. Este modulo mostra como plantas capturam energia solar e como celulas convertem moleculas organicas em ATP — a moeda energetica universal da vida.",
+      "description": "Toda atividade celular consome energia. Este módulo mostra como plantas capturam energia solar e como células convertem moléculas orgânicas em ATP — a moeda energética universal da vida.",
       "scales": ["molecular", "cellular", "organism"],
-      "processes": ["metabolismo", "respiracao-celular", "fotossintese"],
+      "processes": ["metabolismo", "estrutura", "interacao-ecologica"],
       "estimatedTime": "4h",
       "lessons": [
         {
           "id": "met-energy",
           "order": 1,
           "title": "Energia e vida",
-          "phenomenon": "Por que voce precisa comer para mover um dedo?",
+          "phenomenon": "Por que você precisa comer para mover um dedo?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "met-atp",
           "order": 2,
-          "title": "ATP: a moeda energetica",
-          "phenomenon": "Como a celula armazena e usa energia?",
+          "title": "ATP: a moeda energética",
+          "phenomenon": "Como a célula armazena e usa energia?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "met-respiration",
           "order": 3,
-          "title": "Respiracao celular",
-          "phenomenon": "O que acontece dentro da mitocondria?",
+          "title": "Respiração celular",
+          "phenomenon": "O que acontece dentro da mitocôndria?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "met-photosynthesis",
           "order": 4,
-          "title": "Fotossintese",
-          "phenomenon": "Como uma folha transforma luz em materia?",
+          "title": "Fotossíntese",
+          "phenomenon": "Como uma folha transforma luz em matéria?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "met-comparison",
           "order": 5,
-          "title": "Fotossintese e respiracao como par complementar",
-          "phenomenon": "Por que a atmosfera da Terra nao fica sem oxigenio?",
+          "title": "Fotossíntese e respiração como par complementar",
+          "phenomenon": "Por que a atmosfera da Terra não fica sem oxigênio?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -162,57 +162,57 @@
       "number": "04",
       "axis": "energy",
       "title": "Sistemas do Corpo Humano",
-      "subtitle": "Integracao e homeostase",
-      "description": "O corpo humano e um sistema de sistemas: cada subsistema tem funcao propria, mas todos se integram para manter o organismo em equilibrio dinamico. Homeostase nao e estabilidade — e regulacao continua.",
+      "subtitle": "Integração e homeostase",
+      "description": "O corpo humano é um sistema de sistemas: cada subsistema tem função própria, mas todos se integram para manter o organismo em equilíbrio dinâmico. Homeostase não é estabilidade — é regulação contínua.",
       "scales": ["tissue", "system", "organism"],
-      "processes": ["regulacao", "integracao", "homeostase"],
+      "processes": ["regulacao", "estrutura", "metabolismo"],
       "estimatedTime": "5h",
       "lessons": [
         {
           "id": "sys-homeostasis",
           "order": 1,
-          "title": "Homeostase: equilibrio dinâmico",
-          "phenomenon": "Por que sua temperatura corporal nao varia mais de 1 grau?",
+          "title": "Homeostase: equilíbrio dinâmico",
+          "phenomenon": "Por que sua temperatura corporal não varia mais de 1 grau?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "sys-digestive",
           "order": 2,
-          "title": "Sistema digestorio",
-          "phenomenon": "Como um pedaco de pao vira energia para seus musculos?",
+          "title": "Sistema digestório",
+          "phenomenon": "Como um pedaço de pão vira energia para seus músculos?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "sys-circulatory",
           "order": 3,
-          "title": "Sistema circulatorio",
-          "phenomenon": "Como o oxigenio chega a cada celula do corpo?",
+          "title": "Sistema circulatório",
+          "phenomenon": "Como o oxigênio chega a cada célula do corpo?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "sys-respiratory",
           "order": 4,
-          "title": "Sistema respiratorio",
-          "phenomenon": "O que acontece entre inspirar e o oxigenio entrar na celula?",
+          "title": "Sistema respiratório",
+          "phenomenon": "O que acontece entre inspirar e o oxigênio entrar na célula?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "sys-nervous",
           "order": 5,
           "title": "Sistema nervoso",
-          "phenomenon": "Como voce retira a mao de uma chama antes de sentir dor?",
+          "phenomenon": "Como você retira a mão de uma chama antes de sentir dor?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "sys-integration",
           "order": 6,
-          "title": "Integracao dos sistemas",
-          "phenomenon": "Por que uma emocao pode causar sintomas fisicos?",
+          "title": "Integração dos sistemas",
+          "phenomenon": "Por que uma emoção pode causar sintomas físicos?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
       "keyConceptLinks": ["cell", "metabolism"],
-      "applications": ["saude", "doenças", "alimentacao"],
+      "applications": ["saude", "doencas", "alimentacao"],
       "status": "available"
     },
     {
@@ -221,45 +221,45 @@
       "number": "05",
       "axis": "evolution",
       "title": "Ecologia",
-      "subtitle": "Relacoes, fluxos e equilíbrio",
-      "description": "A ecologia estuda como os organismos interagem entre si e com o ambiente. Um ecossistema nao e um catalogo de especies: e uma rede de relacoes, fluxos de energia e ciclos de materia.",
+      "subtitle": "Relações, fluxos e equilíbrio",
+      "description": "A ecologia estuda como os organismos interagem entre si e com o ambiente. Um ecossistema não é um catálogo de espécies: é uma rede de relações, fluxos de energia e ciclos de matéria.",
       "scales": ["organism", "population", "ecosystem"],
-      "processes": ["interacao-ecologica", "fluxo-de-energia", "ciclos-biogeoquimicos"],
+      "processes": ["interacao-ecologica", "metabolismo", "adaptacao"],
       "estimatedTime": "4h",
       "lessons": [
         {
           "id": "eco-ecosystem",
           "order": 1,
-          "title": "O que e um ecossistema",
-          "phenomenon": "Por que a remocao de um predador pode colapsar uma floresta?",
+          "title": "O que é um ecossistema",
+          "phenomenon": "Por que a remoção de um predador pode colapsar uma floresta?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "eco-food-chains",
           "order": 2,
           "title": "Cadeias e teias alimentares",
-          "phenomenon": "Como a energia do sol alimenta um leao?",
+          "phenomenon": "Como a energia do sol alimenta um leão?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "eco-relations",
           "order": 3,
-          "title": "Relacoes ecologicas",
+          "title": "Relações ecológicas",
           "phenomenon": "Por que as abelhas precisam das flores e as flores precisam das abelhas?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "eco-cycles",
           "order": 4,
-          "title": "Ciclos biogeoquimicos",
-          "phenomenon": "Os atomos do seu corpo ja foram parte de outro ser vivo?",
+          "title": "Ciclos biogeoquímicos",
+          "phenomenon": "Os átomos do seu corpo já foram parte de outro ser vivo?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "eco-human-impact",
           "order": 5,
           "title": "Impacto humano",
-          "phenomenon": "Como a extincao de uma especie pode afetar a sua alimentacao?",
+          "phenomenon": "Como a extinção de uma espécie pode afetar a sua alimentação?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -272,46 +272,46 @@
       "slug": "evolucao",
       "number": "06",
       "axis": "evolution",
-      "title": "Evolucao",
+      "title": "Evolução",
       "subtitle": "O eixo integrador da biologia",
-      "description": "A evolucao nao e um modulo isolado — e o principio que unifica toda a biologia. Selecao natural, adaptacao, especiacao e ancestralidade comum sao o fio que conecta todos os outros modulos.",
+      "description": "A evolução não é um módulo isolado — é o princípio que unifica toda a biologia. Seleção natural, adaptação, especiação e ancestralidade comum são o fio que conecta todos os outros módulos.",
       "scales": ["organism", "population"],
-      "processes": ["selecao-natural", "adaptacao", "especiacao"],
+      "processes": ["adaptacao", "reproducao", "interacao-ecologica"],
       "estimatedTime": "4h",
       "lessons": [
         {
           "id": "evo-natural-selection",
           "order": 1,
-          "title": "Selecao natural",
-          "phenomenon": "Por que bacterias ficam resistentes a antibioticos?",
+          "title": "Seleção natural",
+          "phenomenon": "Por que bactérias ficam resistentes a antibióticos?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "evo-variation",
           "order": 2,
-          "title": "Variacao e herança",
-          "phenomenon": "De onde vem a diversidade dentro de uma mesma especie?",
+          "title": "Variação e herança",
+          "phenomenon": "De onde vem a diversidade dentro de uma mesma espécie?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "evo-adaptation",
           "order": 3,
-          "title": "Adaptacao",
-          "phenomenon": "Por que uma cobra nao tem pernas mas seu ancestral tinha?",
+          "title": "Adaptação",
+          "phenomenon": "Por que uma cobra não tem pernas, mas seu ancestral tinha?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "evo-speciation",
           "order": 4,
-          "title": "Especiacao",
-          "phenomenon": "Como duas populacoes da mesma especie se tornam duas especies diferentes?",
+          "title": "Especiação",
+          "phenomenon": "Como duas populações da mesma espécie se tornam duas espécies diferentes?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
           "id": "evo-integrator",
           "order": 5,
-          "title": "Evolucao como eixo da biologia",
-          "phenomenon": "Por que o codigo genetico e quase identico em todas as especies da Terra?",
+          "title": "Evolução como eixo da biologia",
+          "phenomenon": "Por que o código genético é quase idêntico em todas as espécies da Terra?",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],

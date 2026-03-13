@@ -69,7 +69,7 @@ const compareModules = (moduleIdA, moduleIdB) => {
 const renderProcessComparison = (container, processIdA, processIdB) => {
   const comparison = compareProcesses(processIdA, processIdB);
   if (!comparison) {
-    container.innerHTML = `<p style="color: var(--color-text-muted);">Comparacao nao disponivel.</p>`;
+    container.innerHTML = `<p style="color: var(--color-text-muted);">Comparação não disponível.</p>`;
     return;
   }
 
@@ -78,7 +78,7 @@ const renderProcessComparison = (container, processIdA, processIdB) => {
   container.innerHTML = `
     <div class="concept-diagram">
       <div class="concept-diagram__canvas" style="padding: var(--space-6);">
-        <p class="diagram-container__title">Comparacao de processos</p>
+        <p class="diagram-container__title">Comparação de processos</p>
         <table style="
           width: 100%;
           border-collapse: collapse;
@@ -110,9 +110,9 @@ const renderProcessComparison = (container, processIdA, processIdB) => {
         </table>
 
         ${shared.scales.length > 0 ? `
-          <div class="callout callout--info" style="margin-top: 1.5rem;">
+          <div class="callout callout--info" >
             <p class="callout__title">Escalas em comum</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+            <div class="related-modules-row">
               ${shared.scales.map(s => `<span class="tag">${s}</span>`).join('')}
             </div>
           </div>
