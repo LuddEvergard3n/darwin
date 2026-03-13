@@ -1,0 +1,67 @@
+{
+  "processes": [
+    {
+      "id": "estrutura",
+      "label": "Estrutura",
+      "description": "Organizacao fisico-quimica dos sistemas biologicos. Como a forma determina a funcao.",
+      "axis": "organization",
+      "scales": ["molecular", "cellular", "tissue", "system"],
+      "modules": ["cell", "systems"],
+      "examples": ["bicamada lipidica", "dupla helice", "sarcomero muscular", "nefrón renal"]
+    },
+    {
+      "id": "informacao",
+      "label": "Informacao",
+      "description": "Armazenamento, replicacao, transmissao e expressao de informacao biologica.",
+      "axis": "information",
+      "scales": ["molecular", "cellular"],
+      "modules": ["genetics"],
+      "examples": ["replicacao do DNA", "transcricao", "traducao", "heranca mendeliana"]
+    },
+    {
+      "id": "reproducao",
+      "label": "Reproducao",
+      "description": "Geracao de novos individuos por processos asexuais ou sexuais. Mecanismo fundamental de perpetuacao da vida.",
+      "axis": "information",
+      "scales": ["cellular", "organism"],
+      "modules": ["genetics", "evolution"],
+      "examples": ["mitose", "meiose", "fecundacao", "partenogenese"]
+    },
+    {
+      "id": "metabolismo",
+      "label": "Metabolismo",
+      "description": "Conjunto de reacoes quimicas que convertem materia e energia para sustentar as funcoes vitais.",
+      "axis": "energy",
+      "scales": ["molecular", "cellular"],
+      "modules": ["metabolism"],
+      "examples": ["glicolise", "ciclo de Krebs", "cadeia respiratoria", "ciclo de Calvin"]
+    },
+    {
+      "id": "regulacao",
+      "label": "Regulacao",
+      "description": "Mecanismos de controle e ajuste dos processos biologicos para manter o equilibrio funcional.",
+      "axis": "energy",
+      "scales": ["molecular", "cellular", "system", "organism"],
+      "modules": ["systems"],
+      "examples": ["feedback negativo", "hormonios", "neurotransmissores", "termorregulacao"]
+    },
+    {
+      "id": "adaptacao",
+      "label": "Adaptacao",
+      "description": "Ajuste das caracteristicas dos organismos as demandas do ambiente ao longo de geracoes.",
+      "axis": "evolution",
+      "scales": ["organism", "population"],
+      "modules": ["evolution"],
+      "examples": ["camuflagem", "mimetismo", "anatomia de cactos", "resistencia a antibioticos"]
+    },
+    {
+      "id": "interacao-ecologica",
+      "label": "Interacao ecologica",
+      "description": "Relacoes entre organismos dentro de um ecossistema: predacao, parasitismo, mutualismo, comensalismo.",
+      "axis": "evolution",
+      "scales": ["organism", "population", "ecosystem"],
+      "modules": ["ecology"],
+      "examples": ["predador-presa", "polinizacao", "coevolucao", "competicao"]
+    }
+  ]
+}

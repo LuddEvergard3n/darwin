@@ -1,0 +1,399 @@
+/*
+ * theme.css
+ * Darwin — Atlas dos Processos da Vida
+ *
+ * Estilos tematicos especificos: hero, secoes especiais, diagramas SVG,
+ * page-level styling. Depende de base.css e layout.css.
+ */
+
+/* ============================================================
+   HERO DA HOME
+   ============================================================ */
+
+.home-hero {
+  padding-block: var(--space-16) var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(63, 107, 75, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 30% 70%, rgba(63, 100, 112, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.home-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.home-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, var(--text-3xl));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-6);
+}
+
+.home-hero__title em {
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+.home-hero__subtitle {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 50ch;
+  margin-bottom: var(--space-8);
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Diagrama SVG do hero */
+.hero-diagram {
+  width: 100%;
+  height: 400px;
+}
+
+.hero-diagram .scale-node {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hero-diagram .scale-node:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   SECAO DE EIXOS
+   ============================================================ */
+
+.axes-section {
+  padding-block: var(--space-16);
+}
+
+.axes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+/* ============================================================
+   SECAO DE ESCALA
+   ============================================================ */
+
+.scales-section {
+  padding-block: var(--space-16);
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  margin-block: var(--space-4);
+}
+
+.scale-progression {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  position: relative;
+}
+
+.scale-progression::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.scale-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--transition-fast);
+  position: relative;
+  z-index: 1;
+}
+
+.scale-step:hover {
+  background: var(--color-surface-alt);
+}
+
+.scale-step.is-active {
+  background: var(--color-surface-alt);
+}
+
+.scale-step__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.scale-step:hover .scale-step__circle,
+.scale-step.is-active .scale-step__circle {
+  border-color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.scale-step__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.scale-step:hover .scale-step__icon,
+.scale-step.is-active .scale-step__icon {
+  color: var(--color-primary);
+}
+
+.scale-step__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.scale-step__sublabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  text-align: center;
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   PAGINA DE MODULO
+   ============================================================ */
+
+.module-header {
+  padding-block: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-12);
+}
+
+.module-header__axis {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.module-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.module-header__description {
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  line-height: 1.65;
+}
+
+.module-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.module-header__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   LICAO
+   ============================================================ */
+
+.lesson {
+  max-width: 780px;
+}
+
+.lesson-phase {
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lesson-phase:last-child {
+  border-bottom: none;
+}
+
+.lesson-phase__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.lesson-phase__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+}
+
+/* ============================================================
+   VISUALIZACAO SVG — estilos compartilhados
+   ============================================================ */
+
+.diagram-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-block: var(--space-8);
+  overflow: hidden;
+}
+
+.diagram-container__title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.diagram-container__svg {
+  width: 100%;
+  display: block;
+}
+
+/* Estilos para SVG gerados por JS */
+.diagram-node {
+  cursor: pointer;
+}
+
+.diagram-node rect,
+.diagram-node circle {
+  transition: fill 0.15s, stroke 0.15s;
+}
+
+.diagram-node:hover rect,
+.diagram-node:hover circle {
+  fill: var(--color-surface-alt);
+  stroke: var(--color-primary);
+}
+
+.diagram-node.is-selected rect,
+.diagram-node.is-selected circle {
+  fill: rgba(63, 107, 75, 0.08);
+  stroke: var(--color-primary);
+  stroke-width: 2;
+}
+
+.diagram-edge {
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.diagram-edge.is-active {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+}
+
+/* ============================================================
+   PAGINA 404 / ESTADO VAZIO
+   ============================================================ */
+
+.not-found {
+  text-align: center;
+  padding: var(--space-16);
+}
+
+/* ============================================================
+   RESPONSIVIDADE — TEMA
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .axes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scale-progression {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  .scale-progression::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding-block: var(--space-12) var(--space-8);
+  }
+
+  .home-hero__subtitle {
+    font-size: var(--text-base);
+  }
+
+  .hero-diagram {
+    height: 280px;
+    margin-top: var(--space-8);
+  }
+
+  .scale-progression {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .scale-step__sublabel {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .scale-progression {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

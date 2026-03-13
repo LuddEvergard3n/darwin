@@ -1,0 +1,202 @@
+/*
+ * mobile.css
+ * Darwin — Atlas dos Processos da Vida
+ *
+ * Ajustes finos para mobile. Carregado apos os demais arquivos CSS.
+ * Nada que ja nao tenha sido coberto por @media queries nos outros arquivos.
+ * Este arquivo contem apenas padroes mobile-first e fallbacks especificos.
+ */
+
+/* ============================================================
+   MOBILE BASE — ate 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+  :root {
+    /* Escala tipografica reduzida levemente no mobile */
+    --text-3xl: 2.2rem;
+    --text-2xl: 1.8rem;
+    --text-xl:  1.4rem;
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .section--large {
+    padding-block: var(--space-12);
+  }
+
+  .btn--lg {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card {
+    padding: var(--space-5);
+  }
+
+  .axis-card {
+    padding: var(--space-5);
+    padding-left: calc(var(--space-5) + 4px);
+  }
+
+  .module-card {
+    padding: var(--space-5);
+  }
+
+  /* Cards de aplicacao em grid 2x */
+  .application-card__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Exercicio */
+  .exercise__body {
+    padding: var(--space-5);
+  }
+
+  .exercise__footer {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .exercise__footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Glossario */
+  .glossary-panel__item {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  /* Escala — versao compacta */
+  .scale-step {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .scale-step__circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .scale-step__label {
+    font-size: 0.65rem;
+  }
+
+  /* Hero */
+  .home-hero__actions {
+    flex-direction: column;
+  }
+
+  .home-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Cabeçalho do modulo */
+  .module-header {
+    padding-block: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .module-header__meta {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+/* ============================================================
+   TOUCH — melhorar alvos
+   ============================================================ */
+
+@media (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+  }
+
+  .exercise__option {
+    min-height: 48px;
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .scale-nav__item {
+    min-height: 44px;
+  }
+
+  .glossary-panel__item {
+    min-height: 48px;
+  }
+
+  .site-nav__links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ============================================================
+   LANDSCAPE MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .home-hero {
+    padding-block: var(--space-8);
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .hero-diagram {
+    height: 220px;
+    margin-top: 0;
+  }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+
+@media print {
+  .site-header,
+  .site-nav__menu-toggle,
+  .btn,
+  .exercise__footer,
+  .hint__trigger {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  .container {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .card,
+  .axis-card,
+  .module-card {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  a::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: none;
+  }
+}

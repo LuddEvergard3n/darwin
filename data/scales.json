@@ -1,0 +1,88 @@
+{
+  "scales": [
+    {
+      "id": "molecular",
+      "order": 1,
+      "label": "Molecular",
+      "sublabel": "10\u207b\u00b9\u2070 m",
+      "description": "Atomos, moleculas organicas, DNA, proteinas, lipidios, carboidratos. A base quimica da vida.",
+      "examples": ["DNA", "proteinas", "ATP", "enzimas", "lipidios", "aminoacidos"],
+      "relatedModules": ["genetics", "metabolism"],
+      "relatedProcesses": ["replicacao", "transcricao", "reacoes-enzimaticas"],
+      "icon": "molecule",
+      "color": "#3F6470"
+    },
+    {
+      "id": "cellular",
+      "order": 2,
+      "label": "Celular",
+      "sublabel": "10\u207b\u2075 m",
+      "description": "A unidade fundamental da vida. Organelas, membrana, nucleo, metabolismo celular.",
+      "examples": ["neuronio", "hemacia", "celula muscular", "hepatocito", "celula vegetal"],
+      "relatedModules": ["cell", "metabolism"],
+      "relatedProcesses": ["respiracao-celular", "fotossintese", "divisao-celular"],
+      "icon": "cell",
+      "color": "#3F6B4B"
+    },
+    {
+      "id": "tissue",
+      "order": 3,
+      "label": "Tecido",
+      "sublabel": "10\u207b\u00b3 m",
+      "description": "Conjuntos de celulas especializadas com funcao comum. Tecido nervoso, muscular, epitelial, conjuntivo.",
+      "examples": ["tecido nervoso", "tecido muscular", "epitélio", "tecido conjuntivo"],
+      "relatedModules": ["systems", "cell"],
+      "relatedProcesses": ["diferenciacao", "sinalizacao-celular"],
+      "icon": "tissue",
+      "color": "#5A7A4A"
+    },
+    {
+      "id": "system",
+      "order": 4,
+      "label": "Sistema",
+      "sublabel": "10\u207b\u00b9 m",
+      "description": "Orgaos integrados com funcao coordenada. Sistemas digestorio, nervoso, circulatorio, endocrino.",
+      "examples": ["sistema nervoso", "sistema circulatorio", "sistema digestorio"],
+      "relatedModules": ["systems"],
+      "relatedProcesses": ["integracao", "regulacao", "homeostase"],
+      "icon": "system",
+      "color": "#B08A4A"
+    },
+    {
+      "id": "organism",
+      "order": 5,
+      "label": "Organismo",
+      "sublabel": "10\u2070 m",
+      "description": "O ser vivo como unidade integrada. Estrutura, funcao, comportamento, ciclo de vida.",
+      "examples": ["ser humano", "planta com flores", "fungo", "bacteria", "virus"],
+      "relatedModules": ["systems", "evolution"],
+      "relatedProcesses": ["reproducao", "homeostase", "adaptacao"],
+      "icon": "organism",
+      "color": "#3F6B4B"
+    },
+    {
+      "id": "population",
+      "order": 6,
+      "label": "Populacao",
+      "sublabel": "10\u00b3 m",
+      "description": "Grupos de individuos da mesma especie em uma area. Dinamica populacional, variacao genetica.",
+      "examples": ["populacao de leoes", "populacao de pinheiros", "populacao humana urbana"],
+      "relatedModules": ["evolution", "ecology"],
+      "relatedProcesses": ["selecao-natural", "deriva-genetica", "migracao"],
+      "icon": "population",
+      "color": "#5A7A4A"
+    },
+    {
+      "id": "ecosystem",
+      "order": 7,
+      "label": "Ecossistema",
+      "sublabel": "10\u2076 m",
+      "description": "Comunidades de organismos e seu ambiente abiotico. Fluxo de energia, ciclos biogeoquimicos.",
+      "examples": ["floresta tropical", "recife de coral", "cerrado", "oceano profundo"],
+      "relatedModules": ["ecology"],
+      "relatedProcesses": ["fluxo-de-energia", "ciclos-biogeoquimicos", "relacoes-ecologicas"],
+      "icon": "ecosystem",
+      "color": "#5A7A4A"
+    }
+  ]
+}

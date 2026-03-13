@@ -1,0 +1,56 @@
+{
+  "axes": [
+    {
+      "id": "organization",
+      "slug": "organizacao-da-vida",
+      "label": "Eixo I",
+      "title": "Organizacao da Vida",
+      "description": "A estrutura e composicao dos sistemas vivos, desde as moleculas que formam as celulas ate os organismos multicelulares.",
+      "color": "#3F6B4B",
+      "colorToken": "axis-org",
+      "modules": ["cell", "genetics"],
+      "concepts": ["celula", "membrana", "organela", "tecido", "sistema", "organismo"],
+      "processes": ["estrutura", "compartimentalizacao", "diferenciacao"],
+      "icon": "cell"
+    },
+    {
+      "id": "information",
+      "slug": "informacao-hereditariedade",
+      "label": "Eixo II",
+      "title": "Informacao e Hereditariedade",
+      "description": "O fluxo e armazenamento da informacao biologica: como a vida codifica, transmite e expressa instrucoes geradas por bilhoes de anos de evolucao.",
+      "color": "#3F6470",
+      "colorToken": "axis-info",
+      "modules": ["genetics"],
+      "concepts": ["DNA", "gene", "cromossomo", "RNA", "proteina", "mutacao"],
+      "processes": ["replicacao", "transcricao", "traducao", "heranca", "expressao-genica"],
+      "icon": "dna"
+    },
+    {
+      "id": "energy",
+      "slug": "energia-funcao",
+      "label": "Eixo III",
+      "title": "Energia e Funcao",
+      "description": "Os processos pelos quais os seres vivos capturam, transformam e utilizam energia para manter suas funcoes vitais e a homeostase.",
+      "color": "#B08A4A",
+      "colorToken": "axis-energy",
+      "modules": ["metabolism", "systems"],
+      "concepts": ["metabolismo", "ATP", "enzima", "respiracao", "fotossintese", "homeostase"],
+      "processes": ["metabolismo", "respiracao-celular", "fotossintese", "regulacao", "digestao"],
+      "icon": "energy"
+    },
+    {
+      "id": "evolution",
+      "slug": "evolucao-ecologia",
+      "label": "Eixo IV",
+      "title": "Evolucao e Ecologia",
+      "description": "A dinamica da vida ao longo do tempo e do espaco: como as especies mudam, se relacionam e compõem ecossistemas funcionais.",
+      "color": "#5A7A4A",
+      "colorToken": "axis-evo",
+      "modules": ["evolution", "ecology"],
+      "concepts": ["selecao-natural", "adaptacao", "especiacao", "populacao", "ecossistema", "nicho"],
+      "processes": ["selecao", "especiacao", "interacao-ecologica", "fluxo-de-energia", "ciclos"],
+      "icon": "tree"
+    }
+  ]
+}

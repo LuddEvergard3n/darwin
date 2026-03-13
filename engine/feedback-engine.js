@@ -1,0 +1,515 @@
+/**
+ * feedback-engine.js
+ * Darwin — Atlas dos Processos da Vida
+ *
+ * Motor de exercicios e feedback.
+ * Gerencia: tipos de exercicio, validacao de respostas, dicas contextuais.
+ */
+
+import State from '../js/state.js';
+import Accessibility from '../js/accessibility.js';
+
+/** Tipos de exercicio suportados. */
+const EXERCISE_TYPES = {
+  ASSOCIATION: 'association',
+  ORDERING:    'ordering',
+  FLOW:        'flow',
+  COMPARISON:  'comparison',
+  ANALYSIS:    'analysis',
+};
+
+/**
+ * Retorna os dados de um exercicio pelo ID.
+ * @param {string} exerciseId
+ * @returns {object|null}
+ */
+const getExercise = (exerciseId) => {
+  const data = State.getValue('data.exercises');
+  if (!data) return null;
+  return data.exercises.find(e => e.id === exerciseId) ?? null;
+};
+
+/**
+ * Retorna exercicios de um modulo.
+ * @param {string} moduleId
+ * @returns {Array}
+ */
+const getByModule = (moduleId) => {
+  const data = State.getValue('data.exercises');
+  if (!data) return [];
+  return data.exercises.filter(e => e.module === moduleId);
+};
+
+/**
+ * Renderiza um exercicio no container fornecido.
+ * @param {HTMLElement} container
+ * @param {string} exerciseId
+ */
+const renderExercise = (container, exerciseId) => {
+  const exercise = getExercise(exerciseId);
+  if (!exercise) {
+    container.innerHTML = `<p style="color: var(--color-text-muted);">Exercicio nao encontrado.</p>`;
+    return;
+  }
+
+  switch (exercise.type) {
+    case EXERCISE_TYPES.ANALYSIS:
+      _renderAnalysis(container, exercise);
+      break;
+    case EXERCISE_TYPES.ORDERING:
+      _renderOrdering(container, exercise);
+      break;
+    case EXERCISE_TYPES.COMPARISON:
+      _renderComparison(container, exercise);
+      break;
+    case EXERCISE_TYPES.ASSOCIATION:
+      _renderAssociation(container, exercise);
+      break;
+    default:
+      container.innerHTML = `<p>Tipo de exercicio nao suportado: ${exercise.type}</p>`;
+  }
+};
+
+/**
+ * Renderiza exercicio de analise (multipla escolha argumentativa).
+ * @param {HTMLElement} container
+ * @param {object} exercise
+ */
+const _renderAnalysis = (container, exercise) => {
+  let selected = null;
+
+  container.innerHTML = `
+    <div class="exercise" id="ex-${exercise.id}">
+      <div class="exercise__header">
+        <span class="exercise__type">Analise — ${exercise.title}</span>
+      </div>
+      <div class="exercise__body">
+        <p class="exercise__question">${exercise.question}</p>
+        <ul class="exercise__options" role="listbox" aria-label="Opcoes de resposta">
+          ${exercise.options.map(opt => `
+            <li class="exercise__option"
+                role="option"
+                tabindex="0"
+                aria-selected="false"
+                data-option-id="${opt.id}">
+              ${opt.text}
+            </li>
+          `).join('')}
+        </ul>
+        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert">
+          <p id="feedback-text-${exercise.id}"></p>
+        </div>
+      </div>
+      <div class="exercise__footer">
+        <div id="hint-area-${exercise.id}"></div>
+        <button class="btn btn--primary" id="submit-${exercise.id}" disabled>
+          Confirmar resposta
+        </button>
+      </div>
+    </div>
+  `;
+
+  const options     = container.querySelectorAll('.exercise__option');
+  const submitBtn   = container.querySelector(`#submit-${exercise.id}`);
+  const feedbackDiv = container.querySelector(`#feedback-${exercise.id}`);
+  const feedbackTxt = container.querySelector(`#feedback-text-${exercise.id}`);
+  let answered = false;
+
+  options.forEach(opt => {
+    const select = () => {
+      if (answered) return;
+      options.forEach(o => {
+        o.classList.remove('is-selected');
+        o.setAttribute('aria-selected', 'false');
+      });
+      opt.classList.add('is-selected');
+      opt.setAttribute('aria-selected', 'true');
+      selected = opt.getAttribute('data-option-id');
+      submitBtn.disabled = false;
+    };
+
+    opt.addEventListener('click', select);
+    opt.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        select();
+      }
+    });
+  });
+
+  submitBtn.addEventListener('click', () => {
+    if (!selected || answered) return;
+    answered = true;
+
+    const chosen     = exercise.options.find(o => o.id === selected);
+    const isCorrect  = chosen?.isCorrect ?? false;
+
+    options.forEach(opt => {
+      const optData = exercise.options.find(o => o.id === opt.getAttribute('data-option-id'));
+      if (optData?.isCorrect) {
+        opt.classList.add('is-correct');
+      } else if (opt.getAttribute('data-option-id') === selected && !isCorrect) {
+        opt.classList.add('is-wrong');
+      }
+    });
+
+    feedbackTxt.textContent = chosen?.feedback ?? '';
+    feedbackDiv.classList.add('is-visible');
+    submitBtn.disabled = true;
+    submitBtn.textContent = isCorrect ? 'Correto' : 'Ver resposta correta';
+
+    const teacherMode = State.getValue('ui.teacherMode');
+    if (teacherMode && exercise.teacherGuide) {
+      _appendTeacherGuide(container.querySelector(`#ex-${exercise.id}`), exercise.teacherGuide);
+    }
+
+    Accessibility.announce(isCorrect
+      ? 'Resposta correta. ' + (chosen?.feedback ?? '')
+      : 'Resposta incorreta. ' + (chosen?.feedback ?? '')
+    );
+  });
+};
+
+/**
+ * Renderiza exercicio de ordenacao.
+ * @param {HTMLElement} container
+ * @param {object} exercise
+ */
+const _renderOrdering = (container, exercise) => {
+  // Embaralha os passos para o aluno ordenar
+  const shuffled = [...exercise.steps].sort(() => Math.random() - 0.5);
+
+  container.innerHTML = `
+    <div class="exercise" id="ex-${exercise.id}">
+      <div class="exercise__header">
+        <span class="exercise__type">Ordenacao — ${exercise.title}</span>
+      </div>
+      <div class="exercise__body">
+        <p class="exercise__question">${exercise.question}</p>
+        <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 1rem;">
+          Arraste ou use os botoes para ordenar os itens.
+        </p>
+        <ul class="exercise__options" id="order-list-${exercise.id}" style="gap: 0.5rem;">
+          ${shuffled.map((step, i) => `
+            <li class="exercise__option"
+                style="display: flex; align-items: center; justify-content: space-between; cursor: default;"
+                data-step-id="${step.id}"
+                data-current-pos="${i}">
+              <span>${step.text}</span>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn--ghost btn--sm" data-move="up"   aria-label="Mover para cima">↑</button>
+                <button class="btn btn--ghost btn--sm" data-move="down" aria-label="Mover para baixo">↓</button>
+              </div>
+            </li>
+          `).join('')}
+        </ul>
+        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert">
+          <p id="feedback-text-${exercise.id}"></p>
+        </div>
+      </div>
+      <div class="exercise__footer">
+        <span></span>
+        <button class="btn btn--primary" id="submit-${exercise.id}">
+          Verificar ordem
+        </button>
+      </div>
+    </div>
+  `;
+
+  const list      = container.querySelector(`#order-list-${exercise.id}`);
+  const submitBtn = container.querySelector(`#submit-${exercise.id}`);
+  const feedback  = container.querySelector(`#feedback-${exercise.id}`);
+  const feedbackTxt = container.querySelector(`#feedback-text-${exercise.id}`);
+
+  // Mover itens para cima/baixo
+  list.addEventListener('click', (e) => {
+    const moveBtn = e.target.closest('[data-move]');
+    if (!moveBtn) return;
+
+    const direction = moveBtn.getAttribute('data-move');
+    const item      = moveBtn.closest('li');
+    const items     = [...list.querySelectorAll('li')];
+    const idx       = items.indexOf(item);
+
+    if (direction === 'up' && idx > 0) {
+      list.insertBefore(item, items[idx - 1]);
+    } else if (direction === 'down' && idx < items.length - 1) {
+      list.insertBefore(items[idx + 1], item);
+    }
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const currentOrder = [...list.querySelectorAll('li')].map(li =>
+      li.getAttribute('data-step-id')
+    );
+
+    // Ordem correta
+    const correctOrder = [...exercise.steps]
+      .sort((a, b) => a.order - b.order)
+      .map(s => s.id);
+
+    const isCorrect = currentOrder.every((id, i) => id === correctOrder[i]);
+
+    feedbackTxt.textContent = isCorrect
+      ? 'Ordem correta. Esta e a sequencia correta do processo.'
+      : 'Ordem incorreta. Confira a sequencia e tente novamente.';
+    feedback.classList.add('is-visible');
+
+    if (isCorrect) {
+      submitBtn.textContent = 'Correto';
+      submitBtn.disabled = true;
+    }
+
+    Accessibility.announce(isCorrect ? 'Ordem correta.' : 'Ordem incorreta. Tente novamente.');
+  });
+};
+
+/**
+ * Renderiza exercicio de comparacao.
+ * @param {HTMLElement} container
+ * @param {object} exercise
+ */
+const _renderComparison = (container, exercise) => {
+  container.innerHTML = `
+    <div class="exercise" id="ex-${exercise.id}">
+      <div class="exercise__header">
+        <span class="exercise__type">Comparacao — ${exercise.title}</span>
+      </div>
+      <div class="exercise__body">
+        <p class="exercise__question">${exercise.question}</p>
+        <div style="display: grid; gap: 0.75rem; margin-top: 1rem;">
+          ${exercise.items.map(item => `
+            <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem;
+                        border: 1px solid var(--color-border); border-radius: var(--radius-md);
+                        background: var(--color-surface);">
+              <span style="flex: 1; font-size: var(--text-sm);">${item.text}</span>
+              <div style="display: flex; gap: 0.5rem;">
+                ${['F', 'R', 'A'].map(opt => `
+                  <button class="btn btn--ghost btn--sm comparison-btn"
+                          data-item="${item.id}"
+                          data-option="${opt}"
+                          aria-label="${opt} para '${item.text}'"
+                          style="min-width: 32px;">
+                    ${opt}
+                  </button>
+                `).join('')}
+              </div>
+              <div class="comparison-feedback" data-item-feedback="${item.id}"
+                   style="font-size: var(--text-xs); width: 20px; text-align: center;">
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="exercise__feedback" id="feedback-${exercise.id}" style="margin-top: 1rem;"></div>
+      </div>
+      <div class="exercise__footer">
+        <span></span>
+        <button class="btn btn--primary" id="submit-${exercise.id}">
+          Verificar respostas
+        </button>
+      </div>
+    </div>
+  `;
+
+  const choices   = {};
+  const submitBtn = container.querySelector(`#submit-${exercise.id}`);
+  const feedback  = container.querySelector(`#feedback-${exercise.id}`);
+
+  container.querySelectorAll('.comparison-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const itemId = btn.getAttribute('data-item');
+      const option = btn.getAttribute('data-option');
+
+      // Limpar selecao anterior para o item
+      container.querySelectorAll(`[data-item="${itemId}"]`).forEach(b => {
+        b.style.background = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+      });
+
+      choices[itemId] = option;
+      btn.style.background = 'var(--color-primary)';
+      btn.style.color = 'white';
+      btn.style.borderColor = 'var(--color-primary)';
+    });
+  });
+
+  submitBtn.addEventListener('click', () => {
+    let correct = 0;
+    exercise.items.forEach(item => {
+      const fb = container.querySelector(`[data-item-feedback="${item.id}"]`);
+      const chosen = choices[item.id];
+      if (chosen === item.answer) {
+        correct++;
+        if (fb) fb.textContent = 'V';
+      } else {
+        if (fb) fb.textContent = 'X';
+      }
+    });
+
+    const total = exercise.items.length;
+    feedback.classList.add('is-visible');
+    feedback.innerHTML = `
+      <p><strong>${correct}/${total}</strong> corretos.</p>
+      ${correct < total ? `
+        <ul style="margin-top: 0.75rem; padding-left: 1.5rem; font-size: var(--text-sm);">
+          ${exercise.items
+            .filter(item => choices[item.id] !== item.answer)
+            .map(item => `<li>${item.text}: resposta correta e <strong>${item.answer}</strong>. ${item.explanation}</li>`)
+            .join('')}
+        </ul>
+      ` : ''}
+    `;
+  });
+};
+
+/**
+ * Renderiza exercicio de associacao.
+ * @param {HTMLElement} container
+ * @param {object} exercise
+ */
+const _renderAssociation = (container, exercise) => {
+  container.innerHTML = `
+    <div class="exercise" id="ex-${exercise.id}">
+      <div class="exercise__header">
+        <span class="exercise__type">Associacao — ${exercise.title}</span>
+      </div>
+      <div class="exercise__body">
+        <p class="exercise__question">${exercise.question}</p>
+        <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 1rem;">
+          Selecione um item da coluna esquerda, depois o correspondente da direita.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div>
+            <p style="font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase;
+                      letter-spacing: 0.07em; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+              Estrutura
+            </p>
+            ${exercise.items.map(item => `
+              <button class="exercise__option assoc-left"
+                      data-id="${item.id}"
+                      data-match="${item.matchId}"
+                      style="width: 100%; text-align: left; display: block; margin-bottom: 0.5rem;">
+                ${item.text}
+              </button>
+            `).join('')}
+          </div>
+          <div>
+            <p style="font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase;
+                      letter-spacing: 0.07em; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+              Funcao
+            </p>
+            ${exercise.matches.map(match => `
+              <button class="exercise__option assoc-right"
+                      data-id="${match.id}"
+                      style="width: 100%; text-align: left; display: block; margin-bottom: 0.5rem;">
+                ${match.text}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert"></div>
+      </div>
+    </div>
+  `;
+
+  let selectedLeft  = null;
+  const matched     = {};
+  const feedback    = container.querySelector(`#feedback-${exercise.id}`);
+
+  container.querySelectorAll('.assoc-left').forEach(btn => {
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.assoc-left').forEach(b => b.classList.remove('is-selected'));
+      selectedLeft = btn;
+      btn.classList.add('is-selected');
+    });
+  });
+
+  container.querySelectorAll('.assoc-right').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!selectedLeft) return;
+
+      const leftId    = selectedLeft.getAttribute('data-id');
+      const leftMatch = selectedLeft.getAttribute('data-match');
+      const rightId   = btn.getAttribute('data-id');
+      const isCorrect = leftMatch === rightId;
+
+      selectedLeft.classList.remove('is-selected');
+      selectedLeft.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+      if (isCorrect) btn.classList.add('is-correct');
+
+      matched[leftId] = rightId;
+      selectedLeft.disabled = true;
+      if (isCorrect) btn.disabled = true;
+
+      selectedLeft = null;
+
+      // Verificar se todos foram associados
+      if (Object.keys(matched).length === exercise.items.length) {
+        const allCorrect = exercise.items.every(item => matched[item.id] === item.matchId);
+        feedback.classList.add('is-visible');
+        feedback.innerHTML = allCorrect
+          ? '<p>Todas as associacoes estao corretas.</p>'
+          : '<p>Algumas associacoes estao incorretas. Os itens corretos estao marcados em verde.</p>';
+      }
+    });
+  });
+};
+
+/**
+ * Adiciona o painel de modo professor ao exercicio.
+ * @param {HTMLElement} exerciseEl
+ * @param {object} guide
+ */
+const _appendTeacherGuide = (exerciseEl, guide) => {
+  const teacherPanel = document.createElement('div');
+  teacherPanel.className = 'teacher-panel';
+  teacherPanel.style.marginTop = 'var(--space-6)';
+  teacherPanel.innerHTML = `
+    <div class="teacher-panel__header">
+      <span class="teacher-panel__label">Modo Professor</span>
+    </div>
+    ${guide.objective ? `
+      <div class="teacher-panel__section">
+        <p class="teacher-panel__section-title">Objetivo</p>
+        <p style="font-size: var(--text-sm);">${guide.objective}</p>
+      </div>
+    ` : ''}
+    ${guide.centralConcept ? `
+      <div class="teacher-panel__section">
+        <p class="teacher-panel__section-title">Conceito central</p>
+        <p style="font-size: var(--text-sm);">${guide.centralConcept}</p>
+      </div>
+    ` : ''}
+    ${guide.scaleRelation ? `
+      <div class="teacher-panel__section">
+        <p class="teacher-panel__section-title">Relacao de escala</p>
+        <p style="font-size: var(--text-sm);">${guide.scaleRelation}</p>
+      </div>
+    ` : ''}
+    ${guide.mediationSuggestion ? `
+      <div class="teacher-panel__section">
+        <p class="teacher-panel__section-title">Mediacao sugerida</p>
+        <p style="font-size: var(--text-sm);">${guide.mediationSuggestion}</p>
+      </div>
+    ` : ''}
+    ${guide.estimatedMinutes ? `
+      <div class="teacher-panel__section">
+        <p class="teacher-panel__section-title">Tempo estimado</p>
+        <p style="font-family: var(--font-mono); font-size: var(--text-sm);">
+          ${guide.estimatedMinutes} min
+        </p>
+      </div>
+    ` : ''}
+  `;
+  exerciseEl.appendChild(teacherPanel);
+};
+
+const FeedbackEngine = {
+  renderExercise,
+  getExercise,
+  getByModule,
+  EXERCISE_TYPES,
+};
+
+export default FeedbackEngine;

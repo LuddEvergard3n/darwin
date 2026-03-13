@@ -1,0 +1,406 @@
+/*
+ * layout.css
+ * Darwin — Atlas dos Processos da Vida
+ *
+ * Sistema de grid, containers e composicao de secoes.
+ * Sem cores, sem tipografia — apenas estrutura espacial.
+ */
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   ============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1440px;
+}
+
+/* ============================================================
+   GRID — 12 colunas
+   ============================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-8);
+}
+
+.grid--tight {
+  gap: var(--space-4);
+}
+
+.grid--loose {
+  gap: var(--space-12);
+}
+
+/* Utilitarios de span */
+.col-1  { grid-column: span 1; }
+.col-2  { grid-column: span 2; }
+.col-3  { grid-column: span 3; }
+.col-4  { grid-column: span 4; }
+.col-5  { grid-column: span 5; }
+.col-6  { grid-column: span 6; }
+.col-7  { grid-column: span 7; }
+.col-8  { grid-column: span 8; }
+.col-9  { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* ============================================================
+   SECOES
+   ============================================================ */
+
+.section {
+  padding-block: var(--space-16);
+}
+
+.section--compact {
+  padding-block: var(--space-8);
+}
+
+.section--large {
+  padding-block: calc(var(--space-16) * 1.5);
+}
+
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-header--centered {
+  text-align: center;
+}
+
+.section-header--centered p {
+  margin-inline: auto;
+}
+
+/* ============================================================
+   FLEX UTILITARIOS
+   ============================================================ */
+
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex--gap-sm  { gap: var(--space-2); }
+.flex--gap-md  { gap: var(--space-4); }
+.flex--gap-lg  { gap: var(--space-8); }
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   STACKS (empilhamento vertical com gap consistente)
+   ============================================================ */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack--sm  { gap: var(--space-2); }
+.stack--md  { gap: var(--space-4); }
+.stack--lg  { gap: var(--space-8); }
+.stack--xl  { gap: var(--space-12); }
+
+/* ============================================================
+   GRID DE CARDS
+   ============================================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.card-grid--2 {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.card-grid--3 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card-grid--4 {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* ============================================================
+   DIVISORES
+   ============================================================ */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-8);
+}
+
+/* ============================================================
+   NAVEGACAO PRINCIPAL
+   ============================================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: rgba(244, 247, 242, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.site-nav__logo {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.site-nav__logo span {
+  color: var(--color-primary);
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  padding: 0;
+}
+
+.site-nav__links a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+}
+
+.site-nav__links a:hover,
+.site-nav__links a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+.site-nav__menu-toggle {
+  display: none;
+  padding: var(--space-2);
+  color: var(--color-text);
+}
+
+/* ============================================================
+   RODAPE
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-12);
+  margin-top: var(--space-16);
+}
+
+.site-footer__content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-12);
+}
+
+.site-footer__bottom {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb__sep {
+  color: var(--color-border-strong);
+}
+
+.breadcrumb a {
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   SIDEBAR LAYOUT
+   ============================================================ */
+
+.layout-with-sidebar {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(64px + var(--space-8));
+}
+
+/* ============================================================
+   LAYOUT HERO
+   ============================================================ */
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  min-height: 520px;
+}
+
+/* ============================================================
+   SKIPS ACESSIBILIDADE
+   ============================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  z-index: var(--z-toast);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ============================================================
+   RESPONSIVIDADE — TABLET
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .layout-with-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .site-footer__content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* ============================================================
+   RESPONSIVIDADE — MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .col-1, .col-2, .col-3, .col-4,
+  .col-5, .col-6, .col-7, .col-8,
+  .col-9, .col-10, .col-11 {
+    grid-column: span 4;
+  }
+
+  .card-grid--2,
+  .card-grid--3,
+  .card-grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav__links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    padding: var(--space-4);
+    gap: var(--space-1);
+  }
+
+  .site-nav__links.is-open {
+    display: flex;
+  }
+
+  .site-nav__links a {
+    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .site-nav__menu-toggle {
+    display: flex;
+  }
+
+  .site-footer__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+}

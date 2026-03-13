@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Darwin — Atlas dos Processos da Vida. Sistema navegavel de Biologia: da molecula ao ecossistema.">
+  <meta name="theme-color" content="#3F6B4B">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Darwin — Atlas dos Processos da Vida">
+  <meta property="og:description" content="Da molecula ao ecossistema: compreender a vida como sistema.">
+  <meta property="og:type"        content="website">
+
+  <title>Darwin — Atlas dos Processos da Vida</title>
+
+  <!-- Fontes via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS — ordem importa: base > layout > components > theme > mobile -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+  <!-- Skip link de acessibilidade -->
+  <a href="#main-content" class="skip-link">Ir para o conteudo principal</a>
+
+  <!-- Cabecalho global -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="site-nav" aria-label="Navegacao principal">
+
+        <a href="#/" class="site-nav__logo" aria-label="Darwin — pagina inicial">
+          Darwin<span>.</span>
+        </a>
+
+        <ul class="site-nav__links" role="list">
+          <li>
+            <a href="#/" data-nav-link="home">Inicio</a>
+          </li>
+          <li>
+            <a href="#/modulo/celula" data-nav-link="module">Modulos</a>
+          </li>
+          <li>
+            <a href="#/escala/molecular" data-nav-link="scale">Escalas</a>
+          </li>
+          <li>
+            <a href="#/glossario" data-nav-link="glossary">Glossario</a>
+          </li>
+        </ul>
+
+        <!-- Toggle mobile -->
+        <button
+          class="site-nav__menu-toggle"
+          aria-label="Abrir menu de navegacao"
+          aria-expanded="false"
+          aria-controls="site-nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteudo principal — gerenciado pelo UI module -->
+  <main id="main-content" tabindex="-1">
+    <!-- Conteudo renderizado via JS -->
+    <div class="container" style="padding-block: 4rem; text-align: center;">
+      <p style="color: var(--color-text-muted); font-family: var(--font-mono); font-size: var(--text-sm);">
+        Carregando Darwin...
+      </p>
+    </div>
+  </main>
+
+  <!-- Rodape global -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__content">
+
+        <div>
+          <p style="font-family: var(--font-serif); font-size: var(--text-lg);
+                    font-weight: 700; margin-bottom: var(--space-3);">
+            Darwin
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary);
+                    max-width: 38ch; line-height: 1.65;">
+            Atlas dos Processos da Vida. Sistema educacional de Biologia por escalas e relacoes.
+          </p>
+        </div>
+
+        <div>
+          <p style="font-family: var(--font-mono); font-size: var(--text-xs);
+                    text-transform: uppercase; letter-spacing: 0.08em;
+                    color: var(--color-text-muted); margin-bottom: var(--space-4);">
+            Modulos V1
+          </p>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="#/modulo/celula"              style="font-size: var(--text-sm); color: var(--color-text-secondary);">Celula</a></li>
+            <li><a href="#/modulo/dna-hereditariedade" style="font-size: var(--text-sm); color: var(--color-text-secondary);">DNA e Hereditariedade</a></li>
+            <li><a href="#/modulo/respiracao-fotossintese" style="font-size: var(--text-sm); color: var(--color-text-secondary);">Respiracao e Fotossintese</a></li>
+            <li><a href="#/modulo/sistemas-do-corpo"   style="font-size: var(--text-sm); color: var(--color-text-secondary);">Sistemas do Corpo</a></li>
+            <li><a href="#/modulo/ecologia"            style="font-size: var(--text-sm); color: var(--color-text-secondary);">Ecologia</a></li>
+            <li><a href="#/modulo/evolucao"            style="font-size: var(--text-sm); color: var(--color-text-secondary);">Evolucao</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-family: var(--font-mono); font-size: var(--text-xs);
+                    text-transform: uppercase; letter-spacing: 0.08em;
+                    color: var(--color-text-muted); margin-bottom: var(--space-4);">
+            Sistema
+          </p>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><a href="#/escala/molecular" style="font-size: var(--text-sm); color: var(--color-text-secondary);">Escalas</a></li>
+            <li><a href="#/glossario"        style="font-size: var(--text-sm); color: var(--color-text-secondary);">Glossario</a></li>
+            <li><a href="?teacher=1#/"       style="font-size: var(--text-sm); color: var(--color-text-secondary);">Modo Professor</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p style="font-size: var(--text-xs); color: var(--color-text-muted); font-family: var(--font-mono);">
+          Darwin v1.0.0 &mdash; Atlas dos Processos da Vida
+        </p>
+        <p style="font-size: var(--text-xs); color: var(--color-text-muted);">
+          Parte do ecossistema educacional
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modulo principal — type=module habilita ES modules nativos -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

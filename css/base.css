@@ -1,0 +1,209 @@
+/*
+ * base.css
+ * Darwin — Atlas dos Processos da Vida
+ *
+ * Design tokens, reset, tipografia base.
+ * Nenhuma regra de layout aqui — apenas fundação.
+ */
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+
+:root {
+  /* --- Superficies --- */
+  --color-bg:             #F4F7F2;
+  --color-surface:        #FAFBF8;
+  --color-surface-alt:    #EEF3EC;
+
+  /* --- Texto --- */
+  --color-text:           #233128;
+  --color-text-secondary: #5D6B61;
+  --color-text-muted:     #7A877E;
+
+  /* --- Cor primaria e acento --- */
+  --color-primary:        #3F6B4B;
+  --color-secondary:      #3F6470;
+  --color-accent:         #B08A4A;
+  --color-accent-rare:    #7A4D58;
+
+  /* --- Bordas --- */
+  --color-border:         #D9E1D8;
+  --color-border-strong:  #C9D3C8;
+
+  /* --- Eixos biologicos --- */
+  --color-axis-org:       #3F6B4B;  /* Organizacao da Vida */
+  --color-axis-info:      #3F6470;  /* Informacao e Hereditariedade */
+  --color-axis-energy:    #B08A4A;  /* Energia e Funcao */
+  --color-axis-evo:       #5A7A4A;  /* Evolucao e Ecologia */
+
+  /* --- Tipografia --- */
+  --font-serif:    'Source Serif 4', 'Literata', Georgia, serif;
+  --font-sans:     'Source Sans 3', 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-mono:     'DM Mono', 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* --- Escala tipografica (type scale 1.25 Major Third) --- */
+  --text-xs:   0.64rem;
+  --text-sm:   0.8rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.563rem;
+  --text-xl:   1.953rem;
+  --text-2xl:  2.441rem;
+  --text-3xl:  3.052rem;
+
+  /* --- Espacamento --- */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+
+  /* --- Raio de borda --- */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+
+  /* --- Sombra --- */
+  --shadow-sm:  0 1px 3px rgba(35, 49, 40, 0.06), 0 1px 2px rgba(35, 49, 40, 0.04);
+  --shadow-md:  0 4px 12px rgba(35, 49, 40, 0.08), 0 2px 4px rgba(35, 49, 40, 0.05);
+  --shadow-lg:  0 8px 24px rgba(35, 49, 40, 0.10), 0 4px 8px rgba(35, 49, 40, 0.06);
+
+  /* --- Transicoes --- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* --- Linha de leitura --- */
+  --measure: 72ch;
+
+  /* --- Z-index --- */
+  --z-base:    1;
+  --z-overlay: 100;
+  --z-modal:   200;
+  --z-nav:     300;
+  --z-toast:   400;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografia base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+h5 { font-size: var(--text-md); }
+h6 { font-size: var(--text-base); }
+
+p {
+  max-width: var(--measure);
+  line-height: 1.75;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  overflow-x: auto;
+  padding: var(--space-4);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  padding-left: var(--space-6);
+}
+
+li {
+  line-height: 1.75;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remover animacoes para quem prefere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

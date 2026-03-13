@@ -1,0 +1,76 @@
+{
+  "applications": [
+    {
+      "id": "health",
+      "slug": "saude",
+      "label": "Saude",
+      "description": "Como a biologia celular e sistêmica explica doencas, tratamentos e o funcionamento do corpo",
+      "relatedModules": ["cell", "systems", "genetics"],
+      "icon": "health"
+    },
+    {
+      "id": "food",
+      "slug": "alimentacao",
+      "label": "Alimentacao",
+      "description": "Da digestao ao metabolismo: o que acontece com o que voce come",
+      "relatedModules": ["metabolism", "systems", "ecology"],
+      "icon": "food"
+    },
+    {
+      "id": "genetics-app",
+      "slug": "genetica",
+      "label": "Genetica",
+      "description": "Heranca, variacao, testes geneticos e edição genomica",
+      "relatedModules": ["genetics", "evolution"],
+      "icon": "dna"
+    },
+    {
+      "id": "diseases",
+      "slug": "doencas",
+      "label": "Doencas",
+      "description": "Patologias como disfuncoes dos sistemas biologicos",
+      "relatedModules": ["cell", "genetics", "systems"],
+      "icon": "disease"
+    },
+    {
+      "id": "environment",
+      "slug": "ambiente",
+      "label": "Ambiente",
+      "description": "Ecossistemas, biodiversidade e os efeitos das acoes humanas",
+      "relatedModules": ["ecology", "evolution"],
+      "icon": "environment"
+    },
+    {
+      "id": "agriculture",
+      "slug": "agricultura",
+      "label": "Agricultura",
+      "description": "Selecao artificial, organismos transgênicos e producao de alimentos",
+      "relatedModules": ["genetics", "evolution", "ecology"],
+      "icon": "agriculture"
+    },
+    {
+      "id": "antibiotics",
+      "slug": "antibioticos",
+      "label": "Antibioticos",
+      "description": "Resistencia bacteriana como exemplo em tempo real de evolucao por selecao natural",
+      "relatedModules": ["evolution", "cell"],
+      "icon": "antibiotics"
+    },
+    {
+      "id": "epidemics",
+      "slug": "epidemias",
+      "label": "Epidemias",
+      "description": "Como patogenos se espalham, evoluem e interagem com populacoes humanas",
+      "relatedModules": ["evolution", "ecology", "genetics"],
+      "icon": "epidemics"
+    },
+    {
+      "id": "biotech",
+      "slug": "biotecnologia",
+      "label": "Biotecnologia",
+      "description": "CRISPR, vacinas de mRNA, biorremediacão e as fronteiras da biologia aplicada",
+      "relatedModules": ["genetics", "cell"],
+      "icon": "biotech"
+    }
+  ]
+}

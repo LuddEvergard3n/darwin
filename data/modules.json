@@ -1,0 +1,323 @@
+{
+  "modules": [
+    {
+      "id": "cell",
+      "slug": "celula",
+      "number": "01",
+      "axis": "organization",
+      "title": "Celula",
+      "subtitle": "A unidade fundamental da vida",
+      "description": "Toda a vida conhecida e composta por celulas. Este modulo explora como a celula funciona como sistema integrado: membrana, organelas, nucleo, e a logica da compartimentalizacao.",
+      "scales": ["molecular", "cellular"],
+      "processes": ["estrutura", "metabolismo", "divisao"],
+      "estimatedTime": "3h",
+      "lessons": [
+        {
+          "id": "cell-what-is-life",
+          "order": 1,
+          "title": "O que e uma celula",
+          "phenomenon": "Por que um corte na pele sangra, coagula e cicatriza sozinho?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "cell-types",
+          "order": 2,
+          "title": "Tipos celulares",
+          "phenomenon": "Como um neuronio e uma hemacia sao tao diferentes se partem do mesmo DNA?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "cell-membrane",
+          "order": 3,
+          "title": "Membrana plasmatica",
+          "phenomenon": "Como a celula decide o que entra e o que sai?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "cell-nucleus",
+          "order": 4,
+          "title": "Nucleo e informacao genetica",
+          "phenomenon": "Por que o nucleo e separado do citoplasma?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "cell-organelles",
+          "order": 5,
+          "title": "Organelas: a divisao do trabalho",
+          "phenomenon": "Como uma celula consegue fazer tantas coisas ao mesmo tempo?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["genetics", "metabolism"],
+      "applications": ["saude", "doenças", "biotecnologia"],
+      "status": "available"
+    },
+    {
+      "id": "genetics",
+      "slug": "dna-hereditariedade",
+      "number": "02",
+      "axis": "information",
+      "title": "DNA e Hereditariedade",
+      "subtitle": "O fluxo da informacao biologica",
+      "description": "O DNA nao e apenas um arquivo morto: e um sistema dinamico de instrucoes que a celula le, copia, exprime e transmite. Este modulo mostra como a informacao flui desde a molecula ate as caracteristicas visiveis do organismo.",
+      "scales": ["molecular", "cellular"],
+      "processes": ["informacao", "replicacao", "expressao-genica", "heranca"],
+      "estimatedTime": "4h",
+      "lessons": [
+        {
+          "id": "gen-dna-structure",
+          "order": 1,
+          "title": "O que e o DNA",
+          "phenomenon": "Como um fio de 2 metros de DNA cabe dentro de um nucleo microscopico?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "gen-genes",
+          "order": 2,
+          "title": "Genes e cromossomos",
+          "phenomenon": "O que exatamente e um gene?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "gen-expression",
+          "order": 3,
+          "title": "Expressao genica",
+          "phenomenon": "Como o DNA vira proteina?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "gen-inheritance",
+          "order": 4,
+          "title": "Heranca genetica",
+          "phenomenon": "Por que irmaos podem ser tao diferentes entre si?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "gen-mutation",
+          "order": 5,
+          "title": "Mutacao e variacao",
+          "phenomenon": "O que acontece quando o DNA e copiado com erro?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["cell", "evolution"],
+      "applications": ["genetica", "doenças", "biotecnologia"],
+      "status": "available"
+    },
+    {
+      "id": "metabolism",
+      "slug": "respiracao-fotossintese",
+      "number": "03",
+      "axis": "energy",
+      "title": "Respiracao e Fotossintese",
+      "subtitle": "Como a vida captura e usa energia",
+      "description": "Toda atividade celular consome energia. Este modulo mostra como plantas capturam energia solar e como celulas convertem moleculas organicas em ATP — a moeda energetica universal da vida.",
+      "scales": ["molecular", "cellular", "organism"],
+      "processes": ["metabolismo", "respiracao-celular", "fotossintese"],
+      "estimatedTime": "4h",
+      "lessons": [
+        {
+          "id": "met-energy",
+          "order": 1,
+          "title": "Energia e vida",
+          "phenomenon": "Por que voce precisa comer para mover um dedo?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "met-atp",
+          "order": 2,
+          "title": "ATP: a moeda energetica",
+          "phenomenon": "Como a celula armazena e usa energia?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "met-respiration",
+          "order": 3,
+          "title": "Respiracao celular",
+          "phenomenon": "O que acontece dentro da mitocondria?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "met-photosynthesis",
+          "order": 4,
+          "title": "Fotossintese",
+          "phenomenon": "Como uma folha transforma luz em materia?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "met-comparison",
+          "order": 5,
+          "title": "Fotossintese e respiracao como par complementar",
+          "phenomenon": "Por que a atmosfera da Terra nao fica sem oxigenio?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["cell", "ecology"],
+      "applications": ["alimentacao", "saude", "ambiente"],
+      "status": "available"
+    },
+    {
+      "id": "systems",
+      "slug": "sistemas-do-corpo",
+      "number": "04",
+      "axis": "energy",
+      "title": "Sistemas do Corpo Humano",
+      "subtitle": "Integracao e homeostase",
+      "description": "O corpo humano e um sistema de sistemas: cada subsistema tem funcao propria, mas todos se integram para manter o organismo em equilibrio dinamico. Homeostase nao e estabilidade — e regulacao continua.",
+      "scales": ["tissue", "system", "organism"],
+      "processes": ["regulacao", "integracao", "homeostase"],
+      "estimatedTime": "5h",
+      "lessons": [
+        {
+          "id": "sys-homeostasis",
+          "order": 1,
+          "title": "Homeostase: equilibrio dinâmico",
+          "phenomenon": "Por que sua temperatura corporal nao varia mais de 1 grau?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "sys-digestive",
+          "order": 2,
+          "title": "Sistema digestorio",
+          "phenomenon": "Como um pedaco de pao vira energia para seus musculos?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "sys-circulatory",
+          "order": 3,
+          "title": "Sistema circulatorio",
+          "phenomenon": "Como o oxigenio chega a cada celula do corpo?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "sys-respiratory",
+          "order": 4,
+          "title": "Sistema respiratorio",
+          "phenomenon": "O que acontece entre inspirar e o oxigenio entrar na celula?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "sys-nervous",
+          "order": 5,
+          "title": "Sistema nervoso",
+          "phenomenon": "Como voce retira a mao de uma chama antes de sentir dor?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "sys-integration",
+          "order": 6,
+          "title": "Integracao dos sistemas",
+          "phenomenon": "Por que uma emocao pode causar sintomas fisicos?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["cell", "metabolism"],
+      "applications": ["saude", "doenças", "alimentacao"],
+      "status": "available"
+    },
+    {
+      "id": "ecology",
+      "slug": "ecologia",
+      "number": "05",
+      "axis": "evolution",
+      "title": "Ecologia",
+      "subtitle": "Relacoes, fluxos e equilíbrio",
+      "description": "A ecologia estuda como os organismos interagem entre si e com o ambiente. Um ecossistema nao e um catalogo de especies: e uma rede de relacoes, fluxos de energia e ciclos de materia.",
+      "scales": ["organism", "population", "ecosystem"],
+      "processes": ["interacao-ecologica", "fluxo-de-energia", "ciclos-biogeoquimicos"],
+      "estimatedTime": "4h",
+      "lessons": [
+        {
+          "id": "eco-ecosystem",
+          "order": 1,
+          "title": "O que e um ecossistema",
+          "phenomenon": "Por que a remocao de um predador pode colapsar uma floresta?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "eco-food-chains",
+          "order": 2,
+          "title": "Cadeias e teias alimentares",
+          "phenomenon": "Como a energia do sol alimenta um leao?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "eco-relations",
+          "order": 3,
+          "title": "Relacoes ecologicas",
+          "phenomenon": "Por que as abelhas precisam das flores e as flores precisam das abelhas?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "eco-cycles",
+          "order": 4,
+          "title": "Ciclos biogeoquimicos",
+          "phenomenon": "Os atomos do seu corpo ja foram parte de outro ser vivo?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "eco-human-impact",
+          "order": 5,
+          "title": "Impacto humano",
+          "phenomenon": "Como a extincao de uma especie pode afetar a sua alimentacao?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["evolution", "metabolism"],
+      "applications": ["ambiente", "alimentacao", "agricultura"],
+      "status": "available"
+    },
+    {
+      "id": "evolution",
+      "slug": "evolucao",
+      "number": "06",
+      "axis": "evolution",
+      "title": "Evolucao",
+      "subtitle": "O eixo integrador da biologia",
+      "description": "A evolucao nao e um modulo isolado — e o principio que unifica toda a biologia. Selecao natural, adaptacao, especiacao e ancestralidade comum sao o fio que conecta todos os outros modulos.",
+      "scales": ["organism", "population"],
+      "processes": ["selecao-natural", "adaptacao", "especiacao"],
+      "estimatedTime": "4h",
+      "lessons": [
+        {
+          "id": "evo-natural-selection",
+          "order": 1,
+          "title": "Selecao natural",
+          "phenomenon": "Por que bacterias ficam resistentes a antibioticos?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "evo-variation",
+          "order": 2,
+          "title": "Variacao e herança",
+          "phenomenon": "De onde vem a diversidade dentro de uma mesma especie?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "evo-adaptation",
+          "order": 3,
+          "title": "Adaptacao",
+          "phenomenon": "Por que uma cobra nao tem pernas mas seu ancestral tinha?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "evo-speciation",
+          "order": 4,
+          "title": "Especiacao",
+          "phenomenon": "Como duas populacoes da mesma especie se tornam duas especies diferentes?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        },
+        {
+          "id": "evo-integrator",
+          "order": 5,
+          "title": "Evolucao como eixo da biologia",
+          "phenomenon": "Por que o codigo genetico e quase identico em todas as especies da Terra?",
+          "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
+        }
+      ],
+      "keyConceptLinks": ["genetics", "ecology"],
+      "applications": ["antibioticos", "epidemias", "agricultura"],
+      "status": "available"
+    }
+  ]
+}

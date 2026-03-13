@@ -1,0 +1,139 @@
+{
+  "glossary": [
+    {
+      "id": "celula",
+      "term": "Celula",
+      "definition": "Unidade estrutural e funcional basica de todos os seres vivos. Pode existir de forma independente (unicelulares) ou como parte de organismos multicelulares.",
+      "axis": "organization",
+      "scale": "cellular",
+      "relatedTerms": ["membrana", "proteina", "metabolismo"],
+      "modules": ["cell"]
+    },
+    {
+      "id": "membrana",
+      "term": "Membrana plasmatica",
+      "definition": "Bicamada lipidica com proteinas que delimita a celula, controla o transporte de substancias e media a comunicacao com o ambiente externo.",
+      "axis": "organization",
+      "scale": "molecular",
+      "relatedTerms": ["celula", "proteina"],
+      "modules": ["cell"]
+    },
+    {
+      "id": "dna",
+      "term": "DNA",
+      "definition": "Acido desoxirribonucleico. Molecula de dupla helice que armazena a informacao genetica em sequencias de nucleotideos (bases A, T, C, G).",
+      "axis": "information",
+      "scale": "molecular",
+      "relatedTerms": ["gene", "proteina", "mutacao"],
+      "modules": ["genetics"]
+    },
+    {
+      "id": "gene",
+      "term": "Gene",
+      "definition": "Segmento de DNA que codifica uma proteina funcional ou RNA com funcao regulatoria. A unidade hereditaria basica.",
+      "axis": "information",
+      "scale": "molecular",
+      "relatedTerms": ["dna", "proteina", "mutacao"],
+      "modules": ["genetics"]
+    },
+    {
+      "id": "atp",
+      "term": "ATP",
+      "definition": "Adenosina trifosfato. Molecula que funciona como moeda energetica universal das celulas — armazena e transfere energia para reacoes biologicas.",
+      "axis": "energy",
+      "scale": "molecular",
+      "relatedTerms": ["metabolismo", "fotossintese", "mitocondria"],
+      "modules": ["metabolism"]
+    },
+    {
+      "id": "metabolismo",
+      "term": "Metabolismo",
+      "definition": "Conjunto de todas as reacoes quimicas de uma celula ou organismo. Inclui catabolismo (quebra com liberacao de energia) e anabolismo (sintese com consumo de energia).",
+      "axis": "energy",
+      "scale": "cellular",
+      "relatedTerms": ["atp", "fotossintese", "homeostase"],
+      "modules": ["metabolism"]
+    },
+    {
+      "id": "homeostase",
+      "term": "Homeostase",
+      "definition": "Capacidade dos sistemas biologicos de manter condicoes internas relativamente estaveis diante de variacoes no ambiente externo. Nao e estabilidade estatica, mas regulacao dinamica continua.",
+      "axis": "energy",
+      "scale": "system",
+      "relatedTerms": ["metabolismo", "atp"],
+      "modules": ["systems"]
+    },
+    {
+      "id": "selecao-natural",
+      "term": "Selecao natural",
+      "definition": "Mecanismo evolutivo pelo qual individuos com caracteristicas mais adaptadas ao ambiente sobrevivem e reproduzem mais, transmitindo essas caracteristicas as geracoes seguintes.",
+      "axis": "evolution",
+      "scale": "population",
+      "relatedTerms": ["adaptacao", "mutacao", "ecossistema"],
+      "modules": ["evolution"]
+    },
+    {
+      "id": "ecossistema",
+      "term": "Ecossistema",
+      "definition": "Sistema formado pela comunidade de organismos de uma area e os componentes abioticos (fisicos e quimicos) com os quais interagem.",
+      "axis": "evolution",
+      "scale": "ecosystem",
+      "relatedTerms": ["cadeia-alimentar", "selecao-natural", "fotossintese"],
+      "modules": ["ecology"]
+    },
+    {
+      "id": "mutacao",
+      "term": "Mutacao",
+      "definition": "Alteracao permanente na sequencia de DNA. Pode ser pontual (um nucleotideo) ou estrutural (segmentos). Pode ser neutra, deleteria ou benefica dependendo do contexto ambiental.",
+      "axis": "information",
+      "scale": "molecular",
+      "relatedTerms": ["dna", "gene", "selecao-natural"],
+      "modules": ["genetics", "evolution"]
+    },
+    {
+      "id": "fotossintese",
+      "term": "Fotossintese",
+      "definition": "Processo pelo qual organismos fotoautotróficos convertem energia luminosa em energia quimica, sintetizando moleculas organicas a partir de CO2 e agua.",
+      "axis": "energy",
+      "scale": "cellular",
+      "relatedTerms": ["atp", "metabolismo", "cadeia-alimentar"],
+      "modules": ["metabolism", "ecology"]
+    },
+    {
+      "id": "proteina",
+      "term": "Proteina",
+      "definition": "Macromolecula composta por cadeias de aminoacidos. Realiza virtualmente todas as funcoes moleculares da celula: estrutura, catalise, sinalizacao, transporte, defesa.",
+      "axis": "organization",
+      "scale": "molecular",
+      "relatedTerms": ["gene", "dna", "celula"],
+      "modules": ["cell", "genetics"]
+    },
+    {
+      "id": "mitocondria",
+      "term": "Mitocondria",
+      "definition": "Organela de dupla membrana responsavel pela respiracao celular aerobica e producao da maior parte do ATP. Possui DNA proprio — evidencia de origem endossimbiotica.",
+      "axis": "energy",
+      "scale": "cellular",
+      "relatedTerms": ["atp", "metabolismo", "celula"],
+      "modules": ["cell", "metabolism"]
+    },
+    {
+      "id": "adaptacao",
+      "term": "Adaptacao",
+      "definition": "Caracteristica hereditaria que aumenta a aptidao de um organismo em seu ambiente. Resultado da selecao natural ao longo de geracoes.",
+      "axis": "evolution",
+      "scale": "organism",
+      "relatedTerms": ["selecao-natural", "mutacao", "ecossistema"],
+      "modules": ["evolution"]
+    },
+    {
+      "id": "cadeia-alimentar",
+      "term": "Cadeia alimentar",
+      "definition": "Sequencia linear de organismos na qual cada um serve de alimento ao seguinte, representando o fluxo de energia e materia no ecossistema.",
+      "axis": "evolution",
+      "scale": "ecosystem",
+      "relatedTerms": ["ecossistema", "fotossintese", "adaptacao"],
+      "modules": ["ecology"]
+    }
+  ]
+}
