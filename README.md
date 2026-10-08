@@ -1,124 +1,64 @@
 # Darwin
 
-**Atlas dos Processos da Vida**
+![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=111111)
+![SVG](https://img.shields.io/badge/SVG-Scientific_Diagrams-FFB13B?logo=svg&logoColor=111111)
+![Status](https://img.shields.io/badge/Status-Work_in_Progress-D97706)
 
-Sistema educacional de Biologia. Parte do ecossistema educacional composto por
-Herodoto (Historia), Euclides (Matematica), Lavoisier (Quimica), Humboldt
-(Geografia), Archimedes (Fisica), entre outros.
+Work-in-progress biology atlas connecting living processes across molecular, cellular, organismal, population, and ecosystem scales.
 
----
+## Purpose
 
-## Sobre o projeto
+Darwin is not organized as a conventional encyclopedia. It presents biology as a network of processes operating at different scales. Learners can navigate through three complementary paths:
 
-Darwin nao e uma enciclopedia escolar. E um sistema navegavel dos processos
-vivos: da molecula ao ecossistema. O objetivo e mostrar que a Biologia e uma
-rede de processos em escalas diferentes, nao uma lista de topicos isolados.
+- Biological scale, from molecules to ecosystems.
+- Biological process, including structure, information, metabolism, regulation, and adaptation.
+- Real-world application, including health, genetics, epidemics, biotechnology, and the environment.
 
-O aluno pode entrar pelo sistema por tres caminhos:
-- Por escala biologica (molecular, celular, tecido, sistema, organismo, populacao, ecossistema)
-- Por processo biologico (estrutura, informacao, metabolismo, regulacao, adaptacao...)
-- Por aplicacao real (saude, genetica, epidemias, biotecnologia, ambiente...)
+## Technology
 
----
+- Semantic HTML5 and responsive CSS3.
+- Native JavaScript ES2022 modules.
+- Inline SVG scientific diagrams.
+- JSON as the content source of truth.
+- Hash-based client-side routing.
+- No framework, bundler, backend, or required external dependency.
 
-## Tecnologia
-
-- HTML5, CSS3, JavaScript ES2022 modular
-- Sem frameworks, sem bundler, sem backend
-- ES Modules nativos (`type="module"`)
-- SVG inline para diagramas e visualizacoes
-- JSON como unica fonte de dados
-- Compativel com GitHub Pages sem configuracao
-
----
-
-## Estrutura
-
-```
-darwin/
-  index.html
-  css/              tokens, layout, componentes, tema, mobile
-  js/               bootstrap, router, state, ui, acessibilidade
-  engine/           motores: escala, processo, conceito, comparacao, exercicio, dicas
-  components/       home, modulo, aplicacao, glossario
-  data/             JSONs: eixos, modulos, escalas, processos, aplicacoes, glossario, exercicios
-  tests/            test-runner.js (Node.js)
-  docs/             arquitetura, pedagogia, sistema visual, modulos, conteudo, guia de dev
-  CHANGELOG.md
-  README.md
-```
-
----
-
-## Rodar localmente
-
-Requer servidor HTTP (ES Modules nao funcionam via `file://`):
+## Run locally
 
 ```bash
-# Python
 python3 -m http.server 8080
-
-# Node
-npx serve .
 ```
 
-Acesse `http://localhost:8080`.
+Open `http://localhost:8080`. Native modules require an HTTP server.
 
-**Modo Professor:** adicionar `?teacher=1` na URL.
-
----
-
-## Testes
+## Tests
 
 ```bash
 node tests/test-runner.js
 ```
 
-Valida integridade dos JSONs, consistencia de referencias cruzadas e
-existencia de arquivos obrigatorios.
+The current test runner is still under development; a clean Node.js execution is required before the project should be presented as complete.
 
----
+## Structure
 
-## Conteudo V1
+```text
+css/          Design tokens, layout, components, themes, and mobile rules
+js/           Bootstrap, router, state, UI, and accessibility
+engine/       Scale, process, comparison, exercise, and diagram engines
+components/   Modules, applications, glossary, and home views
+data/         Axes, modules, scales, processes, applications, and exercises
+tests/        Data and engine checks
+docs/         Pedagogy, content model, module system, and visual system
+```
 
-Seis modulos cobrem o nucleo da Biologia:
+## Project status
 
-| # | Modulo | Eixo | Licoes |
-|---|---|---|---|
-| 01 | Celula | Organizacao da Vida | 5 |
-| 02 | DNA e Hereditariedade | Informacao e Hereditariedade | 5 |
-| 03 | Respiracao e Fotossintese | Energia e Funcao | 5 |
-| 04 | Sistemas do Corpo Humano | Energia e Funcao | 6 |
-| 05 | Ecologia | Evolucao e Ecologia | 5 |
-| 06 | Evolucao | Evolucao e Ecologia | 5 |
+Darwin is intentionally labeled as a work in progress. Content breadth, diagram coverage, and the automated test runner still need validation before a stable release.
 
-Cada licao segue a sequencia pedagogica:
-**fenomeno > visualizacao > processo > relacao de escala > aplicacao real > atividade**
+## Live version
 
----
+[luddevergard3n.github.io/darwin](https://luddevergard3n.github.io/darwin/)
 
-## Documentacao
+## License
 
-| Arquivo | Conteudo |
-|---|---|
-| `docs/architecture.md` | Arquitetura tecnica, roteamento, fluxo de boot |
-| `docs/pedagogy.md` | Filosofia pedagogica, estrutura de licao |
-| `docs/visual-system.md` | Tokens de cor, tipografia, componentes |
-| `docs/module-system.md` | Schema de modulos, como adicionar conteudo |
-| `docs/content-model.md` | Schema de todos os arquivos JSON |
-| `docs/development-guide.md` | Deploy, testes, convencoes de codigo |
-
----
-
-## Deploy
-
-GitHub Pages: Settings > Pages > Source: `main / (root)`.
-
-Nenhuma configuracao adicional. O roteamento hash nao requer
-redirecionamentos de servidor.
-
----
-
-## Versao
-
-`1.0.0` — Ver [CHANGELOG.md](CHANGELOG.md) para historico completo.
+See [LICENSE](LICENSE).
