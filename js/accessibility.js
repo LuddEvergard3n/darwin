@@ -97,7 +97,9 @@ const _handleEscape = () => {
   const nav = document.querySelector('.site-nav__links.is-open');
   if (nav) {
     nav.classList.remove('is-open');
-    document.querySelector('.site-nav__menu-toggle')?.focus();
+    const toggle = document.querySelector('.site-nav__menu-toggle');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.focus();
   }
 
   // Fechar glossario

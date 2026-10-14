@@ -111,7 +111,7 @@ const initMobileNav = () => {
     toggle.setAttribute('aria-expanded', 'false');
     State.set('ui.navOpen', false);
     toggle.focus();
-  });
+  }, true);
 
   // Fechar ao clicar num link
   links.querySelectorAll('a').forEach(link => {
