@@ -15,7 +15,7 @@
       "definition": "Bicamada lipídica com proteínas que delimita a célula, controla o transporte de substâncias e media a comunicação com o ambiente externo. Sua estrutura fluido-mosaico permite seletividade e sinalização.",
       "axis": "organization",
       "scale": "molecular",
-      "relatedTerms": ["celula", "proteina", "transporte-ativo"],
+      "relatedTerms": ["celula", "proteina"],
       "modules": ["cell"]
     },
     {
@@ -60,7 +60,7 @@
       "definition": "Capacidade dos sistemas biológicos de manter condições internas relativamente estáveis diante de variações no ambiente externo. Opera por feedback negativo. Não é estabilidade estática, mas regulação dinâmica contínua.",
       "axis": "energy",
       "scale": "system",
-      "relatedTerms": ["metabolismo", "feedback", "sistema-nervoso"],
+      "relatedTerms": ["metabolismo", "feedback"],
       "modules": ["systems"]
     },
     {
@@ -87,7 +87,7 @@
       "definition": "Alteração permanente na sequência de DNA. Pode ser pontual (substituição de nucleotídeo), frameshift (inserção/deleção) ou estrutural (inversão, translocação cromossômica). Pode ser neutra, deletéria ou benéfica.",
       "axis": "information",
       "scale": "molecular",
-      "relatedTerms": ["dna", "gene", "selecao-natural", "cancer"],
+      "relatedTerms": ["dna", "gene", "selecao-natural"],
       "modules": ["genetics", "evolution"]
     },
     {
@@ -150,7 +150,7 @@
       "definition": "Modificações herdáveis na expressão gênica que não alteram a sequência de DNA. Incluem metilação do DNA e modificações de histonas. Explicam como células com DNA idêntico têm identidades distintas (diferenciação celular).",
       "axis": "information",
       "scale": "molecular",
-      "relatedTerms": ["expressao-genica", "diferenciacao", "cromatina"],
+      "relatedTerms": ["expressao-genica", "diferenciacao"],
       "modules": ["genetics", "cell"]
     },
     {
@@ -159,7 +159,7 @@
       "definition": "Processo pelo qual uma população se divide em duas ou mais espécies reprodutivamente isoladas. Na especiação alopátrica, ocorre por barreira geográfica; na simpátrica, sem barreira, por seleção disruptiva ou poliploidia.",
       "axis": "evolution",
       "scale": "population",
-      "relatedTerms": ["selecao-natural", "adaptacao", "deriva-genetica", "isolamento-reproductivo"],
+      "relatedTerms": ["selecao-natural", "adaptacao", "deriva-genetica"],
       "modules": ["evolution"]
     },
     {
@@ -186,7 +186,7 @@
       "definition": "Mecanismo pelo qual o produto ou efeito de um processo regula o próprio processo. Feedback negativo: o produto inibe o processo, restaurando o equilíbrio (base da homeostase). Feedback positivo: o produto amplifica o processo (coagulação, parto, potencial de ação).",
       "axis": "organization",
       "scale": "system",
-      "relatedTerms": ["homeostase", "sinalização", "hormônios"],
+      "relatedTerms": ["homeostase"],
       "modules": ["systems"]
     },
     {
@@ -195,7 +195,7 @@
       "definition": "Conjunto de condições ambientais e recursos que uma espécie utiliza em um ecossistema — não apenas onde vive (habitat), mas como vive. Inclui papel funcional na teia alimentar, tolerâncias físicas e interações com outras espécies.",
       "axis": "evolution",
       "scale": "organism",
-      "relatedTerms": ["ecossistema", "adaptacao", "competicao", "cadeia-alimentar"],
+      "relatedTerms": ["ecossistema", "adaptacao", "cadeia-alimentar"],
       "modules": ["ecology", "evolution"]
     },
     {
@@ -213,7 +213,7 @@
       "definition": "Sinal elétrico propagado ao longo do axônio de um neurônio. Gerado pela abertura em cascata de canais de Na⁺ (despolarização) e K⁺ (repolarização). Na bainha de mielina, a condução é saltatória — o sinal 'pula' entre nódulos de Ranvier, aumentando a velocidade.",
       "axis": "organization",
       "scale": "cellular",
-      "relatedTerms": ["neuronio", "sinapse", "membrana", "feedback"],
+      "relatedTerms": ["sinapse", "membrana", "feedback"],
       "modules": ["systems"]
     },
     {
@@ -222,7 +222,7 @@
       "definition": "Junção especializada entre dois neurônios (ou entre neurônio e célula-alvo) onde a informação é transmitida quimicamente. O neurônio pré-sináptico libera neurotransmissores por exocitose; o pós-sináptico os recebe por receptores específicos.",
       "axis": "organization",
       "scale": "cellular",
-      "relatedTerms": ["potencial-de-acao", "neurotransmissor", "plasticidade-sinaptica"],
+      "relatedTerms": ["potencial-de-acao"],
       "modules": ["systems"]
     },
     {
@@ -258,7 +258,7 @@
       "definition": "Benefício que os ecossistemas fornecem a humanos: provisão (alimentos, água, madeira), regulação (clima, inundações, doenças), suporte (ciclagem de nutrientes, formação de solo) e cultural (recreação, valores espirituais). Valorados em trilhões de dólares/ano.",
       "axis": "evolution",
       "scale": "ecosystem",
-      "relatedTerms": ["ecossistema", "biodiversidade", "ciclo-carbono"],
+      "relatedTerms": ["ecossistema", "ciclo-carbono"],
       "modules": ["ecology"]
     },
     {

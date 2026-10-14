@@ -8,9 +8,10 @@
  * Uso: node tests/test-runner.js
  */
 
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { seededOrder } from '../engine/feedback-engine.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -202,6 +203,33 @@ const runDataTests = () => {
     });
   });
 
+  test('exercises.json: comparacoes declaram todas as categorias usadas', () => {
+    const { exercises } = loadJSON('data/exercises.json');
+    exercises.filter(exercise => exercise.type === 'comparison').forEach(exercise => {
+      const categoryIds = new Set((exercise.categories ?? ['F', 'R', 'A']).map(category => typeof category === 'string' ? category : category.id));
+      exercise.items.forEach(item => assert.ok(categoryIds.has(item.answer), `Exercício ${exercise.id} não oferece a categoria ${item.answer}`));
+    });
+  });
+
+  test('exercises.json: fluxos tem nós e sequência válida', () => {
+    const { exercises } = loadJSON('data/exercises.json');
+    exercises.filter(exercise => exercise.type === 'flow').forEach(exercise => {
+      assert.equal(exercise.nodes.length, exercise.correctFlow.length, `Fluxo ${exercise.id} possui sequência incompatível`);
+      exercise.correctFlow.forEach(index => assert.ok(Number.isInteger(index) && index >= 0 && index < exercise.nodes.length, `Fluxo ${exercise.id} possui índice inválido`));
+    });
+  });
+
+  test('editorial.json: fontes referenciadas por módulos existem', () => {
+    const editorial = loadJSON('data/editorial.json');
+    const ids = new Set(editorial.sources.map(source => source.id));
+    Object.values(editorial.moduleSources).flat().forEach(id => assert.ok(ids.has(id), `Fonte editorial ausente: ${id}`));
+  });
+
+  test('motor real: embaralhamento de ordenação é determinístico', () => {
+    const steps = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+    assert.equal(seededOrder(steps, 'exemplo').map(step => step.id).join(','), seededOrder(steps, 'exemplo').map(step => step.id).join(','));
+  });
+
   // applications.json
   test('applications.json: carrega sem erros', () => {
     const data = loadJSON('data/applications.json');
@@ -311,7 +339,6 @@ const runConsistencyTests = () => {
 
 const runStructureTests = () => {
   console.log('\n\n[Suite] Estrutura de arquivos');
-  import { existsSync } from 'fs';
 
   const requiredFiles = [
     'index.html',
@@ -342,6 +369,9 @@ const runStructureTests = () => {
     'data/applications.json',
     'data/glossary.json',
     'data/exercises.json',
+    'data/editorial.json',
+    'engine/diagram-engine.js',
+    'manifest.webmanifest', 'sw.js', 'server.js',
     'docs/architecture.md',
     'docs/pedagogy.md',
     'docs/visual-system.md',
@@ -393,36 +423,5 @@ console.log('Executando suites...');
 
 runDataTests();
 runConsistencyTests();
-
-// Estrutura requer existsSync importado dinamicamente no Node ESM
-// Executamos separado para isolar o import
-import('fs').then(({ existsSync }) => {
-  // Patch local para o teste de estrutura
-  global._existsSync = existsSync;
-
-  // Redefine para usar o existsSync disponivel
-  const requiredFiles = [
-    'index.html', 'css/base.css', 'css/layout.css', 'css/components.css',
-    'css/theme.css', 'css/mobile.css', 'js/main.js', 'js/router.js',
-    'js/state.js', 'js/ui.js', 'js/accessibility.js',
-    'engine/scale-engine.js', 'engine/process-engine.js',
-    'engine/concept-engine.js', 'engine/comparison-engine.js',
-    'engine/feedback-engine.js', 'engine/hint-system.js',
-    'components/home-hero.js', 'components/module-card.js',
-    'components/application-card.js', 'components/glossary-panel.js',
-    'data/axes.json', 'data/modules.json', 'data/scales.json',
-    'data/processes.json', 'data/applications.json',
-    'data/glossary.json', 'data/exercises.json',
-    'CHANGELOG.md', 'README.md',
-  ];
-
-  console.log('\n\n[Suite] Estrutura de arquivos');
-  requiredFiles.forEach(file => {
-    test(`Arquivo existe: ${file}`, () => {
-      const fullPath = resolve(__dirname, '..', file);
-      assert.ok(existsSync(fullPath), `Arquivo nao encontrado: ${file}`);
-    });
-  });
-
-  printReport();
-});
+runStructureTests();
+printReport();

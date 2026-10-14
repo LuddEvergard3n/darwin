@@ -97,7 +97,7 @@ const _navigate = () => {
   });
 
   // Rola para o topo em cada navegacao
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 
   // Atualiza aria-current nos links de nav
   _updateNavLinks(route);

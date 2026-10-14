@@ -145,6 +145,7 @@ const _renderLesson = (container, moduleId, lessonId) => {
   }
 
   const { mod, lesson } = result;
+  State.recordLesson(mod.id, lesson.id);
 
   // Índice para navegação prev/next
   const lessonIndex = mod.lessons.findIndex(l => l.id === lessonId);
@@ -170,11 +171,13 @@ const _renderLesson = (container, moduleId, lessonId) => {
         </p>
         <h1 class="lesson-header__title">${lesson.title}</h1>
         <p class="lesson-header__phenomenon">${lesson.phenomenon}</p>
+        <p class="lesson-header__meta">Revisão editorial: ${lesson.reviewStatus === 'reviewed' ? lesson.lastReviewed : 'pendente de revisão por fonte'}</p>
       </header>
 
       <div class="lesson" id="lesson-body">
         ${_renderLessonPhases(lesson, mod)}
       </div>
+      <details class="callout callout--info"><summary>Fontes e limites do modelo</summary><p>${lesson.modelLimitations}</p><ul>${lesson.sources.map(id => { const source = State.getValue('data.editorial')?.sources.find(item => item.id === id); return source ? `<li><a href="${source.url}" target="_blank" rel="noopener">${source.author} — ${source.title} (${source.year})</a></li>` : ''; }).join('')}</ul></details>
 
       <nav aria-label="Navegação de lições" class="lesson-nav">
         ${prevLesson ? `
@@ -258,7 +261,7 @@ const _renderPhaseBody = (phase, lesson, mod) => {
       `;
 
     case 'visualizacao':
-      return `<div id="diagram-${lesson.id}" class="diagram-container" aria-label="Diagrama — ${lesson.title}"></div>`;
+      return `<figure class="diagram-figure"><div id="diagram-${lesson.id}" class="diagram-container" aria-label="Diagrama esquemático — ${lesson.title}"></div><figcaption>Representação esquemática para estudo; não está em escala.</figcaption></figure>`;
 
     case 'processo':
       return lesson.processDescription

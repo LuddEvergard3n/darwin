@@ -163,13 +163,10 @@ const _renderAxisSection = (axisId, concepts) => {
  * @returns {string} HTML
  */
 const _renderGlossaryItem = (concept) => `
-  <li class="glossary-panel__item"
-      role="button"
-      tabindex="0"
-      aria-expanded="false"
-      data-concept-id="${concept.id}">
-    <p class="glossary-panel__term">${concept.term}</p>
-    <div class="glossary-panel__definition">
+  <li class="glossary-panel__item" data-concept-id="${concept.id}">
+    <details class="glossary-panel__disclosure">
+      <summary class="glossary-panel__term">${concept.term}</summary>
+      <div class="glossary-panel__definition">
       <p class="glossary-definition">${concept.definition}</p>
       ${concept.relatedTerms.length > 0 ? `
         <div class="concept-links">
@@ -191,7 +188,8 @@ const _renderGlossaryItem = (concept) => `
           `).join('')}
         </div>
       ` : ''}
-    </div>
+      </div>
+    </details>
   </li>
 `;
 
@@ -200,19 +198,15 @@ const _renderGlossaryItem = (concept) => `
  * @param {HTMLElement} container
  */
 const _initGlossaryInteractions = (container) => {
-  // Expandir/colapsar items
-  container.querySelectorAll('.glossary-panel__item').forEach(item => {
-    const toggle = () => {
-      const isOpen = item.classList.toggle('is-open');
-      item.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    };
-    item.addEventListener('click', toggle);
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggle();
-      }
-    });
+  container.addEventListener('click', event => {
+    const related = event.target.closest('[data-concept-link]');
+    if (!related) return;
+    const target = container.querySelector(`[data-concept-id="${related.dataset.conceptLink}"]`);
+    if (!target) return;
+    const details = target.querySelector('details');
+    details.open = true;
+    target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    target.querySelector('summary')?.focus();
   });
 
   // Busca live
@@ -236,9 +230,11 @@ const _initGlossaryInteractions = (container) => {
     searchResults.style.display   = '';
 
     if (results.length === 0) {
-      searchResults.innerHTML = `
-        <p class="empty-state__text">Nenhum conceito encontrado para &ldquo;${query}&rdquo;.</p>
-      `;
+      searchResults.replaceChildren();
+      const empty = document.createElement('p');
+      empty.className = 'empty-state__text';
+      empty.textContent = `Nenhum conceito encontrado para “${query}”.`;
+      searchResults.append(empty);
     } else {
       searchResults.innerHTML = `
         <div class="glossary-panel">
@@ -247,10 +243,6 @@ const _initGlossaryInteractions = (container) => {
           </ul>
         </div>
       `;
-      // Re-inicializar toggle nos resultados dinâmicos
-      searchResults.querySelectorAll('.glossary-panel__item').forEach(item => {
-        item.addEventListener('click', () => item.classList.toggle('is-open'));
-      });
     }
   });
 };

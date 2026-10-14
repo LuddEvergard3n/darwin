@@ -34,9 +34,10 @@ const render = (container, params) => {
   const modules      = data.modules.modules;
   const scales       = data.scales.scales;
   const applications = data.applications.applications;
+  const progress = State.getValue('progress');
 
   container.innerHTML = `
-    ${_renderHero(scales)}
+    ${_renderHero(scales, progress)}
     ${_renderAxesSection(axes)}
     ${_renderScalesSection(scales)}
     ${_renderApplicationsSection(applications)}
@@ -51,7 +52,7 @@ const render = (container, params) => {
    SEÇÕES DA HOME
    ============================================================ */
 
-const _renderHero = (scales) => `
+const _renderHero = (scales, progress) => `
   <section class="home-hero" aria-labelledby="hero-title">
     <div class="container">
       <div class="hero-layout">
@@ -73,7 +74,9 @@ const _renderHero = (scales) => `
             <a href="#/glossario" class="btn btn--ghost btn--lg">
               Explorar conceitos
             </a>
+            ${progress?.lastStudy ? `<a href="#/modulo/${progress.lastStudy.moduleId}/${progress.lastStudy.lessonId}" class="btn btn--ghost btn--lg">Retomar estudo</a>` : ''}
           </div>
+          ${progress?.completedExercises?.length ? `<p class="home-hero__subtitle">${progress.completedLessons.length} lições visitadas · ${progress.completedExercises.length} atividades concluídas</p>` : ''}
         </div>
 
         <div id="hero-diagram-container" aria-hidden="true"></div>
@@ -260,6 +263,8 @@ const _initHeroSVG = (container, scales) => {
   const sorted = [...scales].sort((a, b) => a.order - b.order);
   const svg    = ScaleEngine.buildHeroDiagram(sorted);
   diagramContainer.appendChild(svg);
+  svg.setAttribute('aria-hidden', 'true');
+  svg.querySelectorAll('a, [tabindex]').forEach(element => element.setAttribute('tabindex', '-1'));
 };
 
 /**

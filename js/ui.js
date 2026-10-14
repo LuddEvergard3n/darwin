@@ -12,12 +12,15 @@
 
 import State from './state.js';
 import Router from './router.js';
+import Accessibility from './accessibility.js';
 
 /** Referencia ao container principal de conteudo. */
 let _contentEl = null;
 
 /** Cache de modulos de view ja carregados. */
 const _viewCache = new Map();
+let _renderVersion = 0;
+let _destroyCurrentView = null;
 
 /**
  * Mapa de view -> modulo que sabe renderiza-la.
@@ -61,6 +64,9 @@ const init = (contentEl) => {
  */
 const _dispatch = async (view, params) => {
   if (!_contentEl) return;
+  const version = ++_renderVersion;
+  _destroyCurrentView?.();
+  _destroyCurrentView = null;
 
   _showLoading();
 
@@ -81,17 +87,20 @@ const _dispatch = async (view, params) => {
       mod = await loader();
       _viewCache.set(view, mod);
     }
+    if (version !== _renderVersion) return;
 
     _contentEl.innerHTML = '';
 
     if (typeof mod.render === 'function') {
-      mod.render(_contentEl, params);
+      _destroyCurrentView = mod.render(_contentEl, params) ?? null;
     } else if (typeof mod.default === 'function') {
-      mod.default(_contentEl, params);
+      _destroyCurrentView = mod.default(_contentEl, params) ?? null;
     } else {
       _renderNotFound();
     }
+    if (version === _renderVersion) Accessibility.onViewRendered();
   } catch (err) {
+    if (version !== _renderVersion) return;
     console.error(`[UI] Erro ao carregar view '${view}':`, err);
     _renderError(err);
   }
@@ -159,7 +168,7 @@ const _renderError = (err) => {
         Falha ao carregar conteudo
       </h2>
       <p style="color: var(--color-text-secondary); margin-bottom: 2rem; font-family: var(--font-mono); font-size: var(--text-sm);">
-        ${err.message}
+        ${String(err.message || 'Erro desconhecido').replace(/[<>&]/g, char => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[char]))}
       </p>
       <a href="#/" class="btn btn--secondary">Voltar ao início</a>
     </div>

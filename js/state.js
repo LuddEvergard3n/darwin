@@ -8,6 +8,14 @@
  */
 
 const State = (() => {
+  const STORAGE_KEY = 'darwin_state_v1';
+  const defaultProgress = () => ({
+    version: 1,
+    completedLessons: [],
+    completedExercises: [],
+    exerciseResults: {},
+    lastStudy: null,
+  });
   /**
    * Estado interno — nao expor diretamente.
    * Toda mutacao passa por setState().
@@ -44,11 +52,7 @@ const State = (() => {
       glossaryFilter:   '',
     },
 
-    // Estado de progresso do usuario (in-memory apenas — sem localStorage)
-    progress: {
-      completedLessons:  [],
-      completedExercises: [],
-    },
+    progress: defaultProgress(),
   };
 
   /** Listeners registrados por chave de caminho. */
@@ -94,6 +98,7 @@ const State = (() => {
 
     // Notificar listeners do caminho exato e de caminhos pai
     _notify(path, value, prev);
+    if (path.startsWith('progress.') || path === 'ui.teacherMode') _persist();
   };
 
   /**
@@ -154,7 +159,53 @@ const State = (() => {
     });
   };
 
-  return { get, getValue, set, setMany, subscribe, loadData };
+  const _safeArray = value => Array.isArray(value) ? [...new Set(value.filter(item => typeof item === 'string'))] : [];
+  const _loadProgress = () => {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (!stored || stored.version !== 1) return;
+      _state.progress = {
+        ...defaultProgress(),
+        completedLessons: _safeArray(stored.completedLessons),
+        completedExercises: _safeArray(stored.completedExercises),
+        exerciseResults: stored.exerciseResults && typeof stored.exerciseResults === 'object' ? stored.exerciseResults : {},
+        lastStudy: stored.lastStudy && typeof stored.lastStudy === 'object' ? stored.lastStudy : null,
+      };
+      _state.ui.teacherMode = Boolean(stored.teacherMode);
+    } catch (_) {
+      // Storage indisponível ou corrompido: manter estado inicial sem apagar dados desconhecidos.
+    }
+  };
+  const _persist = () => {
+    if (typeof localStorage === 'undefined') return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ ..._state.progress, teacherMode: _state.ui.teacherMode }));
+    } catch (_) { /* armazenamento privado ou cheio não bloqueia estudo */ }
+  };
+  const recordExercise = (exerciseId, isCorrect, answer = null) => {
+    if (typeof exerciseId !== 'string') return;
+    const previous = _state.progress.exerciseResults[exerciseId] ?? { attempts: 0 };
+    _state.progress.exerciseResults[exerciseId] = { attempts: previous.attempts + 1, isCorrect: Boolean(isCorrect), answer };
+    if (isCorrect && !_state.progress.completedExercises.includes(exerciseId)) _state.progress.completedExercises.push(exerciseId);
+    _persist();
+    _notify('progress.exerciseResults', _state.progress.exerciseResults, previous);
+  };
+  const recordLesson = (moduleId, lessonId) => {
+    if (!lessonId) return;
+    if (!_state.progress.completedLessons.includes(lessonId)) _state.progress.completedLessons.push(lessonId);
+    _state.progress.lastStudy = { moduleId, lessonId };
+    _persist();
+    _notify('progress', _state.progress, null);
+  };
+  const resetProgress = () => {
+    _state.progress = defaultProgress();
+    _persist();
+    _notify('progress', _state.progress, null);
+  };
+  _loadProgress();
+
+  return { get, getValue, set, setMany, subscribe, loadData, recordExercise, recordLesson, resetProgress };
 })();
 
 export default State;

@@ -1,462 +1,118 @@
-/**
- * feedback-engine.js
- * Darwin — Atlas dos Processos da Vida
- *
- * Motor de exercícios e feedback.
- * Tipos suportados: analysis, ordering, comparison, association.
- *
- * Todos os layouts usam classes CSS definidas em components.css.
- * Nenhum inline style de layout.
- */
-
-import State        from '../js/state.js';
+/** Motor dos exercícios do Darwin, sem dependências externas. */
+import State from '../js/state.js';
 import Accessibility from '../js/accessibility.js';
 
-/** Tipos de exercício suportados. */
-const EXERCISE_TYPES = {
-  ASSOCIATION: 'association',
-  ORDERING:    'ordering',
-  FLOW:        'flow',
-  COMPARISON:  'comparison',
-  ANALYSIS:    'analysis',
+const EXERCISE_TYPES = { ASSOCIATION: 'association', ORDERING: 'ordering', FLOW: 'flow', COMPARISON: 'comparison', ANALYSIS: 'analysis' };
+const getExercise = id => State.getValue('data.exercises')?.exercises.find(exercise => exercise.id === id) ?? null;
+const getByModule = id => State.getValue('data.exercises')?.exercises.filter(exercise => exercise.module === id) ?? [];
+const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+
+const record = (exercise, correct, answer) => {
+  State.recordExercise(exercise.id, correct, answer);
+  Accessibility.announce(correct ? 'Resposta correta.' : 'Resposta registrada. Consulte o feedback e tente novamente.');
 };
 
-/**
- * Retorna os dados de um exercício pelo ID.
- * @param {string} exerciseId
- * @returns {object|null}
- */
-const getExercise = (exerciseId) => {
-  const data = State.getValue('data.exercises');
-  if (!data) return null;
-  return data.exercises.find(e => e.id === exerciseId) ?? null;
-};
-
-/**
- * Retorna exercícios de um módulo.
- * @param {string} moduleId
- * @returns {Array}
- */
-const getByModule = (moduleId) => {
-  const data = State.getValue('data.exercises');
-  if (!data) return [];
-  return data.exercises.filter(e => e.module === moduleId);
-};
-
-/**
- * Renderiza um exercício no container fornecido.
- * @param {HTMLElement} container
- * @param {string} exerciseId
- */
-const renderExercise = (container, exerciseId) => {
-  const exercise = getExercise(exerciseId);
-  if (!exercise) {
-    container.innerHTML = `<p class="exercise__not-found">Exercício não encontrado.</p>`;
-    return;
-  }
-
-  switch (exercise.type) {
-    case EXERCISE_TYPES.ANALYSIS:    _renderAnalysis(container, exercise);    break;
-    case EXERCISE_TYPES.ORDERING:    _renderOrdering(container, exercise);    break;
-    case EXERCISE_TYPES.COMPARISON:  _renderComparison(container, exercise);  break;
-    case EXERCISE_TYPES.ASSOCIATION: _renderAssociation(container, exercise); break;
-    default:
-      container.innerHTML = `<p class="exercise__not-found">Tipo não suportado: ${exercise.type}</p>`;
-  }
-};
-
-/* ============================================================
-   TIPO: ANÁLISE (múltipla escolha argumentativa)
-   ============================================================ */
-
-/**
- * @param {HTMLElement} container
- * @param {object} exercise
- */
-const _renderAnalysis = (container, exercise) => {
-  container.innerHTML = `
-    <div class="exercise" id="ex-${exercise.id}">
-      <div class="exercise__header">
-        <span class="exercise__type">Análise — ${exercise.title}</span>
-      </div>
-      <div class="exercise__body">
-        <p class="exercise__question">${exercise.question}</p>
-        <ul class="exercise__options" role="listbox" aria-label="Opções de resposta">
-          ${exercise.options.map(opt => `
-            <li class="exercise__option"
-                role="option"
-                tabindex="0"
-                aria-selected="false"
-                data-option-id="${opt.id}">
-              ${opt.text}
-            </li>
-          `).join('')}
-        </ul>
-        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert">
-          <p id="feedback-text-${exercise.id}"></p>
-        </div>
-      </div>
-      <div class="exercise__footer">
-        <div id="hint-area-${exercise.id}"></div>
-        <button class="btn btn--primary" id="submit-${exercise.id}" disabled>
-          Confirmar resposta
-        </button>
-      </div>
-    </div>
-  `;
-
-  const options     = container.querySelectorAll('.exercise__option');
-  const submitBtn   = container.querySelector(`#submit-${exercise.id}`);
-  const feedbackDiv = container.querySelector(`#feedback-${exercise.id}`);
-  const feedbackTxt = container.querySelector(`#feedback-text-${exercise.id}`);
-  let answered = false;
-
-  options.forEach(opt => {
-    const select = () => {
-      if (answered) return;
-      options.forEach(o => {
-        o.classList.remove('is-selected');
-        o.setAttribute('aria-selected', 'false');
-      });
-      opt.classList.add('is-selected');
-      opt.setAttribute('aria-selected', 'true');
-      submitBtn.disabled = false;
-    };
-    opt.addEventListener('click', select);
-    opt.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
-    });
-  });
-
-  submitBtn.addEventListener('click', () => {
-    const selectedId = container.querySelector('.exercise__option.is-selected')
-      ?.getAttribute('data-option-id');
-    if (!selectedId || answered) return;
-    answered = true;
-
-    const chosen    = exercise.options.find(o => o.id === selectedId);
-    const isCorrect = chosen?.isCorrect ?? false;
-
-    options.forEach(opt => {
-      const optData = exercise.options.find(o => o.id === opt.getAttribute('data-option-id'));
-      if (optData?.isCorrect)                                          opt.classList.add('is-correct');
-      else if (opt.getAttribute('data-option-id') === selectedId && !isCorrect) opt.classList.add('is-wrong');
-    });
-
-    feedbackTxt.textContent = chosen?.feedback ?? '';
-    feedbackDiv.classList.add('is-visible');
-    submitBtn.disabled  = true;
-    submitBtn.textContent = isCorrect ? 'Correto' : 'Ver resposta correta';
-
-    if (State.getValue('ui.teacherMode') && exercise.teacherGuide) {
-      _appendTeacherGuide(container.querySelector(`#ex-${exercise.id}`), exercise.teacherGuide);
-    }
-
-    Accessibility.announce(isCorrect
-      ? 'Resposta correta. ' + (chosen?.feedback ?? '')
-      : 'Resposta incorreta. ' + (chosen?.feedback ?? '')
-    );
-  });
-};
-
-/* ============================================================
-   TIPO: ORDENAÇÃO
-   ============================================================ */
-
-/**
- * @param {HTMLElement} container
- * @param {object} exercise
- */
-const _renderOrdering = (container, exercise) => {
-  const shuffled = [...exercise.steps].sort(() => Math.random() - 0.5);
-
-  container.innerHTML = `
-    <div class="exercise" id="ex-${exercise.id}">
-      <div class="exercise__header">
-        <span class="exercise__type">Ordenação — ${exercise.title}</span>
-      </div>
-      <div class="exercise__body">
-        <p class="exercise__question">${exercise.question}</p>
-        <p class="exercise__hint-text">Use os botões para ordenar os itens.</p>
-        <ul class="exercise__order-list" id="order-list-${exercise.id}">
-          ${shuffled.map((step, i) => `
-            <li class="exercise__order-item" data-step-id="${step.id}" data-pos="${i}">
-              <span>${step.text}</span>
-              <div class="exercise__order-controls">
-                <button class="btn btn--ghost btn--sm" data-move="up"   aria-label="Mover para cima">↑</button>
-                <button class="btn btn--ghost btn--sm" data-move="down" aria-label="Mover para baixo">↓</button>
-              </div>
-            </li>
-          `).join('')}
-        </ul>
-        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert">
-          <p id="feedback-text-${exercise.id}"></p>
-        </div>
-      </div>
-      <div class="exercise__footer">
-        <span></span>
-        <button class="btn btn--primary" id="submit-${exercise.id}">Verificar ordem</button>
-      </div>
-    </div>
-  `;
-
-  const list        = container.querySelector(`#order-list-${exercise.id}`);
-  const submitBtn   = container.querySelector(`#submit-${exercise.id}`);
-  const feedback    = container.querySelector(`#feedback-${exercise.id}`);
-  const feedbackTxt = container.querySelector(`#feedback-text-${exercise.id}`);
-
-  list.addEventListener('click', (e) => {
-    const moveBtn = e.target.closest('[data-move]');
-    if (!moveBtn) return;
-    const direction = moveBtn.getAttribute('data-move');
-    const item      = moveBtn.closest('li');
-    const items     = [...list.querySelectorAll('li')];
-    const idx       = items.indexOf(item);
-    if (direction === 'up'   && idx > 0)              list.insertBefore(item, items[idx - 1]);
-    if (direction === 'down' && idx < items.length - 1) list.insertBefore(items[idx + 1], item);
-  });
-
-  submitBtn.addEventListener('click', () => {
-    const currentOrder = [...list.querySelectorAll('li')].map(li => li.getAttribute('data-step-id'));
-    const correctOrder = [...exercise.steps].sort((a, b) => a.order - b.order).map(s => s.id);
-    const isCorrect    = currentOrder.every((id, i) => id === correctOrder[i]);
-
-    feedbackTxt.textContent = isCorrect
-      ? 'Ordem correta. Esta é a sequência correta do processo.'
-      : 'Ordem incorreta. Confira a sequência e tente novamente.';
-    feedback.classList.add('is-visible');
-
-    if (isCorrect) { submitBtn.textContent = 'Correto'; submitBtn.disabled = true; }
-    Accessibility.announce(isCorrect ? 'Ordem correta.' : 'Ordem incorreta. Tente novamente.');
-  });
-};
-
-/* ============================================================
-   TIPO: COMPARAÇÃO (F / R / A)
-   ============================================================ */
-
-/**
- * @param {HTMLElement} container
- * @param {object} exercise
- */
-const _renderComparison = (container, exercise) => {
-  container.innerHTML = `
-    <div class="exercise" id="ex-${exercise.id}">
-      <div class="exercise__header">
-        <span class="exercise__type">Comparação — ${exercise.title}</span>
-      </div>
-      <div class="exercise__body">
-        <p class="exercise__question">${exercise.question}</p>
-        <div class="exercise__comparison-grid">
-          ${exercise.items.map(item => `
-            <div class="exercise__comparison-row">
-              <span class="exercise__comparison-text">${item.text}</span>
-              <div class="exercise__comparison-buttons">
-                ${['F', 'R', 'A'].map(opt => `
-                  <button class="btn btn--ghost btn--sm comparison-btn"
-                          data-item="${item.id}"
-                          data-option="${opt}"
-                          aria-label="${opt} para '${item.text}'">
-                    ${opt}
-                  </button>
-                `).join('')}
-              </div>
-              <div class="comparison-feedback exercise__comparison-indicator"
-                   data-item-feedback="${item.id}"></div>
-            </div>
-          `).join('')}
-        </div>
-        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert"></div>
-      </div>
-      <div class="exercise__footer">
-        <span></span>
-        <button class="btn btn--primary" id="submit-${exercise.id}">Verificar respostas</button>
-      </div>
-    </div>
-  `;
-
-  const choices   = {};
-  const submitBtn = container.querySelector(`#submit-${exercise.id}`);
-  const feedback  = container.querySelector(`#feedback-${exercise.id}`);
-
-  container.querySelectorAll('.comparison-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const itemId = btn.getAttribute('data-item');
-      container.querySelectorAll(`[data-item="${itemId}"].comparison-btn`).forEach(b => {
-        b.classList.remove('is-active');
-      });
-      choices[itemId] = btn.getAttribute('data-option');
-      btn.classList.add('is-active');
-    });
-  });
-
-  submitBtn.addEventListener('click', () => {
-    let correct = 0;
-    exercise.items.forEach(item => {
-      const fb     = container.querySelector(`[data-item-feedback="${item.id}"]`);
-      const chosen = choices[item.id];
-      const ok     = chosen === item.answer;
-      if (ok) correct++;
-      if (fb) {
-        fb.textContent = ok ? 'V' : 'X';
-        fb.classList.add(ok ? 'exercise__comparison-indicator--correct' : 'exercise__comparison-indicator--wrong');
-      }
-    });
-
-    const total = exercise.items.length;
-    feedback.classList.add('is-visible');
-    feedback.innerHTML = `
-      <p><strong>${correct}/${total}</strong> corretos.</p>
-      ${correct < total ? `
-        <ul class="exercise__feedback-list">
-          ${exercise.items
-            .filter(item => choices[item.id] !== item.answer)
-            .map(item => `<li>${item.text}: resposta correta é <strong>${item.answer}</strong>. ${item.explanation}</li>`)
-            .join('')}
-        </ul>
-      ` : ''}
-    `;
-  });
-};
-
-/* ============================================================
-   TIPO: ASSOCIAÇÃO (coluna esquerda → direita)
-   ============================================================ */
-
-/**
- * @param {HTMLElement} container
- * @param {object} exercise
- */
-const _renderAssociation = (container, exercise) => {
-  container.innerHTML = `
-    <div class="exercise" id="ex-${exercise.id}">
-      <div class="exercise__header">
-        <span class="exercise__type">Associação — ${exercise.title}</span>
-      </div>
-      <div class="exercise__body">
-        <p class="exercise__question">${exercise.question}</p>
-        <p class="exercise__hint-text">
-          Selecione um item da coluna esquerda, depois o correspondente da direita.
-        </p>
-        <div class="exercise__association-grid">
-          <div class="exercise__association-col">
-            <p class="exercise__association-colhead">Estrutura</p>
-            ${exercise.items.map(item => `
-              <button class="exercise__association-btn assoc-left"
-                      data-id="${item.id}"
-                      data-match="${item.matchId}">
-                ${item.text}
-              </button>
-            `).join('')}
-          </div>
-          <div class="exercise__association-col">
-            <p class="exercise__association-colhead">Função</p>
-            ${exercise.matches.map(match => `
-              <button class="exercise__association-btn assoc-right"
-                      data-id="${match.id}">
-                ${match.text}
-              </button>
-            `).join('')}
-          </div>
-        </div>
-        <div class="exercise__feedback" id="feedback-${exercise.id}" role="alert"></div>
-      </div>
-    </div>
-  `;
-
-  let selectedLeft = null;
-  const matched    = {};
-  const feedback   = container.querySelector(`#feedback-${exercise.id}`);
-
-  container.querySelectorAll('.assoc-left').forEach(btn => {
-    btn.addEventListener('click', () => {
-      container.querySelectorAll('.assoc-left').forEach(b => b.classList.remove('is-selected'));
-      selectedLeft = btn;
-      btn.classList.add('is-selected');
-    });
-  });
-
-  container.querySelectorAll('.assoc-right').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (!selectedLeft) return;
-
-      const leftId    = selectedLeft.getAttribute('data-id');
-      const leftMatch = selectedLeft.getAttribute('data-match');
-      const rightId   = btn.getAttribute('data-id');
-      const isCorrect = leftMatch === rightId;
-
-      selectedLeft.classList.remove('is-selected');
-      selectedLeft.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
-      if (isCorrect) btn.classList.add('is-correct');
-
-      matched[leftId] = rightId;
-      selectedLeft.disabled = true;
-      if (isCorrect) btn.disabled = true;
-      selectedLeft = null;
-
-      if (Object.keys(matched).length === exercise.items.length) {
-        const allCorrect = exercise.items.every(item => matched[item.id] === item.matchId);
-        feedback.classList.add('is-visible');
-        feedback.innerHTML = allCorrect
-          ? '<p>Todas as associações estão corretas.</p>'
-          : '<p>Algumas associações estão incorretas. Os itens corretos estão marcados em verde.</p>';
-      }
-    });
-  });
-};
-
-/* ============================================================
-   PAINEL PROFESSOR
-   ============================================================ */
-
-/**
- * Adiciona o painel de modo professor ao exercício.
- * @param {HTMLElement} exerciseEl
- * @param {object} guide
- */
-const _appendTeacherGuide = (exerciseEl, guide) => {
-  const panel = document.createElement('div');
+const appendGuide = (root, guide) => {
+  if (!State.getValue('ui.teacherMode') || !guide) return;
+  const fields = [['Objetivo', guide.objective], ['Conceito central', guide.centralConcept], ['Relação de escala', guide.scaleRelation], ['Mediação sugerida', guide.mediationSuggestion], ['Tempo estimado', guide.estimatedMinutes && `${guide.estimatedMinutes} min`]].filter(([, value]) => value);
+  if (!fields.length) return;
+  const panel = document.createElement('aside');
   panel.className = 'teacher-panel';
-  panel.innerHTML = `
-    <div class="teacher-panel__header">
-      <span class="teacher-panel__label">Modo Professor</span>
-    </div>
-    ${guide.objective ? `
-      <div class="teacher-panel__section">
-        <p class="teacher-panel__section-title">Objetivo</p>
-        <p class="teacher-panel__section-body">${guide.objective}</p>
-      </div>
-    ` : ''}
-    ${guide.centralConcept ? `
-      <div class="teacher-panel__section">
-        <p class="teacher-panel__section-title">Conceito central</p>
-        <p class="teacher-panel__section-body">${guide.centralConcept}</p>
-      </div>
-    ` : ''}
-    ${guide.scaleRelation ? `
-      <div class="teacher-panel__section">
-        <p class="teacher-panel__section-title">Relação de escala</p>
-        <p class="teacher-panel__section-body">${guide.scaleRelation}</p>
-      </div>
-    ` : ''}
-    ${guide.mediationSuggestion ? `
-      <div class="teacher-panel__section">
-        <p class="teacher-panel__section-title">Mediação sugerida</p>
-        <p class="teacher-panel__section-body">${guide.mediationSuggestion}</p>
-      </div>
-    ` : ''}
-    ${guide.estimatedMinutes ? `
-      <div class="teacher-panel__section">
-        <p class="teacher-panel__section-title">Tempo estimado</p>
-        <p class="teacher-panel__section-body teacher-panel__section-body--mono">
-          ${guide.estimatedMinutes} min
-        </p>
-      </div>
-    ` : ''}
-  `;
-  exerciseEl.appendChild(panel);
+  panel.innerHTML = `<p class="teacher-panel__label">Modo Professor</p>${fields.map(([label, value]) => `<p><strong>${escape(label)}:</strong> ${escape(value)}</p>`).join('')}`;
+  root.append(panel);
 };
 
-const FeedbackEngine = { renderExercise, getExercise, getByModule, EXERCISE_TYPES };
+const addHint = (root, exercise) => {
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'btn btn--ghost btn--sm'; button.textContent = 'Ver dica';
+  const note = document.createElement('p'); note.className = 'hint'; note.hidden = true;
+  note.textContent = exercise.hint || 'Volte ao fenômeno e identifique a relação ou sequência que o enunciado pede.';
+  button.addEventListener('click', () => { note.hidden = !note.hidden; button.textContent = note.hidden ? 'Ver dica' : 'Ocultar dica'; });
+  root.append(button, note);
+};
 
-export default FeedbackEngine;
+const shell = (container, exercise, label, body) => {
+  container.innerHTML = `<section class="exercise" id="ex-${escape(exercise.id)}"><header class="exercise__header"><span class="exercise__type">${label} — ${escape(exercise.title)}</span></header><div class="exercise__body"><p class="exercise__question">${escape(exercise.question)}</p>${body}</div><footer class="exercise__footer"></footer></section>`;
+  const root = container.firstElementChild;
+  addHint(root.querySelector('.exercise__footer'), exercise);
+  appendGuide(root, exercise.teacherGuide);
+  return root;
+};
+
+const renderAnalysis = (container, exercise) => {
+  const root = shell(container, exercise, 'Análise', `<fieldset class="exercise__options"><legend class="sr-only">Opções de resposta</legend>${exercise.options.map(option => `<label class="exercise__option"><input type="radio" name="${escape(exercise.id)}" value="${escape(option.id)}"> ${escape(option.text)}</label>`).join('')}</fieldset><div class="exercise__feedback" role="status" hidden></div>`);
+  const submit = document.createElement('button'); submit.className = 'btn btn--primary'; submit.textContent = 'Confirmar resposta';
+  root.querySelector('.exercise__footer').append(submit);
+  submit.addEventListener('click', () => {
+    const answer = root.querySelector('input:checked')?.value; if (!answer) return;
+    const option = exercise.options.find(item => item.id === answer); const correct = Boolean(option?.isCorrect);
+    root.querySelectorAll('input').forEach(input => input.disabled = true);
+    const feedback = root.querySelector('.exercise__feedback'); feedback.hidden = false; feedback.textContent = option?.feedback ?? '';
+    submit.disabled = true; record(exercise, correct, answer);
+    const restart = document.createElement('button'); restart.type = 'button'; restart.className = 'btn btn--ghost btn--sm'; restart.textContent = 'Tentar novamente';
+    restart.addEventListener('click', () => renderAnalysis(container, exercise));
+    root.querySelector('.exercise__footer').append(restart);
+  });
+};
+
+const seededOrder = (items, seed) => {
+  let value = [...seed].reduce((sum, char) => (sum * 31 + char.charCodeAt(0)) >>> 0, 2166136261);
+  return [...items].map(item => ({ item, value: (value = (value * 1664525 + 1013904223) >>> 0) })).sort((a, b) => a.value - b.value).map(entry => entry.item);
+};
+
+const renderOrdering = (container, exercise, flow = false) => {
+  const steps = flow ? exercise.nodes.map((text, index) => ({ id: String(index), text, order: index + 1 })) : exercise.steps;
+  const root = shell(container, exercise, flow ? 'Fluxo' : 'Ordenação', `<p class="exercise__hint-text">Use os botões para organizar a sequência.</p><ol class="exercise__order-list">${seededOrder(steps, exercise.id).map(step => `<li class="exercise__order-item" data-id="${escape(step.id)}"><span>${escape(step.text)}</span><span><button type="button" class="btn btn--ghost btn--sm" data-move="up" aria-label="Mover para cima">↑</button><button type="button" class="btn btn--ghost btn--sm" data-move="down" aria-label="Mover para baixo">↓</button></span></li>`).join('')}</ol><div class="exercise__feedback" role="status" hidden></div>`);
+  const list = root.querySelector('ol'); const footer = root.querySelector('.exercise__footer');
+  const submit = document.createElement('button'); submit.className = 'btn btn--primary'; submit.textContent = 'Verificar ordem'; footer.append(submit);
+  list.addEventListener('click', event => {
+    const button = event.target.closest('[data-move]'); if (!button || submit.disabled) return;
+    const item = button.closest('li'); const sibling = button.dataset.move === 'up' ? item.previousElementSibling : item.nextElementSibling;
+    if (sibling) list.insertBefore(button.dataset.move === 'up' ? item : sibling, button.dataset.move === 'up' ? sibling : item);
+  });
+  submit.addEventListener('click', () => {
+    const answer = [...list.children].map(item => item.dataset.id); const expected = [...steps].sort((a, b) => a.order - b.order).map(step => String(step.id));
+    const correct = answer.every((id, index) => id === expected[index]); const feedback = root.querySelector('.exercise__feedback');
+    feedback.hidden = false; feedback.textContent = correct ? 'Ordem correta.' : 'A ordem ainda não está correta. Reorganize e tente novamente.';
+    record(exercise, correct, answer); if (!correct) return;
+    submit.disabled = true; root.querySelectorAll('button[data-move]').forEach(button => button.disabled = true);
+  });
+};
+
+const renderComparison = (container, exercise) => {
+  const categories = Array.isArray(exercise.categories) && exercise.categories.length ? exercise.categories : [{ id: 'F', label: 'Fotossíntese' }, { id: 'R', label: 'Respiração' }, { id: 'A', label: 'Ambos' }];
+  const root = shell(container, exercise, 'Comparação', `<div class="exercise__comparison-grid">${exercise.items.map(item => `<fieldset class="exercise__comparison-row"><legend>${escape(item.text)}</legend>${categories.map(category => `<label><input type="radio" name="${escape(exercise.id)}-${escape(item.id)}" value="${escape(category.id)}"> ${escape(category.label)}</label>`).join('')}</fieldset>`).join('')}</div><div class="exercise__feedback" role="status" hidden></div>`);
+  const submit = document.createElement('button'); submit.className = 'btn btn--primary'; submit.textContent = 'Verificar respostas'; root.querySelector('.exercise__footer').append(submit);
+  submit.addEventListener('click', () => {
+    const answer = Object.fromEntries(exercise.items.map(item => [item.id, root.querySelector(`input[name="${CSS.escape(exercise.id)}-${CSS.escape(item.id)}"]:checked`)?.value ?? null]));
+    const correctCount = exercise.items.filter(item => answer[item.id] === item.answer).length; const correct = correctCount === exercise.items.length;
+    const feedback = root.querySelector('.exercise__feedback'); feedback.hidden = false; feedback.textContent = `${correctCount}/${exercise.items.length} corretos.${correct ? '' : ' Revise os itens e tente novamente.'}`;
+    record(exercise, correct, answer); if (correct) { submit.disabled = true; root.querySelectorAll('input').forEach(input => input.disabled = true); }
+  });
+};
+
+const renderAssociation = (container, exercise) => {
+  const root = shell(container, exercise, 'Associação', `<p class="exercise__hint-text">Escolha uma estrutura e a função correspondente.</p><div class="exercise__association-grid"><div>${exercise.items.map(item => `<button type="button" class="exercise__association-btn assoc-left" data-id="${escape(item.id)}" data-match="${escape(item.matchId)}">${escape(item.text)}</button>`).join('')}</div><div>${exercise.matches.map(item => `<button type="button" class="exercise__association-btn assoc-right" data-id="${escape(item.id)}">${escape(item.text)}</button>`).join('')}</div></div><div class="exercise__feedback" role="status" hidden></div>`);
+  let selected = null; let correctCount = 0; const feedback = root.querySelector('.exercise__feedback');
+  root.querySelectorAll('.assoc-left').forEach(button => button.addEventListener('click', () => { if (button.disabled) return; root.querySelectorAll('.assoc-left').forEach(item => item.classList.remove('is-selected')); selected = button; button.classList.add('is-selected'); }));
+  root.querySelectorAll('.assoc-right').forEach(button => button.addEventListener('click', () => {
+    if (!selected || button.disabled) return; const correct = selected.dataset.match === button.dataset.id; feedback.hidden = false;
+    if (!correct) { feedback.textContent = 'Essa associação não corresponde. Tente outra função.'; record(exercise, false, { left: selected.dataset.id, right: button.dataset.id }); selected.classList.remove('is-selected'); selected.classList.add('is-wrong'); selected = null; return; }
+    selected.disabled = true; button.disabled = true; selected.classList.remove('is-selected'); selected.classList.add('is-correct'); button.classList.add('is-correct'); selected = null; correctCount += 1;
+    if (correctCount === exercise.items.length) { feedback.textContent = 'Todas as associações estão corretas.'; record(exercise, true, 'completed'); }
+  }));
+};
+
+const renderExercise = (container, id) => {
+  const exercise = getExercise(id);
+  if (!exercise) { container.textContent = 'Exercício não encontrado.'; return; }
+  if (exercise.type === EXERCISE_TYPES.ANALYSIS) return renderAnalysis(container, exercise);
+  if (exercise.type === EXERCISE_TYPES.ORDERING) return renderOrdering(container, exercise);
+  if (exercise.type === EXERCISE_TYPES.FLOW) return renderOrdering(container, exercise, true);
+  if (exercise.type === EXERCISE_TYPES.COMPARISON) return renderComparison(container, exercise);
+  if (exercise.type === EXERCISE_TYPES.ASSOCIATION) return renderAssociation(container, exercise);
+  container.textContent = `Tipo de exercício não suportado: ${exercise.type}`;
+};
+
+export { renderExercise, getExercise, getByModule, EXERCISE_TYPES, seededOrder };
+export default { renderExercise, getExercise, getByModule, EXERCISE_TYPES };

@@ -262,6 +262,7 @@
       "type": "comparison",
       "title": "Tipos de mutação e consequências",
       "question": "Classifique cada característica como exclusiva de mutação pontual sinônima (S), mutação frameshift (F) ou aplicável a ambas (A).",
+      "categories": [{ "id": "S", "label": "Sinônima" }, { "id": "F", "label": "Frameshift" }, { "id": "A", "label": "Ambas" }],
       "items": [
         { "id": "a", "text": "Altera a sequência de nucleotídeos do DNA",               "answer": "A", "explanation": "Ambos os tipos alteram nucleotídeos — seja por substituição (pontual) ou por inserção/deleção (frameshift)." },
         { "id": "b", "text": "Muda o aminoácido codificado",                            "answer": "F", "explanation": "A mutação sinônima (silenciosa) não muda o aminoácido — o código genético é degenerado, múltiplos códons codificam o mesmo aminoácido. O frameshift muda todos os aminoácidos a partir do ponto da mutação." },
@@ -283,6 +284,7 @@
       "type": "comparison",
       "title": "Fotossíntese vs Respiração celular",
       "question": "Classifique cada característica como exclusiva da fotossíntese (F), da respiração celular (R) ou de ambas (A).",
+      "categories": [{ "id": "F", "label": "Fotossíntese" }, { "id": "R", "label": "Respiração" }, { "id": "A", "label": "Ambas" }],
       "items": [
         { "id": "a", "text": "Produz ATP",                     "answer": "A", "explanation": "Ambos os processos produzem ATP, mas por caminhos diferentes." },
         { "id": "b", "text": "Consome CO₂",                    "answer": "F", "explanation": "Apenas a fotossíntese usa CO₂ como matéria-prima." },
@@ -672,6 +674,7 @@
       "type": "comparison",
       "title": "Ciclo do carbono vs ciclo do nitrogênio",
       "question": "Classifique cada característica como exclusiva do ciclo do carbono (C), do ciclo do nitrogênio (N) ou de ambos (A).",
+      "categories": [{ "id": "C", "label": "Carbono" }, { "id": "N", "label": "Nitrogênio" }, { "id": "A", "label": "Ambos" }],
       "items": [
         { "id": "a", "text": "Tem fase gasosa atmosférica importante",                              "answer": "A", "explanation": "Tanto o CO₂ atmosférico (carbono) quanto o N₂ (nitrogênio, 78% da atmosfera) têm fase gasosa central no ciclo." },
         { "id": "b", "text": "Depende de bactérias fixadoras para entrar na cadeia alimentar",       "answer": "N", "explanation": "O nitrogênio atmosférico (N₂) não pode ser usado diretamente por plantas — precisa ser fixado por bactérias (Rhizobium, Azotobacter) em amônio. O carbono entra pelo CO₂ via fotossíntese, sem necessidade de bactérias." },
@@ -775,6 +778,7 @@
       "type": "comparison",
       "title": "Fontes de variação genética",
       "question": "Classifique cada característica como exclusiva da mutação (M), exclusiva da deriva genética (D) ou aplicável a ambas (A).",
+      "categories": [{ "id": "M", "label": "Mutação" }, { "id": "D", "label": "Deriva genética" }, { "id": "A", "label": "Ambas" }],
       "items": [
         { "id": "a", "text": "Introduz alelos genuinamente novos na população",                   "answer": "M", "explanation": "Somente mutações criam novas sequências de DNA. A deriva genética apenas altera a frequência de alelos já existentes — não cria novos." },
         { "id": "b", "text": "Tem efeito maior em populações pequenas",                           "answer": "D", "explanation": "Em populações pequenas, flutuações aleatórias têm impacto proporcional maior — a deriva é mais intensa. Mutações ocorrem na mesma taxa independente do tamanho da população." },

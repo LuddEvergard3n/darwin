@@ -20,15 +20,11 @@ import Accessibility from './accessibility.js';
    CAMINHOS DOS DADOS
    ============================================================ */
 
-const DATA_FILES = {
-  axes:         '../data/axes.json',
-  modules:      '../data/modules.json',
-  scales:       '../data/scales.json',
-  processes:    '../data/processes.json',
-  applications: '../data/applications.json',
-  glossary:     '../data/glossary.json',
-  exercises:    '../data/exercises.json',
-};
+const DATA_FILES = Object.fromEntries(Object.entries({
+  axes: 'axes.json', modules: 'modules.json', scales: 'scales.json',
+  processes: 'processes.json', applications: 'applications.json',
+  glossary: 'glossary.json', exercises: 'exercises.json', editorial: 'editorial.json',
+}).map(([key, file]) => [key, new URL(`../data/${file}`, import.meta.url).href]));
 
 /* ============================================================
    CARREGAMENTO DE DADOS
@@ -63,6 +59,24 @@ const loadAllData = async () => {
     }
   });
 
+  const failures = results.filter(result => result.status === 'rejected');
+  if (failures.length > 0) {
+    throw new Error('Não foi possível carregar os dados essenciais. Verifique a conexão e tente novamente.');
+  }
+  if (loaded.editorial && loaded.modules) {
+    const { moduleSources = {} } = loaded.editorial;
+    loaded.modules.modules.forEach(module => {
+      module.lastReviewed ??= null;
+      module.reviewStatus ??= 'pending';
+      module.sources ??= moduleSources[module.id] ?? [];
+      module.lessons.forEach(lesson => {
+        lesson.lastReviewed ??= null;
+        lesson.reviewStatus ??= 'pending';
+        lesson.sources ??= module.sources;
+        lesson.modelLimitations ??= 'Representação didática; ver fontes e contexto da lição.';
+      });
+    });
+  }
   State.loadData(loaded);
 };
 
@@ -83,6 +97,14 @@ const initMobileNav = () => {
     const isOpen = links.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     State.set('ui.navOpen', isOpen);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !links.classList.contains('is-open')) return;
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    State.set('ui.navOpen', false);
+    toggle.focus();
   });
 
   // Fechar ao clicar num link
@@ -133,10 +155,25 @@ const bootstrap = async () => {
   initNavHighlight();
 
   // 4. Dados — carrega em paralelo antes de iniciar o router
-  await loadAllData();
-
-  // 5. Router — processa a rota atual e despacha a view
-  Router.init();
+  try {
+    await loadAllData();
+    Router.init();
+  } catch (error) {
+    console.error('[main] Falha ao carregar dados:', error);
+    contentEl.replaceChildren();
+    const box = document.createElement('section');
+    box.className = 'container page-body';
+    const title = document.createElement('h1');
+    title.textContent = 'Não foi possível carregar o Darwin';
+    const message = document.createElement('p');
+    message.textContent = error.message;
+    const retry = document.createElement('button');
+    retry.className = 'btn btn--primary';
+    retry.textContent = 'Tentar novamente';
+    retry.addEventListener('click', bootstrap, { once: true });
+    box.append(title, message, retry);
+    contentEl.append(box);
+  }
 };
 
 // Aguarda o DOM estar pronto
