@@ -292,7 +292,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-16);
   align-items: center;
-  min-height: 560px;
+  min-height: 480px;
 }
 
 /* ============================================================

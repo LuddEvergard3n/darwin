@@ -165,7 +165,7 @@ const render = (container, params) => {
 const buildHeroDiagram = (scales) => {
   const ns     = 'http://www.w3.org/2000/svg';
   const W      = 420;
-  const H      = 480;
+  const H      = 540;
   const svg    = document.createElementNS(ns, 'svg');
 
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
@@ -176,10 +176,10 @@ const buildHeroDiagram = (scales) => {
   const sorted   = [...scales].sort((a, b) => a.order - b.order);
   const total    = sorted.length;
   const centerX  = 155;
-  const startY   = 44;
-  const stepY    = (H - 60) / (total - 1);
+  const startY   = 50;
   const minR     = 8;
   const maxR     = 44;
+  const stepY    = (H - maxR - 10 - startY) / (total - 1);
 
   // Defs: marcador de seta
   const defs   = document.createElementNS(ns, 'defs');
