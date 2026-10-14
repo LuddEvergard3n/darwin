@@ -204,10 +204,10 @@ const _renderModulesSection = (modules) => `
   <section class="section section--alt" aria-labelledby="modules-title">
     <div class="container">
       <header class="section-header">
-        <span class="section-label">V1 — Seis módulos</span>
-        <h2 id="modules-title" class="section-heading">Núcleo do Darwin</h2>
+        <span class="section-label">Doze módulos</span>
+        <h2 id="modules-title" class="section-heading">Percursos do Darwin</h2>
         <p class="section-intro">
-          A primeira versão cobre os processos fundamentais. Cada módulo é uma
+            Do fundamento celular à biologia do planeta. Cada módulo é uma
           entrada no sistema, não um capítulo isolado.
         </p>
       </header>

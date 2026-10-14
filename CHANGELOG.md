@@ -18,6 +18,8 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 - Progresso local, catálogo editorial inicial, manifesto, Service Worker e servidor local em Node.js.
 - A revisão científica permanece explicitamente pendente até a conferência por lição e fonte.
+- Seis módulos de expansão: método científico, microbiologia e imunidade, reprodução e desenvolvimento, fisiologia integrada, diversidade vegetal e filogenia, e planeta, biotecnologia e bioética.
+- Dezoito aulas com atividade guiada e fontes editoriais associadas ao catálogo ampliado.
 
 ---
 

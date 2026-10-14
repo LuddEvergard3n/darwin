@@ -1277,12 +1277,17 @@ const DIAGRAMS = {
 const render = (container, lessonId) => {
   const diagramFn = DIAGRAMS[lessonId];
   if (!diagramFn) {
-    container.innerHTML = `
-      <div class="diagram-placeholder">
-        <p class="diagram-placeholder__title">Diagrama: ${lessonId.replace(/-/g, ' ')}</p>
-        <p class="diagram-placeholder__subtitle">Visualização em desenvolvimento.</p>
-      </div>
-    `;
+    const steps = [
+      { x: 95, label: 'OBSERVAÇÃO' }, { x: 265, label: 'MECANISMO' },
+      { x: 435, label: 'EVIDÊNCIA' }, { x: 605, label: 'LIMITE' },
+    ];
+    const arrows = steps.slice(0, -1).map((step, index) => arrow(step.x + 56, 180, steps[index + 1].x - 56, 180, { color: C.accent, sw: 2 }));
+    const nodes = steps.map(step => [circle(step.x, 180, 42, { fill: C.surfaceAlt, stroke: C.accent, sw: 2 }), text(step.x, 185, String(steps.indexOf(step) + 1), { anchor: 'middle', size: 20, fill: C.accent, weight: 700 }), text(step.x, 250, step.label, { anchor: 'middle', size: 11, fill: C.textMuted, mono: true })].join(''));
+    container.innerHTML = svg([
+      text(350, 82, 'UM MODELO É UMA PERGUNTA ORGANIZADA', { anchor: 'middle', size: 14, fill: C.text, weight: 700 }),
+      text(350, 112, 'Use a lição para conectar o que se observa, a explicação e seus limites.', { anchor: 'middle', size: 13, fill: C.textMuted }),
+      ...arrows, ...nodes,
+    ].join(''), { title: 'Modelo de leitura: observação, mecanismo, evidência e limite.' });
     return;
   }
   container.innerHTML = diagramFn();

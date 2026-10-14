@@ -74,7 +74,12 @@ const assert = {
 const loadJSON = (relativePath) => {
   const fullPath = resolve(__dirname, '..', relativePath);
   const raw = readFileSync(fullPath, 'utf-8');
-  return JSON.parse(raw);
+  const data = JSON.parse(raw);
+  if (!['data/modules.json', 'data/exercises.json', 'data/glossary.json'].includes(relativePath)) return data;
+  const expansion = JSON.parse(readFileSync(resolve(__dirname, '..', 'data/content-expansion.json'), 'utf-8'));
+  const key = relativePath.includes('modules') ? 'modules' : relativePath.includes('exercises') ? 'exercises' : 'glossary';
+  data[key].push(...expansion[key]);
+  return data;
 };
 
 /* ============================================================
@@ -125,9 +130,9 @@ const runDataTests = () => {
     });
   });
 
-  test('modules.json: exatamente 6 modulos V1', () => {
+  test('catalogo: exatamente 12 modulos', () => {
     const { modules } = loadJSON('data/modules.json');
-    assert.equal(modules.length, 6, `Esperado 6 modulos, encontrado ${modules.length}`);
+    assert.equal(modules.length, 12, `Esperado 12 modulos, encontrado ${modules.length}`);
   });
 
   test('modules.json: cada modulo tem pelo menos 1 licao', () => {
@@ -145,6 +150,23 @@ const runDataTests = () => {
           `Licao ${lesson.id} sem fenomeno adequado`);
       });
     });
+  });
+
+  test('catalogo: novas unidades possuem atividade correspondente', () => {
+    const { modules } = loadJSON('data/modules.json');
+    const { exercises } = loadJSON('data/exercises.json');
+    const lessonIds = new Set(exercises.map(exercise => exercise.lesson));
+    modules.filter(module => Number(module.number) >= 7).forEach(module => {
+      module.lessons.forEach(lesson => assert.ok(lessonIds.has(lesson.id), `Lição nova ${lesson.id} sem atividade`));
+    });
+  });
+
+  test('catalogo: ids de módulos e lições são únicos', () => {
+    const { modules } = loadJSON('data/modules.json');
+    const moduleIds = modules.map(module => module.id);
+    const lessonIds = modules.flatMap(module => module.lessons.map(lesson => lesson.id));
+    assert.equal(new Set(moduleIds).size, moduleIds.length, 'Há módulos com IDs duplicados');
+    assert.equal(new Set(lessonIds).size, lessonIds.length, 'Há lições com IDs duplicados');
   });
 
   // scales.json
@@ -225,6 +247,12 @@ const runDataTests = () => {
     Object.values(editorial.moduleSources).flat().forEach(id => assert.ok(ids.has(id), `Fonte editorial ausente: ${id}`));
   });
 
+  test('editorial.json: todo módulo possui fontes editoriais', () => {
+    const { modules } = loadJSON('data/modules.json');
+    const editorial = loadJSON('data/editorial.json');
+    modules.forEach(module => assert.notEmpty(editorial.moduleSources[module.id], `Módulo ${module.id} sem fontes editoriais`));
+  });
+
   test('motor real: embaralhamento de ordenação é determinístico', () => {
     const steps = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
     assert.equal(seededOrder(steps, 'exemplo').map(step => step.id).join(','), seededOrder(steps, 'exemplo').map(step => step.id).join(','));
@@ -294,6 +322,13 @@ const runConsistencyTests = () => {
         assert.ok(moduleIds.has(id),
           `Eixo ${axis.id} referencia modulo inexistente: ${id}`);
       });
+    });
+  });
+
+  test('Aplicações referenciam módulos existentes', () => {
+    const { applications } = loadJSON('data/applications.json');
+    applications.forEach(application => {
+      application.relatedModules.forEach(id => assert.ok(moduleIds.has(id), `Aplicação ${application.id} referencia módulo inexistente: ${id}`));
     });
   });
 
@@ -369,6 +404,7 @@ const runStructureTests = () => {
     'data/applications.json',
     'data/glossary.json',
     'data/exercises.json',
+    'data/content-expansion.json',
     'data/editorial.json',
     'engine/diagram-engine.js',
     'manifest.webmanifest', 'sw.js', 'server.js',

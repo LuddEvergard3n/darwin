@@ -13,7 +13,7 @@
         "Triagem neonatal de erros inatos do metabolismo",
         "Monitoramento glicêmico contínuo no diabetes"
       ],
-      "relatedModules": ["cell", "systems", "genetics"],
+      "relatedModules": ["cell", "systems", "genetics", "microbiology-immunity", "integrated-physiology"],
       "relatedProcesses": ["metabolismo", "regulacao", "estrutura"]
     },
     {
@@ -29,7 +29,7 @@
         "Índice glicêmico e metabolismo de carboidratos",
         "Polinização e dependência da biodiversidade na agricultura"
       ],
-      "relatedModules": ["metabolism", "ecology", "systems"],
+      "relatedModules": ["metabolism", "ecology", "systems", "diversity-plants", "planet-biotech"],
       "relatedProcesses": ["metabolismo", "interacao-ecologica"]
     },
     {
@@ -45,7 +45,7 @@
         "Sequenciamento fetal não-invasivo (NIPT)",
         "Farmacogenômica — adaptar doses ao perfil genético"
       ],
-      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedModules": ["genetics", "cell", "evolution", "reproduction-development", "planet-biotech"],
       "relatedProcesses": ["informacao", "reproducao"]
     },
     {
@@ -61,7 +61,7 @@
         "Autoimunidade: quando o sistema imune ataca o próprio",
         "HIV e integração retroviral no genoma do hospedeiro"
       ],
-      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedModules": ["genetics", "cell", "evolution", "microbiology-immunity", "integrated-physiology"],
       "relatedProcesses": ["informacao", "metabolismo", "adaptacao"]
     },
     {
@@ -77,7 +77,7 @@
         "Microplásticos e bioacumulação na cadeia trófica",
         "Restauração ecológica com espécies-chave (reintrodução de lobos)"
       ],
-      "relatedModules": ["ecology", "metabolism", "evolution"],
+      "relatedModules": ["ecology", "metabolism", "evolution", "diversity-plants", "planet-biotech"],
       "relatedProcesses": ["interacao-ecologica", "metabolismo"]
     },
     {
@@ -93,7 +93,7 @@
         "CRISPR para resistência a doenças em culturas",
         "Controle biológico: Bacillus thuringiensis contra lagartas"
       ],
-      "relatedModules": ["ecology", "genetics", "metabolism"],
+      "relatedModules": ["ecology", "genetics", "metabolism", "diversity-plants", "planet-biotech"],
       "relatedProcesses": ["metabolismo", "adaptacao", "interacao-ecologica"]
     },
     {
@@ -109,7 +109,7 @@
         "Antibióticos de último recurso: colistina e vancomicina",
         "Bacteriófagos como alternativa terapêutica emergente"
       ],
-      "relatedModules": ["evolution", "genetics", "cell"],
+      "relatedModules": ["evolution", "genetics", "cell", "microbiology-immunity"],
       "relatedProcesses": ["adaptacao", "informacao", "reproducao"]
     },
     {
@@ -125,7 +125,7 @@
         "R₀ e imunidade coletiva — dinâmica populacional da infecção",
         "Vigilância genômica: rastrear variantes em tempo real"
       ],
-      "relatedModules": ["evolution", "genetics", "ecology"],
+      "relatedModules": ["evolution", "genetics", "ecology", "microbiology-immunity"],
       "relatedProcesses": ["adaptacao", "informacao", "interacao-ecologica"]
     },
     {
@@ -141,7 +141,7 @@
         "Biorremedição: bactérias que degradam hidrocarbonetos",
         "Evolução dirigida de enzimas industriais (Nobel 2018)"
       ],
-      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedModules": ["genetics", "cell", "evolution", "planet-biotech"],
       "relatedProcesses": ["informacao", "metabolismo", "estrutura"]
     }
   ]

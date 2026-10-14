@@ -8,7 +8,7 @@
       "description": "A estrutura e composição dos sistemas vivos, desde as moléculas que formam as células até os organismos multicelulares.",
       "color": "#3F6B4B",
       "colorToken": "axis-org",
-      "modules": ["cell", "genetics"],
+      "modules": ["cell", "genetics", "microbiology-immunity"],
       "concepts": ["célula", "membrana", "organela", "tecido", "sistema", "organismo"],
       "processes": ["estrutura", "reproducao"],
       "icon": "cell"
@@ -21,7 +21,7 @@
       "description": "O fluxo e armazenamento da informação biológica: como a vida codifica, transmite e expressa instruções geradas por bilhões de anos de evolução.",
       "color": "#3F6470",
       "colorToken": "axis-info",
-      "modules": ["genetics"],
+      "modules": ["genetics", "scientific-method", "reproduction-development"],
       "concepts": ["DNA", "gene", "cromossomo", "RNA", "proteína", "mutação"],
       "processes": ["informacao", "reproducao"],
       "icon": "dna"
@@ -34,7 +34,7 @@
       "description": "Os processos pelos quais os seres vivos capturam, transformam e utilizam energia para manter suas funções vitais e a homeostase.",
       "color": "#B08A4A",
       "colorToken": "axis-energy",
-      "modules": ["metabolism", "systems"],
+      "modules": ["metabolism", "systems", "integrated-physiology"],
       "concepts": ["metabolismo", "ATP", "enzima", "respiração", "fotossíntese", "homeostase"],
       "processes": ["metabolismo", "regulacao"],
       "icon": "energy"
@@ -47,7 +47,7 @@
       "description": "A dinâmica da vida ao longo do tempo e do espaço: como as espécies mudam, se relacionam e compõem ecossistemas funcionais.",
       "color": "#5A7A4A",
       "colorToken": "axis-evo",
-      "modules": ["evolution", "ecology"],
+      "modules": ["evolution", "ecology", "diversity-plants", "planet-biotech"],
       "concepts": ["seleção natural", "adaptação", "especiação", "população", "ecossistema", "nicho"],
       "processes": ["adaptacao", "interacao-ecologica"],
       "icon": "tree"

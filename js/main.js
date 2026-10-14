@@ -24,6 +24,7 @@ const DATA_FILES = Object.fromEntries(Object.entries({
   axes: 'axes.json', modules: 'modules.json', scales: 'scales.json',
   processes: 'processes.json', applications: 'applications.json',
   glossary: 'glossary.json', exercises: 'exercises.json', editorial: 'editorial.json',
+  expansion: 'content-expansion.json',
 }).map(([key, file]) => [key, new URL(`../data/${file}`, import.meta.url).href]));
 
 /* ============================================================
@@ -62,6 +63,11 @@ const loadAllData = async () => {
   const failures = results.filter(result => result.status === 'rejected');
   if (failures.length > 0) {
     throw new Error('Não foi possível carregar os dados essenciais. Verifique a conexão e tente novamente.');
+  }
+  if (loaded.expansion) {
+    loaded.modules.modules.push(...loaded.expansion.modules);
+    loaded.exercises.exercises.push(...loaded.expansion.exercises);
+    loaded.glossary.glossary.push(...loaded.expansion.glossary);
   }
   if (loaded.editorial && loaded.modules) {
     const { moduleSources = {} } = loaded.editorial;

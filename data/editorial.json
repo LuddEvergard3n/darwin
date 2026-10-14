@@ -3,7 +3,12 @@
     { "id": "openstax-biology-2e", "author": "OpenStax", "title": "Biology 2e", "year": 2020, "type": "open textbook", "url": "https://openstax.org/details/books/biology-2e", "scope": "biologia geral", "limitations": "Livro introdutório; dados quantitativos contemporâneos exigem fonte específica." },
     { "id": "ncbi-molecular-cell", "author": "Alberts, B. et al.", "title": "Molecular Biology of the Cell", "year": 2002, "type": "reference book", "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/", "scope": "biologia celular e molecular", "limitations": "Edição histórica; não deve sustentar dados contemporâneos isoladamente." },
     { "id": "ncbi-genetics", "author": "National Library of Medicine", "title": "Understanding Genetics", "year": 2010, "type": "educational reference", "url": "https://www.ncbi.nlm.nih.gov/books/NBK132184/", "scope": "genética humana e conceitos básicos", "limitations": "Síntese educacional, não substitui diretrizes clínicas atualizadas." },
-    { "id": "openstax-ecology", "author": "OpenStax", "title": "Biology 2e: Ecology", "year": 2020, "type": "open textbook", "url": "https://openstax.org/books/biology-2e/pages/44-introduction", "scope": "ecologia e evolução", "limitations": "Exemplos e estatísticas devem ser atualizados quando aplicados a políticas ou territórios específicos." }
+    { "id": "openstax-ecology", "author": "OpenStax", "title": "Biology 2e: Ecology", "year": 2020, "type": "open textbook", "url": "https://openstax.org/books/biology-2e/pages/44-introduction", "scope": "ecologia e evolução", "limitations": "Exemplos e estatísticas devem ser atualizados quando aplicados a políticas ou territórios específicos." },
+    { "id": "openstax-anatomy-physiology", "author": "OpenStax", "title": "Anatomy and Physiology 2e", "year": 2022, "type": "open textbook", "url": "https://openstax.org/details/books/anatomy-and-physiology-2e", "scope": "anatomia e fisiologia", "limitations": "Texto introdutório; não substitui avaliação clínica, protocolos ou diretrizes locais." },
+    { "id": "cdc-vaccine-basics", "author": "Centers for Disease Control and Prevention", "title": "Vaccine Basics", "year": 2024, "type": "public health reference", "url": "https://www.cdc.gov/vaccines/basics/index.html", "scope": "princípios de vacinação", "limitations": "Informação institucional dos Estados Unidos; calendários e indicações variam por país e produto." },
+    { "id": "who-antimicrobial-resistance", "author": "World Health Organization", "title": "Antimicrobial resistance", "year": 2026, "type": "fact sheet", "url": "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance", "scope": "resistência antimicrobiana", "limitations": "Indicadores globais dependem de cobertura de vigilância e de definições operacionais." },
+    { "id": "ipcc-ar6-synthesis", "author": "Intergovernmental Panel on Climate Change", "title": "Climate Change 2023: Synthesis Report", "year": 2023, "type": "assessment report", "url": "https://www.ipcc.ch/report/ar6/syr/", "scope": "mudança climática e cenários", "limitations": "Síntese de evidências; projeções dependem de cenários e não substituem análise territorial." },
+    { "id": "who-genome-editing", "author": "World Health Organization", "title": "Human genome editing: recommendations", "year": 2021, "type": "technical document", "url": "https://www.who.int/publications/i/item/9789240030381", "scope": "governança da edição do genoma humano", "limitations": "Documento de governança; não é protocolo clínico nem avaliação de uma tecnologia específica." }
   ],
   "moduleSources": {
     "cell": ["openstax-biology-2e", "ncbi-molecular-cell"],
@@ -11,6 +16,12 @@
     "metabolism": ["openstax-biology-2e", "ncbi-molecular-cell"],
     "systems": ["openstax-biology-2e"],
     "ecology": ["openstax-ecology", "openstax-biology-2e"],
-    "evolution": ["openstax-ecology", "openstax-biology-2e"]
+    "evolution": ["openstax-ecology", "openstax-biology-2e"],
+    "scientific-method": ["openstax-biology-2e"],
+    "microbiology-immunity": ["openstax-biology-2e", "cdc-vaccine-basics", "who-antimicrobial-resistance"],
+    "reproduction-development": ["openstax-biology-2e", "ncbi-genetics"],
+    "integrated-physiology": ["openstax-anatomy-physiology", "openstax-biology-2e"],
+    "diversity-plants": ["openstax-biology-2e", "openstax-ecology"],
+    "planet-biotech": ["openstax-ecology", "ipcc-ar6-synthesis", "who-genome-editing"]
   }
 }

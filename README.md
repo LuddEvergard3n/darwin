@@ -8,7 +8,7 @@ Work-in-progress biology atlas connecting living processes across molecular, cel
 
 ## Purpose
 
-Darwin is not organized as a conventional encyclopedia. It presents biology as a network of processes operating at different scales. Learners can navigate through three complementary paths:
+Darwin is not organized as a conventional encyclopedia. It presents biology as a network of processes operating at different scales. Learners can navigate through three complementary paths across twelve modules:
 
 - Biological scale, from molecules to ecosystems.
 - Biological process, including structure, information, metabolism, regulation, and adaptation.
@@ -54,7 +54,7 @@ docs/         Pedagogy, content model, module system, and visual system
 
 ## Editorial status
 
-`data/editorial.json` records the shared sources used to begin traceability. Existing lessons are marked as pending until each claim, diagram, activity, and quantitative statement has been reviewed against a specific source. The project does not present that pending work as a completed scientific review.
+`data/editorial.json` records the shared sources used to begin traceability. The six expansion modules are stored separately in `data/content-expansion.json` so the original catalog remains auditable and rollback is contained. Existing lessons are marked as pending until each claim, diagram, activity, and quantitative statement has been reviewed against a specific source. The project does not present that pending work as a completed scientific review.
 
 ## Offline use
 
