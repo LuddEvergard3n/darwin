@@ -6,6 +6,46 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [1.1.0] — 2026-03-13
+
+### Adicionado
+
+**Conteúdo — modules.json**
+- 3 novos campos de texto por lição: `processDescription`, `relationText`, `applicationText`
+- Textos completos para todas as 31 lições (6 módulos × 5–6 lições)
+- `processDescription`: explicação mecanística do processo biológico central da lição
+- `relationText`: conexão explícita com outras escalas e módulos
+- `applicationText`: aplicações concretas em saúde, tecnologia, ambiente e agricultura
+
+**Conteúdo — exercises.json**
+- Exercícios expandidos de 6 para 31 — um por lição, cobrindo todos os módulos
+- Novos tipos usados: `analysis` (múltipla escolha com feedback), `comparison`, `ordering`, `association`, `flow`
+- `systems` passou de 0 para 6 exercícios
+- Todos os exercícios incluem `teacherGuide` com `objective`, `centralConcept`, `scaleRelation`, `estimatedMinutes`
+- 7 exercícios incluem `mediationSuggestion` para orientação didática
+
+**Conteúdo — glossary.json**
+- Expandido de 15 para 31 termos
+- Novos termos: `expressao-genica`, `epigenetica`, `especiacao`, `deriva-genetica`, `respiracao-celular`, `feedback`, `nicho`, `nivel-trofico`, `potencial-de-acao`, `sinapse`, `ciclo-carbono`, `celula-tronco`, `diferenciacao`, `servico-ecossistemico`, `coevolucao`, `zoonose`
+
+### Modificado
+
+**process-engine.js**
+- Fases `processo`, `relacao` e `aplicacao` agora renderizam conteúdo real dos campos do JSON
+- Fase `relacao` busca labels reais de scales e applications via `State.getValue`
+- Fallback gracioso para lições sem os novos campos (mensagem "em desenvolvimento")
+
+**docs/content-model.md**
+- Documentação completa dos novos campos de lição
+- Tabela de cobertura de exercícios por módulo e tipo
+- Regras de criação de conteúdo
+
+**docs/module-system.md**
+- Tabela atualizada com total de lições e horas estimadas
+- Documentação da estrutura de 6 fases e mapeamento para campos JSON
+
+---
+
 ## [1.0.0] — 2025-03-12
 
 ### Adicionado

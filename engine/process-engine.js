@@ -10,6 +10,7 @@
 
 import State          from '../js/state.js';
 import FeedbackEngine from './feedback-engine.js';
+import DiagramEngine  from './diagram-engine.js';
 
 /**
  * Fases obrigatórias de cada lição.
@@ -168,11 +169,7 @@ const _renderLesson = (container, moduleId, lessonId) => {
           Módulo ${mod.number} &mdash; Lição ${String(lesson.order).padStart(2, '0')}
         </p>
         <h1 class="lesson-header__title">${lesson.title}</h1>
-
-        <div class="callout callout--insight">
-          <p class="callout__title">Fenômeno</p>
-          <p class="lesson-header__phenomenon">${lesson.phenomenon}</p>
-        </div>
+        <p class="lesson-header__phenomenon">${lesson.phenomenon}</p>
       </header>
 
       <div class="lesson" id="lesson-body">
@@ -197,6 +194,7 @@ const _renderLesson = (container, moduleId, lessonId) => {
     </div>
   `;
 
+  _initLessonDiagrams(container, lesson);
   _initLessonInteractions(container, lesson, mod);
 };
 
@@ -260,56 +258,54 @@ const _renderPhaseBody = (phase, lesson, mod) => {
       `;
 
     case 'visualizacao':
-      return `
-        <div class="diagram-placeholder" aria-label="Diagrama de visualização — ${lesson.title}">
-          <p class="diagram-placeholder__title">Diagrama: ${lesson.title}</p>
-          <p class="diagram-placeholder__subtitle">Representação visual carregada do módulo de dados.</p>
-        </div>
-      `;
+      return `<div id="diagram-${lesson.id}" class="diagram-container" aria-label="Diagrama — ${lesson.title}"></div>`;
 
     case 'processo':
-      return `
-        <div class="prose">
-          <p>
-            Descrição mecanística do processo biológico — como ele ocorre, em que
-            sequência e por quê. Conteúdo específico será carregado do módulo de dados.
-          </p>
-          <p>
-            <strong>Lição:</strong> ${lesson.title} &mdash;
-            <strong>Módulo:</strong> ${mod.title}
-          </p>
-        </div>
-      `;
+      return lesson.processDescription
+        ? `<div class="prose"><p>${lesson.processDescription}</p></div>`
+        : `<div class="prose"><p><em>Conteúdo não disponível para esta lição.</em></p></div>`;
 
-    case 'relacao':
+    case 'relacao': {
+      const scalesData  = State.getValue('data.scales');
+      const appsData    = State.getValue('data.applications');
+
+      const scaleLabel = id => {
+        if (!scalesData) return id;
+        const s = scalesData.scales.find(x => x.id === id);
+        return s ? s.label : id;
+      };
+
+      const appLabel = id => {
+        if (!appsData) return id;
+        const a = appsData.applications.find(x => x.id === id || x.slug === id);
+        return a ? a.label : id;
+      };
+
+      const scalesHtml = mod.scales.map(s =>
+        `<a href="#/escala/${s}" class="badge badge--neutral">${scaleLabel(s)}</a>`
+      ).join('');
+
+      const appsHtml = mod.applications.map(a =>
+        `<a href="#/aplicacao/${a}" class="tag">${appLabel(a)}</a>`
+      ).join('');
+
+      const text = lesson.relationText
+        ? `<p>${lesson.relationText}</p>`
+        : `<p><em>Conexão com escalas e módulos em desenvolvimento.</em></p>`;
+
       return `
         <div class="prose">
-          <p>
-            Conexão explícita com outras escalas: como o processo descrito nesta lição
-            se manifesta em níveis diferentes da vida — do molecular ao ecossistema.
-          </p>
-          <div class="tag-row tag-row--sm">
-            ${mod.scales.map(s => `
-              <a href="#/escala/${s}" class="badge badge--neutral">${s}</a>
-            `).join('')}
-          </div>
+          ${text}
+          <div class="tag-row tag-row--sm">${scalesHtml}</div>
+          <div class="tag-row tag-row--sm">${appsHtml}</div>
         </div>
       `;
+    }
 
     case 'aplicacao':
-      return `
-        <div class="prose">
-          <p>
-            Onde este processo aparece no mundo concreto: saúde, doença, tecnologia,
-            alimentação, ambiente.
-          </p>
-          <div class="tag-row tag-row--sm">
-            ${mod.applications.map(app => `
-              <a href="#/aplicacao/${app}" class="tag">${app}</a>
-            `).join('')}
-          </div>
-        </div>
-      `;
+      return lesson.applicationText
+        ? `<div class="prose"><p>${lesson.applicationText}</p></div>`
+        : `<div class="prose"><p><em>Aplicações em desenvolvimento.</em></p></div>`;
 
     case 'atividade':
       return `<div id="exercise-container-${lesson.id}"></div>`;
@@ -325,6 +321,17 @@ const _renderPhaseBody = (phase, lesson, mod) => {
  * @param {object} lesson
  * @param {object} mod
  */
+/**
+ * Inicializa os diagramas SVG da fase de visualização.
+ * @param {HTMLElement} container
+ * @param {object} lesson
+ */
+const _initLessonDiagrams = (container, lesson) => {
+  const diagramEl = container.querySelector(`#diagram-${lesson.id}`);
+  if (!diagramEl) return;
+  DiagramEngine.render(diagramEl, lesson.id);
+};
+
 const _initLessonInteractions = (container, lesson, mod) => {
   const exerciseContainer = container.querySelector(`#exercise-container-${lesson.id}`);
   if (!exerciseContainer) return;

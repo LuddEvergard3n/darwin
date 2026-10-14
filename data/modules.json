@@ -17,6 +17,9 @@
           "order": 1,
           "title": "O que é uma célula",
           "phenomenon": "Por que um corte na pele sangra, coagula e cicatriza sozinho?",
+          "processDescription": "A teoria celular estabelece que toda a vida é composta por células e que toda célula origina-se de outra célula. Uma célula não é apenas um saco de moléculas — é um sistema organizado capaz de se manter, crescer e reproduzir. A cicatrização é possível porque as células epidérmicas e as plaquetas executam funções especializadas coordenadas: plaquetas liberam sinais químicos que ativam coagulação, células endoteliais proliferam para fechar o vaso, e fibroblastos sintetizam colágeno para reconstruir o tecido. Cada etapa depende de proteínas específicas produzidas dentro das células, usando energia na forma de ATP. O que parece ser uma resposta espontânea do corpo é, na verdade, um programa molecular executado por milhões de células agindo em conjunto.",
+          "relationText": "Na escala molecular, proteínas de coagulação como a trombina são ativadas em cascata — cada proteína ativa a seguinte, amplificando o sinal. Na escala celular, diferentes tipos de células cooperam com funções distintas: plaquetas, fibroblastos, macrófagos. Na escala de tecido, a reorganização do epitélio fecha a ferida. Na escala do organismo, o sistema imunológico coordena defesa e reparo simultaneamente. Este processo conecta os módulos de Sistemas do Corpo e DNA.",
+          "applicationText": "A medicina regenerativa usa células-tronco para reparar tecidos lesados — coração após infarto, cartilagem articular, neurônios após lesão medular. Doenças hemorrágicas como a hemofilia resultam da deficiência de um único fator de coagulação, mostrando como a ausência de uma proteína inviabiliza todo o processo de cicatrização.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -24,6 +27,9 @@
           "order": 2,
           "title": "Tipos celulares",
           "phenomenon": "Como um neurônio e uma hemácia são tão diferentes se partem do mesmo DNA?",
+          "processDescription": "Diferenciação celular é o processo pelo qual células com DNA idêntico adquirem morfologia e função radicalmente diferentes. O mecanismo central é a regulação da expressão gênica: não são os genes que diferem, mas quais genes são lidos. Fatores de transcrição ativam ou reprimem conjuntos inteiros de genes. Um neurônio expressa genes para síntese de neurotransmissores e formação de axônios; uma hemácia matura expulsa o núcleo para maximizar o espaço para hemoglobina. A diferenciação é, em geral, irreversível: uma vez que uma célula-tronco se compromete com uma linhagem, esse estado é mantido epigeneticamente.",
+          "relationText": "Na escala molecular, a diferenciação é controlada por modificações epigenéticas — metilação do DNA e acetilação de histonas que compactam ou expõem regiões do genoma. Na escala celular, a forma reflete a função: neurônio com axônio longo transmite sinais a distância; eritrócito bicôncavo maximiza troca de gases. Na escala de tecido, células diferenciadas formam estruturas funcionais apenas quando organizadas em conjunto. Conecta com Genética (expressão gênica) e Sistemas do Corpo.",
+          "applicationText": "Células-tronco pluripotentes induzidas (iPSCs) são usadas para modelar doenças genéticas e testar fármacos em células humanas funcionais. O câncer é, em parte, uma falha de diferenciação: células que deveriam se especializar perdem esse controle e proliferam de forma desregulada.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -31,6 +37,9 @@
           "order": 3,
           "title": "Membrana plasmática",
           "phenomenon": "Como a célula decide o que entra e o que sai?",
+          "processDescription": "A membrana plasmática é uma bicamada de fosfolipídios — moléculas com cabeça hidrofílica e cauda hidrofóbica. Em contato com o meio aquoso, auto-organizam-se com as caudas voltadas para dentro e as cabeças para fora. Essa estrutura é fluida e seletivamente permeável. Moléculas lipofílicas pequenas (O₂, CO₂) atravessam diretamente. Íons e moléculas polares precisam de proteínas de transporte. O transporte pode ser passivo (a favor do gradiente, sem ATP) ou ativo (contra o gradiente, com ATP). A bomba Na⁺/K⁺-ATPase usa ATP para manter o gradiente iônico que gera o potencial elétrico das células nervosas.",
+          "relationText": "Na escala molecular, as proteínas da membrana são codificadas por genes específicos, sintetizadas no retículo endoplasmático e inseridas na membrana pelo aparelho de Golgi. Na escala celular, a seletividade da membrana define a composição interna. Na escala de tecido, células epiteliais formam barreiras usando proteínas de junção. Na escala do organismo, a barreira hematoencefálica é um exemplo extremo de seletividade.",
+          "applicationText": "A maioria dos fármacos precisa atravessar membranas para atingir o alvo. O desenho de moléculas que passam a barreira hematoencefálica é um dos maiores desafios da farmacologia neurológica. Anestésicos locais como a lidocaína bloqueiam canais de Na⁺, impedindo a transmissão do potencial de ação.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -38,13 +47,19 @@
           "order": 4,
           "title": "Núcleo e informação genética",
           "phenomenon": "Por que o núcleo é separado do citoplasma?",
+          "processDescription": "O núcleo das células eucarióticas é delimitado pela carioteca — dupla membrana com poros nucleares que controlam o tráfego de moléculas. Dentro do núcleo, o DNA está organizado em cromatina associada a proteínas histonas. A separação entre núcleo e citoplasma tem vantagem funcional decisiva: permite que o mRNA seja processado (remoção de íntrons, adição de capa 5' e cauda poli-A) antes de ser exportado para os ribossomos. Em bactérias, sem núcleo, a tradução começa enquanto a transcrição ainda ocorre — sem possibilidade de processamento. O nucléolo é o local de síntese dos RNAs ribossomais.",
+          "relationText": "Na escala molecular, os poros nucleares reconhecem sinais específicos nas proteínas — apenas aquelas com sequência de localização nuclear entram. Na escala celular, o núcleo é o centro de controle da divisão celular. Na escala de tecido, a senescência celular — quando células param de se dividir — tem implicações para envelhecimento e câncer. Conecta com Genética (estrutura do DNA e expressão gênica).",
+          "applicationText": "Doenças por defeitos nos poros nucleares ou na carioteca incluem certas formas de progeria e distrofias musculares como a de Emery-Dreifuss. A engenharia genética depende da capacidade de transportar DNA exógeno para o núcleo de células-alvo.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
-          "id": "cell-organelles",
+          "id": "cell-organelas",
           "order": 5,
           "title": "Organelas: a divisão do trabalho",
           "phenomenon": "Como uma célula consegue fazer tantas coisas ao mesmo tempo?",
+          "processDescription": "A compartimentalização é a solução evolutiva para a complexidade metabólica. Cada organela delimita um microambiente com pH, composição iônica e enzimas específicas. O retículo endoplasmático rugoso sintetiza proteínas para exportação. O liso sintetiza lipídios e desintoxica substâncias. O aparelho de Golgi processa e distribui proteínas. Os lisossomos digerem materiais por endocitose. As mitocôndrias realizam a respiração aeróbica. Os peroxissomos oxidam ácidos graxos. O citoesqueleto — actina, microtúbulos e filamentos intermediários — dá forma e movimenta organelas e vesículas.",
+          "relationText": "Na escala molecular, o tráfego de vesículas entre organelas é regulado por proteínas SNARE que garantem fusão apenas com a membrana-alvo correta. Na escala celular, a quantidade de cada organela reflete especialização: células secretoras têm retículo rugoso abundante; células musculares têm mitocôndrias numerosas. A teoria endossimbiótica explica a origem de mitocôndrias e cloroplastos como bactérias incorporadas por células hospedeiras.",
+          "applicationText": "Doenças lisossomais de depósito — como a doença de Gaucher — resultam da deficiência de uma enzima lisossomal. Terapias de reposição enzimática introduzem a enzima funcional diretamente. O taxol, usado em quimioterapia, bloqueia a divisão celular impedindo o desmontamento dos microtúbulos do fuso mitótico.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -69,6 +84,9 @@
           "order": 1,
           "title": "O que é o DNA",
           "phenomenon": "Como um fio de 2 metros de DNA cabe dentro de um núcleo microscópico?",
+          "processDescription": "O DNA humano, se esticado, mediria cerca de 2 metros por célula — o núcleo tem apenas 6 micrômetros de diâmetro. A solução é uma compactação hierárquica progressiva. Primeiro, o DNA se enrola em torno de octâmeros de histonas formando nucleossomos. Os nucleossomos se organizam em fibras de 30 nm, que formam alças presas a uma estrutura proteica axial. Durante a divisão celular, esse material se condensa em cromossomos visíveis ao microscópio. A dupla hélice consiste em duas cadeias antiparalelas de nucleotídeos unidas por pontes de hidrogênio entre pares de bases: A-T e G-C. Essa complementaridade é a base da replicação e da transcrição.",
+          "relationText": "Na escala molecular, a compactação do DNA regula o acesso aos genes: regiões condensadas (heterocromatina) são transcricionalmente silenciosas; regiões abertas (eucromatina) são acessíveis. Na escala celular, o padrão de condensação distingue células em interfase (DNA ativo) de células em mitose (cromossomos condensados visíveis). Na escala de organismo, cada espécie tem número característico de cromossomos — humanos têm 46. Conecta com expressão gênica e mutação.",
+          "applicationText": "O Projeto Genoma Humano (concluído em 2003) revelou ~20.000 genes em 3 bilhões de pares de bases. Hoje, sequenciar um genoma humano custa menos de 1.000 dólares e pode ser feito em horas — possibilitando diagnóstico de doenças genéticas raras que antes levavam anos.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -76,6 +94,9 @@
           "order": 2,
           "title": "Genes e cromossomos",
           "phenomenon": "O que exatamente é um gene?",
+          "processDescription": "A definição molecular moderna: gene é uma sequência de DNA que é transcrita em RNA funcional — mRNA, rRNA, tRNA, ou RNAs regulatórios. Menos de 2% do genoma humano codifica proteínas. Cada gene tem uma região promotora, éxons (sequências codificantes) e íntrons (removidos após a transcrição). Um mesmo gene pode gerar múltiplas proteínas por splicing alternativo — combinando diferentes éxons no mRNA maduro. O genoma está organizado em cromossomos: humanos têm 23 pares — 22 autossomos e 1 par sexual.",
+          "relationText": "Na escala molecular, regulação de genes envolve sequências enhancer e silencer a kilobases de distância do promotor, que se dobram no espaço para interagir com o gene-alvo. Na escala celular, a organização dos cromossomos no núcleo não é aleatória — cada cromossomo ocupa um território preferencial. Na escala de organismo, variações em genes regulatórios explicam grande parte da diferença morfológica entre espécies próximas — humanos e chimpanzés compartilham ~98% do DNA codificante. Conecta com Evolução.",
+          "applicationText": "Painéis genéticos para câncer hereditário (BRCA1 e BRCA2) permitem identificar portadores de mutações de alto risco. Terapias de antisense oligonucleotídeos manipulam o splicing para corrigir proteínas defeituosas em doenças como atrofia muscular espinhal.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -83,6 +104,9 @@
           "order": 3,
           "title": "Expressão gênica",
           "phenomenon": "Como o DNA vira proteína?",
+          "processDescription": "O fluxo de informação genética — o dogma central da biologia molecular — é unidirecional: DNA é transcrito em RNA, que é traduzido em proteína. A transcrição ocorre no núcleo: a RNA polimerase II se liga ao promotor e sintetiza um mRNA complementar ao molde. O mRNA pré-maduro é processado (capa 5', remoção de íntrons, cauda poli-A 3') antes de ser exportado. No citoplasma, os ribossomos leem o mRNA em tripletos (códons). O tRNA transporta o aminoácido correspondente. A cadeia polipeptídica se estende até um códon de parada. A proteína resultante frequentemente precisa de chaperonas e de modificações pós-traducionais para ser funcional.",
+          "relationText": "Na escala molecular, microRNAs e proteínas de ligação ao RNA regulam a velocidade de tradução e a estabilidade do mRNA. Na escala celular, ribossomos podem estar livres no citosol ou presos ao retículo rugoso — dependendo do destino da proteína. Na escala de organismo, hormônios como a insulina regulam a transcrição de centenas de genes ao ativar fatores de transcrição. É o centro do módulo de Genética, conectando com Célula e Sistemas.",
+          "applicationText": "A tecnologia de mRNA terapêutico — usada nas vacinas contra COVID-19 — introduz mRNA sintético nas células para produzir temporariamente o antígeno e estimular resposta imune. O RNA interferente (RNAi) silencia genes específicos degradando mRNAs-alvo, sendo usado para tratar amiloidose hereditária.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -90,6 +114,9 @@
           "order": 4,
           "title": "Herança genética",
           "phenomenon": "Por que irmãos podem ser tão diferentes entre si?",
+          "processDescription": "A herança depende de dois processos: meiose e fecundação. A meiose gera gametas haploides (n = 23 em humanos) a partir de células diploides (2n = 46). Durante a meiose I, cromossomos homólogos se pareiam e trocam segmentos de DNA — o crossing-over — gerando novas combinações de alelos. A segregação independente resulta em 2²³ combinações distintas só pela meiose. Na fecundação, gametas de dois genitores se combinam restaurando a diploidade. As leis de Mendel descrevem como alelos de um mesmo gene segregam e como genes em cromossomos diferentes segregam de forma independente. Genes no mesmo cromossomo tendem a ser herdados juntos a menos que o crossing-over os separe.",
+          "relationText": "Na escala molecular, os alelos são variantes de sequência de um mesmo gene — podem diferir por um único nucleotídeo (SNP) ou por inserções/deleções. Na escala celular, a segregação meiótica é física: cromossomos homólogos são separados por microtúbulos do fuso. Na escala de população, recombinação e segregação são as principais fontes de variação genética que alimentam a seleção natural. Conecta com Evolução e Ecologia.",
+          "applicationText": "O teste de paternidade por DNA compara polimorfismos de sequência para determinar parentesco com probabilidade superior a 99,9%. Doenças autossômicas recessivas — fibrose cística, anemia falciforme — exigem dois alelos recessivos, um de cada genitor. O aconselhamento genético usa as leis de herança para calcular probabilidade de recorrência em famílias afetadas.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -97,6 +124,9 @@
           "order": 5,
           "title": "Mutação e variação",
           "phenomenon": "O que acontece quando o DNA é copiado com erro?",
+          "processDescription": "A DNA polimerase incorpora um nucleotídeo errado em aproximadamente 1 a cada 10⁷ bases copiadas. Sistemas de reparo (mismatch repair) corrigem a maioria, reduzindo a taxa final a cerca de 1 erro por 10¹⁰ pares de bases. Mutações podem ser pontuais (troca de um nucleotídeo), frameshift (inserção ou deleção que desloca o quadro de leitura), ou estruturais (inversões, translocações cromossômicas). Podem ocorrer em células somáticas (afetam apenas o indivíduo) ou germinativas (transmitidas à prole). A maioria das mutações pontuais é neutra — cai em regiões não codificantes ou é sinônima. Mutações missense podem reduzir, alterar ou melhorar a função da proteína. Mutações nonsense geram códons de parada prematuros.",
+          "relationText": "Na escala molecular, agentes mutagênicos físicos (radiação UV, raios-X) e químicos (aflatoxinas, benzeno) danificam o DNA por mecanismos distintos. Na escala celular, a acumulação de mutações em genes controladores do ciclo celular é o mecanismo central da transformação cancerosa — câncer como doença genética da divisão celular. Na escala de população, mutações são a única fonte de variação genética verdadeiramente nova, a matéria-prima da evolução. Conecta com Evolução e Sistemas.",
+          "applicationText": "O sequenciamento de tumor identifica as mutações específicas em cada câncer, possibilitando terapias-alvo. O imatinibe inibe especificamente a quinase BCR-ABL da leucemia mieloide crônica. Terapias de edição gênica por CRISPR-Cas9 corrigem mutações em células-tronco hematopoiéticas para tratar anemia falciforme e beta-talassemia.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -121,6 +151,9 @@
           "order": 1,
           "title": "Energia e vida",
           "phenomenon": "Por que você precisa comer para mover um dedo?",
+          "processDescription": "A vida opera longe do equilíbrio termodinâmico e precisa de fluxo contínuo de energia para se manter. Toda atividade celular — síntese de proteínas, transporte ativo, contração muscular, condução nervosa — é endergônica: requer energia livre. A célula obtém essa energia pelo acoplamento metabólico: reações exergônicas (como a hidrólise do ATP) são acopladas a reações endergônicas. O conceito fundamental é a variação de energia livre de Gibbs (ΔG): reações espontâneas têm ΔG negativo. O metabolismo celular é uma rede de reações onde a energia liberada em reações catabólicas é capturada em ATP, NADH e FADH₂, que alimentam reações anabólicas. A célula não produz energia — ela transforma e direciona energia.",
+          "relationText": "Na escala molecular, o ATP é o intermediário energético universal — todas as células, de bactérias a neurônios humanos, usam ATP. Na escala celular, diferentes tipos de células têm taxas metabólicas distintas. Na escala de organismo, a taxa metabólica basal (TMB) reflete o custo energético de manter o corpo em repouso. Na escala de ecossistema, a energia flui dos produtores e se dissipa como calor em cada nível trófico.",
+          "applicationText": "Diabetes mellitus é uma doença do metabolismo energético: na tipo 1, ausência de insulina impede a entrada de glicose nas células; na tipo 2, as células se tornam resistentes à insulina. A metformina modula vias metabólicas da glicose no fígado. A compreensão do metabolismo mitocondrial é central para o tratamento de doenças metabólicas raras.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -128,6 +161,9 @@
           "order": 2,
           "title": "ATP: a moeda energética",
           "phenomenon": "Como a célula armazena e usa energia?",
+          "processDescription": "O ATP (adenosina trifosfato) é uma molécula de adenosina ligada a três grupos fosfato. A hidrólise da ligação entre o segundo e o terceiro fosfato libera ~30,5 kJ/mol — suficiente para impulsionar a maioria das reações biológicas. A ATP sintase usa o fluxo de prótons através da membrana mitocondrial interna (gradiente eletroquímico criado pela cadeia respiratória) para fosforilar ADP. Uma célula humana típica em repouso renova todo o seu estoque de ATP a cada 1–2 minutos. Em exercício intenso, os músculos consomem e regeneram ATP dezenas de vezes por minuto.",
+          "relationText": "Na escala molecular, além de moeda energética, o ATP age como molécula sinalizadora extracelular — receptores purinérgicos respondem ao ATP liberado por células danificadas. Na escala celular, o gradiente de prótons que gera ATP é análogo a uma bateria elétrica biológica. Na escala de organismo, a creatina fosfato é um tampão energético imediato nos músculos durante os primeiros segundos de exercício intenso. Conecta com Sistemas e Ecologia.",
+          "applicationText": "O cianeto inibe o complexo IV da cadeia respiratória, bloqueando a produção de ATP e causando morte celular rápida. O dinitrofenol desacopla o gradiente de prótons da síntese de ATP, dissipando energia como calor — foi usado como emagrecedor na década de 1930, com mortes por hipertermia.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -135,6 +171,9 @@
           "order": 3,
           "title": "Respiração celular",
           "phenomenon": "O que acontece dentro da mitocôndria?",
+          "processDescription": "A respiração celular aeróbica é a oxidação completa de glicose a CO₂ e H₂O, com produção de ATP. Ocorre em três etapas: glicólise (citoplasma) — a glicose é quebrada em 2 piruvatos, produzindo 2 ATP e 2 NADH; ciclo de Krebs (matriz mitocondrial) — o acetil-CoA (derivado do piruvato) é oxidado a CO₂, produzindo NADH, FADH₂ e GTP; cadeia transportadora de elétrons (membrana interna mitocondrial) — NADH e FADH₂ doam elétrons que fluem por complexos proteicos até o O₂ (aceptor final), bombeando prótons e gerando o gradiente para a ATP sintase. Total por glicose: ~30–32 ATP.",
+          "relationText": "Na escala molecular, subunidades da cadeia respiratória são codificadas tanto pelo DNA nuclear quanto pelo DNA mitocondrial — mutações no DNA mitocondrial afetam preferencialmente tecidos de alta demanda energética. Na escala celular, a mitocôndria forma redes dinâmicas por fusão e fissão. Na escala de organismo, o coeficiente respiratório indica qual substrato está sendo oxidado. Conecta com Sistemas e Ecologia.",
+          "applicationText": "Células cancerosas frequentemente usam glicólise mesmo na presença de oxigênio (efeito Warburg) — produzindo intermediários para síntese de biomoléculas necessárias à proliferação. O PET scan usa glicose marcada com flúor-18 radioativo para identificar regiões de alta glicólise (tumores, tecidos inflamados).",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -142,6 +181,9 @@
           "order": 4,
           "title": "Fotossíntese",
           "phenomenon": "Como uma folha transforma luz em matéria?",
+          "processDescription": "A fotossíntese converte energia luminosa em energia química armazenada em ligações orgânicas. Ocorre nos cloroplastos e divide-se em reações de luz (tilacoides) e ciclo de Calvin (estroma). Nas reações de luz, os fotossistemas II e I absorvem fótons. O PSII usa energia para oxidar água (fotólise: 2H₂O → 4H⁺ + 4e⁻ + O₂), liberando o O₂. Os elétrons fluem pelo transporte fotossintético, gerando NADPH e ATP. No ciclo de Calvin, a RuBisCO fixa CO₂ em 3-fosfoglicerato, que é reduzido usando ATP e NADPH para formar gliceraldeído-3-fosfato (G3P) — precursor de glicose e outros carboidratos.",
+          "relationText": "Na escala molecular, os complexos de coleta de luz (clorofila, carotenoides) otimizam a captura de diferentes comprimentos de onda. Na escala celular, os cloroplastos, como as mitocôndrias, têm DNA próprio e são de origem endossimbiótica. Na escala de ecossistema, a fotossíntese é a base de quase toda a cadeia alimentar e responsável por todo o O₂ atmosférico. Conecta com Ecologia e met-comparison.",
+          "applicationText": "A fotossíntese artificial — usar princípios dos fotossistemas para gerar combustível solar a partir de água e luz — é uma das grandes apostas para energia limpa. Plantas C4 (milho, cana-de-açúcar) e CAM (cactos) evoluíram mecanismos para concentrar CO₂ e reduzir fotorrespiração, sendo mais produtivas em climas quentes e secos.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -149,6 +191,9 @@
           "order": 5,
           "title": "Fotossíntese e respiração como par complementar",
           "phenomenon": "Por que a atmosfera da Terra não fica sem oxigênio?",
+          "processDescription": "Fotossíntese e respiração celular são processos inversos e complementares. A equação geral da fotossíntese (6CO₂ + 6H₂O + luz → C₆H₁₂O₆ + 6O₂) é o inverso da equação da respiração (C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP). Ambos usam cadeias de transporte de elétrons em membranas e gradientes eletroquímicos para síntese de ATP — evidência de ancestralidade comum da maquinaria energética. O O₂ atmosférico foi criado pela fotossíntese das cianobactérias há ~2,4 bilhões de anos. O ciclo do carbono global depende do equilíbrio entre fixação fotossintética e liberação pela respiração e decomposição. A queima de combustíveis fósseis rompe esse equilíbrio.",
+          "relationText": "Na escala molecular, os intermediários (NADH, NADPH, ATP) são compartilhados pelas duas vias, embora em compartimentos distintos. Na escala celular, plantas realizam ambos: fotossíntese nos cloroplastos e respiração nas mitocôndrias. Na escala de ecossistema, a produtividade primária líquida é o carbono disponível para os consumidores. Na escala global, o ciclo do carbono conecta oceanos, atmosfera, solos e biota. Conecta com Ecologia e Evolução.",
+          "applicationText": "O desmatamento libera carbono armazenado na biomassa florestal e reduz a capacidade de fixação futura — duplo impacto climático. Biocombustíveis de segunda geração usam celulose de resíduos agrícolas como matéria-prima para fermentação, buscando balanço de carbono mais neutro.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -173,6 +218,9 @@
           "order": 1,
           "title": "Homeostase: equilíbrio dinâmico",
           "phenomenon": "Por que sua temperatura corporal não varia mais de 1 grau?",
+          "processDescription": "Homeostase é a manutenção de condições internas relativamente estáveis em ambiente externo variável. O mecanismo central é o feedback negativo: desvios do set point ativam respostas corretivas. Para temperatura, termorreceptores hipotalâmicos detectam variações; o hipotálamo ativa tremores (geram calor) ou sudorese (dissipam calor). O feedback positivo amplifica o desvio — usado em coagulação, parto e transmissão do potencial de ação. A homeostase não é passiva: exige gasto contínuo de energia e envolve a coordenação de múltiplos sistemas simultaneamente.",
+          "relationText": "Na escala molecular, hormônios e neurotransmissores que mediam a homeostase ligam-se a receptores específicos e ativam cascatas de sinalização intracelular. Na escala celular, cada célula mantém homeostase interna de pH, íons e volume. Na escala de tecido, rins e pulmões são reguladores homeostáticos fundamentais (pH, osmolaridade, gases sanguíneos). Na escala de ecossistema, o conceito é paralelo: equilíbrio dinâmico de populações por feedback.",
+          "applicationText": "A febre é uma resposta homeostática regulada — o hipotálamo eleva o set point em resposta a pirógenos. Antitérmicos como paracetamol bloqueiam a síntese de prostaglandinas que elevam esse set point. A diálise substitui mecanicamente a homeostase renal quando os rins não conseguem mais regulá-la.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -180,6 +228,9 @@
           "order": 2,
           "title": "Sistema digestório",
           "phenomenon": "Como um pedaço de pão vira energia para seus músculos?",
+          "processDescription": "A digestão é a quebra mecânica e química de alimentos em moléculas absorvíveis. O amido começa a ser digerido na boca pela amilase salivar. No estômago, o pH ácido (HCl, pH ~2) desnatura proteínas e ativa a pepsina. No intestino delgado, enzimas pancreáticas e bile completam a digestão. As microvilosidades intestinais aumentam a área de absorção em ~600 vezes. Monossacarídeos e aminoácidos são absorvidos por transporte ativo. Ácidos graxos entram por difusão, são remontados em triglicerídeos e secretados na linfa como quilomícrons. Glicose e aminoácidos vão ao sangue portal para o fígado, que regula os níveis sanguíneos.",
+          "relationText": "Na escala molecular, as enzimas digestivas são zimogênios — precursores inativos ativados por clivagem no local certo. Na escala celular, a polaridade das células epiteliais intestinais permite absorção direcional. Na escala de organismo, o sistema digestório é regulado pelo sistema nervoso entérico — ~100 milhões de neurônios — e por hormônios como gastrina e colecistocinina.",
+          "applicationText": "A doença de Crohn e a retocolite ulcerativa destroem o epitélio intestinal por mecanismo autoimune. Tratamentos incluem biológicos que bloqueiam citocinas inflamatórias (anti-TNF). A cirurgia bariátrica reverte diabetes tipo 2 mesmo antes da perda de peso, mostrando como a anatomia digestiva influencia o metabolismo sistêmico.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -187,6 +238,9 @@
           "order": 3,
           "title": "Sistema circulatório",
           "phenomenon": "Como o oxigênio chega a cada célula do corpo?",
+          "processDescription": "O sistema circulatório é um sistema fechado de vasos e coração que distribui O₂, nutrientes, hormônios e células imunes, e recolhe CO₂ e metabólitos. A circulação pulmonar leva sangue desoxigenado ao pulmão e retorna sangue oxigenado ao coração. A circulação sistêmica distribui sangue oxigenado a todos os tecidos. O ciclo cardíaco alterna sístole e diástole. Nos capilares, O₂ e nutrientes saem por difusão para o interstício; CO₂ e metabólitos entram no sangue. A hemoglobina carrega O₂ de forma cooperativa — a curva sigmoidal permite carga eficiente nos pulmões e descarga eficiente nos tecidos.",
+          "relationText": "Na escala molecular, a hemoglobina tem 4 subunidades com cooperatividade de ligação ao O₂. O CO₂ é transportado principalmente como bicarbonato no plasma, regulando o pH sanguíneo. Na escala celular, o endotélio vascular produz NO para relaxar a musculatura lisa e regular o fluxo. Na escala de organismo, o débito cardíaco é controlado pela frequência cardíaca e pelo volume ejetado — regulados pelo sistema nervoso autônomo e por adrenalina.",
+          "applicationText": "A aterosclerose estreita os vasos e aumenta o risco de infarto e AVC. Estatinas inibem a síntese de colesterol e são os fármacos mais prescritos no mundo. O ECG registra a atividade elétrica do coração e detecta arritmias, isquemia e infarto com resolução de milissegundos.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -194,6 +248,9 @@
           "order": 4,
           "title": "Sistema respiratório",
           "phenomenon": "O que acontece entre inspirar e o oxigênio entrar na célula?",
+          "processDescription": "A ventilação pulmonar é produzida pela variação de pressão gerada pelo diafragma — na inspiração, o diafragma contrai, expande o tórax e reduz a pressão intrapleuropulmonar; o ar entra. Os alvéolos — 300–500 milhões por pulmão — formam área total de ~70 m², separada do capilar por ~0,5 μm. A troca gasosa é por difusão pura, determinada pela diferença de pressão parcial: O₂ entra no sangue; CO₂ faz o caminho inverso. O centro respiratório do bulbo responde principalmente à pressão parcial de CO₂ e ao pH do líquido cefalorraquidiano — não ao O₂.",
+          "relationText": "Na escala molecular, o surfactante pulmonar — fosfolipídios secretados por pneumócitos tipo II — reduz a tensão superficial dos alvéolos, impedindo seu colapso. Na escala celular, macrófagos alveolares são a primeira defesa imune no pulmão. Na escala de organismo, a regulação da ventilação é integrada com a regulação ácido-base renal. Conecta com Sistemas e Metabolismo.",
+          "applicationText": "A SDRA observada em COVID-19 grave resulta de inflamação que destrói o surfactante e inunda os alvéolos. Ventilação mecânica com pressão positiva mantém os alvéolos abertos. Inaladores de broncodilatadores (β₂-agonistas) relaxam a musculatura brônquica na asma; corticosteroides inalados reduzem a inflamação crônica.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -201,6 +258,9 @@
           "order": 5,
           "title": "Sistema nervoso",
           "phenomenon": "Como você retira a mão de uma chama antes de sentir dor?",
+          "processDescription": "O arco reflexo é o circuito neural mais simples e rápido. O receptor nociceptivo detecta o estímulo térmico e dispara um potencial de ação que viaja ao neurônio motor na medula — sem passar pelo cérebro — que aciona o músculo flexor. O potencial de ação é uma onda eletroquímica: abertura de canais de Na⁺ despolariza a membrana até o limiar (~-55 mV); a abertura em cascata ao longo do axônio propaga o sinal. Na bainha de mielina, a condução saltatória eleva a velocidade a 120 m/s. Na sinapse, vesículas de neurotransmissores são liberadas por exocitose e ligam-se a receptores pós-sinápticos.",
+          "relationText": "Na escala molecular, neurotransmissores — glutamato, GABA, dopamina, serotonina, acetilcolina — atuam em milissegundos e são rapidamente recaptados ou degradados. Na escala celular, a plasticidade sináptica (fortalecimento/enfraquecimento com uso) é a base do aprendizado e da memória. Na escala de organismo, o sistema nervoso autônomo regula coração, intestino e glândulas em resposta a estados internos e externos. Conecta com Sistemas e Genética.",
+          "applicationText": "Antidepressivos ISRS aumentam a concentração de serotonina na fenda sináptica bloqueando o transportador de recaptação. A doença de Alzheimer envolve degeneração de neurônios colinérgicos — inibidores de colinesterase (donepezila) aumentam a disponibilidade de acetilcolina. A estimulação cerebral profunda (DBS) usa eletrodos implantados para modular circuitos em Parkinson e depressão refratária.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -208,6 +268,9 @@
           "order": 6,
           "title": "Integração dos sistemas",
           "phenomenon": "Por que uma emoção pode causar sintomas físicos?",
+          "processDescription": "O eixo hipotálamo-hipófise-glândulas é o principal sistema de integração neuroendócrina. O hipotálamo integra sinais do SNC e libera hormônios regulatórios (CRH, TRH, GnRH) que controlam a hipófise. Em resposta ao estresse emocional, a amígdala ativa o hipotálamo, que aciona o eixo simpático-adrenal (adrenalina → coração acelera, vasos contraem, bronquíolos dilatam) e o eixo HPA (CRH → ACTH → cortisol → mobiliza glicose, suprime inflamação). A percepção de ameaça gera os mesmos efeitos fisiológicos que uma ameaça real — daí palpitação, sudorese e tensão muscular na ansiedade.",
+          "relationText": "Na escala molecular, o cortisol é um hormônio esteroide: atravessa a membrana celular, liga-se a receptores citoplasmáticos, e o complexo receptor-cortisol entra no núcleo para regular a transcrição de centenas de genes. Na escala celular, o estresse crônico reduz a neurogênese no hipocampo. Na escala de organismo, a resposta ao estresse mobiliza todos os sistemas simultaneamente — mostrando que fronteiras entre sistemas são didáticas, não biológicas.",
+          "applicationText": "O estresse crônico suprime o sistema imunológico, favorece gordura visceral, eleva pressão arterial e prejudica memória. Técnicas de meditação mindfulness têm efeitos mensuráveis em marcadores inflamatórios (PCR, IL-6). Corticosteroides sintéticos (prednisona, dexametasona) são usados como imunossupressores e anti-inflamatórios potentes.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -232,6 +295,9 @@
           "order": 1,
           "title": "O que é um ecossistema",
           "phenomenon": "Por que a remoção de um predador pode colapsar uma floresta?",
+          "processDescription": "Um ecossistema é o conjunto de todos os seres vivos de uma área (comunidade biótica) e os componentes físicos e químicos (fatores abióticos) com que interagem. O exemplo do lobo em Yellowstone ilustra a cascata trófica: a remoção dos lobos em 1926 aumentou alces, que sobrepastejaram margens dos rios, desestabilizando o solo. A reintrodução em 1995 reverteu o processo. Esse efeito cascata demonstra que predadores de topo são espécies-chave: sua presença ou ausência tem impacto desproporcional ao seu número. Ecossistemas têm propriedades emergentes — estabilidade, resiliência, produtividade — que não existem nos organismos individuais.",
+          "relationText": "Na escala de organismo, cada espécie ocupa um nicho ecológico — conjunto de condições e recursos que usa. Espécies com nichos idênticos não coexistem (princípio de exclusão competitiva). Na escala de população, predadores regulam populações de presas por ciclos de retroalimentação negativa. Na escala de ecossistema, diversidade de espécies aumenta resiliência. Conecta com Evolução e Metabolismo.",
+          "applicationText": "A reintrodução de predadores é estratégia de restauração ecológica baseada em cascatas tróficas. Serviços ecossistêmicos — polinização, purificação da água, sequestro de carbono — traduzem a ecologia em termos econômicos. A valoração do ecossistema Amazônico em trilhões de dólares/ano em serviços é argumento econômico para sua preservação.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -239,6 +305,9 @@
           "order": 2,
           "title": "Cadeias e teias alimentares",
           "phenomenon": "Como a energia do sol alimenta um leão?",
+          "processDescription": "A energia flui pelos ecossistemas em um único sentido: do sol para produtores primários (autótrofos) e destes para consumidores em sequência. Cada nível nessa sequência é um nível trófico. A regra de 10%: apenas ~10% da energia de um nível trófico é transferida ao seguinte — o resto é perdido como calor ou respiração. Por isso, pirâmides de energia e biomassa diminuem a cada nível e cadeias raramente excedem 4–5 elos. A teia alimentar é a representação mais realista: cada espécie tem múltiplas presas e predadores. Decompositores degradam matéria orgânica de todos os níveis, reciclando nutrientes ao solo.",
+          "relationText": "Na escala de organismo, a eficiência de conversão varia: ectotérmicos são mais eficientes que endotérmicos, que gastam energia para manter temperatura. Na escala de ecossistema, a produtividade primária líquida define o teto energético disponível. Na escala global, dieta a base de cereais é mais eficiente que baseada em carne — um kg de proteína bovina exige ~8 kg de proteína vegetal. Conecta com Metabolismo e Evolução.",
+          "applicationText": "A pesca industrial colapsa estoques ao remover consumidores de topo em excesso. A aquicultura sustentável cultiva organismos em níveis tróficos baixos (tilápia, mexilhões) para maximizar eficiência energética. A agricultura regenerativa usa a teia do solo — fungos, minhocas, bactérias — para substituir fertilizantes artificiais.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -246,6 +315,9 @@
           "order": 3,
           "title": "Relações ecológicas",
           "phenomenon": "Por que as abelhas precisam das flores e as flores precisam das abelhas?",
+          "processDescription": "As interações interespecíficas são classificadas pelo efeito sobre cada organismo (+, -, 0). Mutualismo (+/+): ambos se beneficiam — abelhas obtêm néctar e pólen; flores são polinizadas. Pode ser facultativo ou obrigatório (figo e vespa-do-figo). Comensalismo (+/0): um se beneficia sem afetar o outro. Parasitismo (+/-): parasita se beneficia à custa do hospedeiro. Predação (+/-): predador mata e consome a presa. Competição (-/-): organismos disputam recurso limitado. Amensalismo (0/-): um prejudica o outro sem se beneficiar (alelopatia). A maioria das relações está em um espectro — o mesmo par de espécies pode ser mutualista ou parasita dependendo da disponibilidade de recursos.",
+          "relationText": "Na escala molecular, interações ecológicas têm bases bioquímicas: feromônios atraem polinizadores, compostos secundários das plantas repelem herbívoros. Na escala de população, o parasitismo é um dos principais fatores de regulação populacional. Na escala de ecossistema, diversidade de interações contribui para a estabilidade. Conecta com Evolução (coevolução).",
+          "applicationText": "O declínio de abelhas — por neonicotinoides, patógenos e perda de habitat — ameaça ~35% da produção global de alimentos. Controle biológico de pragas usa predação/parasitismo natural: vespas parasitoide controlam lagartas sem pesticidas. A microbiota intestinal humana é um ecossistema de ~100 trilhões de bactérias em relação mutualista com o hospedeiro.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -253,6 +325,9 @@
           "order": 4,
           "title": "Ciclos biogeoquímicos",
           "phenomenon": "Os átomos do seu corpo já foram parte de outro ser vivo?",
+          "processDescription": "Ao contrário da energia, a matéria é reciclada. Ciclo do carbono: CO₂ é fixado pela fotossíntese, entra na teia alimentar, é liberado pela respiração e decomposição. Ciclo do nitrogênio: N₂ atmosférico é fixado por bactérias a amônio (NH₄⁺), convertido a nitrato (NO₃⁻) por nitrificação, absorvido por plantas, passado para animais, e devolvido ao solo por decomposição. Ciclo da água: evaporação, condensação (chuva), infiltração, escoamento. Ciclo do fósforo: sem fase gasosa — liberado por intemperismo de rochas, absorvido por plantas, passado pela cadeia alimentar, depositado no fundo oceânico. Cada ciclo envolve compartimentos (atmosfera, litosfera, hidrosfera, biosfera) e fluxos entre eles.",
+          "relationText": "Na escala molecular, a nitrogenase das bactérias fixadoras usa ATP para quebrar a tripla ligação do N₂ — uma das mais fortes da química. Na escala de ecossistema, os decompositores são o elo crítico que fecha os ciclos — sem eles, nutrientes ficariam presos em matéria morta. Na escala global, ações humanas rompem ciclos: fertilizantes nitrogenados criam zonas mortas costeiras. Conecta com Metabolismo e Evolução.",
+          "applicationText": "A eutrofização — excesso de N e P por escoamento agrícola — causa floração de algas, depleção de O₂ e morte de organismos aquáticos. A zona morta do Golfo do México é do tamanho do estado de Nova Jersey. Tecnologias de recuperação de fósforo de esgoto buscam fechar o ciclo do fósforo, um recurso não renovável.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -260,6 +335,9 @@
           "order": 5,
           "title": "Impacto humano",
           "phenomenon": "Como a extinção de uma espécie pode afetar a sua alimentação?",
+          "processDescription": "Seres humanos têm o maior impacto já registrado sobre os ecossistemas da Terra. Os principais vetores: fragmentação e destruição de habitat (maior causa de extinção atual); superexploração (caça, pesca, coleta); espécies invasoras (sem predadores naturais, competem e predam nativos); poluição (químicos, plástico, ruído, luz); e mudança climática. A taxa atual de extinção é estimada em 100–1000 vezes acima da taxa histórica de fundo — a sexta extinção em massa. A perda de biodiversidade representa perda de serviços ecossistêmicos: polinização, controle de pragas, ciclagem de nutrientes, potencial farmacológico.",
+          "relationText": "Na escala de organismo, espécies invasoras como o javali destroem ninhos e vegetação nativa, alterando estrutura de habitats. Na escala de população, a teoria de ilha biogeográfica prevê que o tamanho do fragmento de habitat determina quantas espécies ele sustenta. Na escala de ecossistema, o planeta fornece ~125–145 trilhões de dólares/ano em serviços ecossistêmicos. Conecta com Evolução e toda a ecologia.",
+          "applicationText": "Áreas marinhas protegidas com restrição de pesca permitem recuperação de estoques e repopulam regiões adjacentes. A agricultura regenerativa integra produção com manutenção da biodiversidade funcional. O Acordo de Kunming-Montreal (2022) comprometeu países a proteger 30% da Terra e dos oceanos até 2030.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],
@@ -284,6 +362,9 @@
           "order": 1,
           "title": "Seleção natural",
           "phenomenon": "Por que bactérias ficam resistentes a antibióticos?",
+          "processDescription": "A seleção natural opera sobre três condições necessárias: variação (indivíduos diferem em características hereditárias), hereditariedade (essas diferenças são transmitidas à prole) e seleção diferencial (alguns fenótipos conferem maior sobrevivência ou reprodução). O resultado ao longo de gerações é a mudança na frequência de alelos na população. A resistência a antibióticos é um caso em tempo real: variantes com mutações de resistência já existem na população. O antibiótico não cria a mutação — atua como agente seletivo, eliminando as suscetíveis. As resistentes se reproduzem e em semanas dominam a população. A seleção não tem direção, memória ou intenção — opera apenas sobre variação presente, no ambiente presente.",
+          "relationText": "Na escala molecular, a variação que a seleção atua vem de mutações e recombinação — o módulo de Genética explica a origem dessa variação. Na escala de população, a mudança nas frequências alélicas ao longo de gerações é a definição precisa de evolução. Na escala de ecossistema, cada interação ecológica é uma pressão seletiva que molda populações. Evolução e ecologia são inseparáveis.",
+          "applicationText": "A resistência a antibióticos causa mais de 700.000 mortes/ano — com projeção de 10 milhões/ano em 2050 sem mudança. Estratégias incluem uso criterioso de antibióticos, rotação de classes nos hospitais, e busca de novos alvos terapêuticos. O vírus da influenza muta rapidamente por seleção — por isso a vacina precisa ser reformulada anualmente.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -291,6 +372,9 @@
           "order": 2,
           "title": "Variação e herança",
           "phenomenon": "De onde vem a diversidade dentro de uma mesma espécie?",
+          "processDescription": "A variação genética em uma população tem três fontes principais. Mutação: alterações aleatórias na sequência de DNA introduzem alelos novos. Recombinação: o crossing-over durante a meiose e a segregação independente recombinam alelos em novas combinações — por isso irmãos não são geneticamente idênticos. Deriva genética: em populações pequenas, mudanças aleatórias nas frequências alélicas — não causadas por seleção — podem fixar ou eliminar alelos por acaso. O efeito fundador e os gargalos populacionais são formas de deriva. Em humanos, a diversidade genética é maior dentro de populações africanas do que entre africanos e europeus — evidência de que a saída da África (~60.000 anos atrás) foi um gargalo.",
+          "relationText": "Na escala molecular, os SNPs (polimorfismos de nucleotídeo único) são a forma mais comum de variação — existem ~10 milhões no genoma humano. Na escala de população, a frequência de alelos em equilíbrio pode ser descrita pelo princípio de Hardy-Weinberg. Na escala de ecossistema, a diversidade genética dentro das espécies é tão importante quanto o número de espécies — uma espécie com baixa diversidade genética é mais vulnerável a doenças. Conecta com Genética.",
+          "applicationText": "O sequenciamento de genomas populacionais (UK Biobank, 500.000 participantes) identifica variantes associadas a doenças, permitindo medicina de precisão. A conservação genética de espécies ameaçadas inclui bancos de germoplasma e criopreservação de gametas para preservar diversidade.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -298,6 +382,9 @@
           "order": 3,
           "title": "Adaptação",
           "phenomenon": "Por que uma cobra não tem pernas, mas seu ancestral tinha?",
+          "processDescription": "Adaptação é qualquer característica hereditária que aumenta a aptidão de um organismo em seu ambiente — resultado da seleção natural ao longo de gerações. Cobras descendem de lagartos com patas: a perda de membros foi uma adaptação a nichos subterrâneos e aquáticos. A anatomia comparada distingue estruturas homólogas (mesmo ancestral, funções diferentes — braço humano, asa de baleia, pata de cavalo) de análogas (mesma função, ancestral diferente — asa de inseto e asa de ave). Órgãos vestigiais — como a pélvis reduzida de baleias — são relíquias de estruturas adaptativas em ancestrais. A adaptação nunca é perfeita — é sempre uma solução local, com restrições evolutivas, para um ambiente específico.",
+          "relationText": "Na escala molecular, a evolução convergente pode ocorrer por mutações nos mesmos genes — espécies não relacionadas podem chegar a adaptações moleculares idênticas. Na escala de organismo, a convergência morfológica é notável: olhos de vertebrados e cefalópodes evoluíram independentemente mas são estruturalmente similares. Na escala de ecossistema, pressões seletivas análogas em continentes diferentes geraram animais morfologicamente parecidos. Conecta com Genética.",
+          "applicationText": "A biomimética usa adaptações biológicas como modelos de engenharia: velcro inspirado no carrapicho; superfícies superhidrofóbicas imitando a folha de lótus. Fármacos derivados de adaptações animais: o exenatide para diabetes tipo 2 derivou de peptídeo na saliva do lagarto-monstro-de-gila.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -305,6 +392,9 @@
           "order": 4,
           "title": "Especiação",
           "phenomenon": "Como duas populações da mesma espécie se tornam duas espécies diferentes?",
+          "processDescription": "Espécies são populações cujos membros se reproduzem entre si produzindo descendentes férteis (conceito biológico de espécie, Mayr). A especiação ocorre quando o fluxo gênico entre populações é interrompido, permitindo que seleção e deriva as tornem geneticamente incompatíveis. Especiação alopátrica (a mais comum): uma barreira física divide a população. Isoladas, acumulam mutações diferentes e sofrem pressões seletivas distintas. Se a barreira é removida e as populações não se cruzam mais, são espécies distintas. Os tentilhões de Darwin nas Galápagos são o caso mais famoso. Especiação simpátrica: sem barreira geográfica — por seleção disruptiva ou poliploidia em plantas (duplicação do genoma cria isolamento reprodutivo imediato; ~70% das angiospermas são poliploides).",
+          "relationText": "Na escala molecular, o isolamento reprodutivo é frequentemente causado por incompatibilidades genéticas — genes de uma espécie não funcionam corretamente no genoma híbrido (incompatibilidades Bateson-Dobzhansky-Muller). Na escala de ecossistema, a especiação em ilhas e lagos africanos são laboratórios naturais da evolução. Conecta com Ecologia e Genética.",
+          "applicationText": "A radiação adaptativa produziu parte da maior biodiversidade do planeta: cíclidos dos grandes lagos africanos (500+ espécies em ~15.000 anos), tentilhões de Darwin. O genoma de Neandertais e Denisovanos presente no DNA humano moderno mostra hibridização pós-especiação — evidência de que fronteiras entre espécies são fluidas.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         },
         {
@@ -312,6 +402,9 @@
           "order": 5,
           "title": "Evolução como eixo da biologia",
           "phenomenon": "Por que o código genético é quase idêntico em todas as espécies da Terra?",
+          "processDescription": "A universalidade do código genético — o mesmo tripleto codifica o mesmo aminoácido em bactérias, fungos, plantas e animais — é uma das evidências mais poderosas de ancestralidade comum. O código emergiu no início da vida (~3,5 bilhões de anos atrás) e foi conservado porque qualquer alteração seria catastrófica para todas as proteínas simultaneamente. A biologia molecular confirmou o que a anatomia comparada e o registro fóssil indicavam: todas as espécies compartilham genes homólogos para funções fundamentais. A frase de Dobzhansky — 'Nada em biologia faz sentido exceto à luz da evolução' — sintetiza o papel da evolução como princípio unificador.",
+          "relationText": "Na escala molecular, a genômica comparativa traça a história evolutiva de cada gene — os genes HOX que controlam o plano corporal são conservados de moscas a humanos. Na escala de organismo, a homologia molecular explica por que remédios testados em camundongos frequentemente funcionam em humanos. Na escala de ecossistema, coevolução entre parasita-hospedeiro, planta-polinizador, predador-presa — todas as relações têm história evolutiva. Este é o módulo que fecha o Darwin.",
+          "applicationText": "O SARS-CoV-2 originou-se por zoonose mediada por mutações que permitiram ao vírus se ligar a receptores humanos (ACE2). A vigilância genômica de vírus animais usa princípios evolutivos para prever variantes com potencial pandêmico. A evolução dirigida — que ganhou o Nobel de Química em 2018 — simula a seleção natural em laboratório para otimizar proteínas e enzimas industriais.",
           "phases": ["fenomeno", "visualizacao", "processo", "relacao", "aplicacao", "atividade"]
         }
       ],

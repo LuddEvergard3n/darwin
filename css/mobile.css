@@ -3,8 +3,6 @@
  * Darwin — Atlas dos Processos da Vida
  *
  * Ajustes finos para mobile. Carregado apos os demais arquivos CSS.
- * Nada que ja nao tenha sido coberto por @media queries nos outros arquivos.
- * Este arquivo contem apenas padroes mobile-first e fallbacks especificos.
  */
 
 /* ============================================================
@@ -17,14 +15,9 @@
     --text-3xl: 2.2rem;
     --text-2xl: 1.8rem;
     --text-xl:  1.4rem;
-  }
-
-  .section {
-    padding-block: var(--space-12);
-  }
-
-  .section--large {
-    padding-block: var(--space-12);
+    /* Seções mais compactas no mobile */
+    --section-gap:    var(--space-12);
+    --section-gap-sm: var(--space-10);
   }
 
   .btn--lg {
@@ -33,32 +26,43 @@
   }
 
   .card {
-    padding: var(--space-5);
+    padding: var(--space-6);
   }
 
   .axis-card {
-    padding: var(--space-5);
-    padding-left: calc(var(--space-5) + 4px);
+    padding: var(--space-6);
+    padding-left: calc(var(--space-6) + 4px);
+    min-height: auto;
   }
 
   .module-card {
-    padding: var(--space-5);
+    padding: var(--space-6);
+    min-height: auto;
   }
 
-  /* Cards de aplicacao em grid 2x */
+  .application-card {
+    padding: var(--space-6);
+    min-height: auto;
+  }
+
   .application-card__icon {
     width: 32px;
     height: 32px;
+    margin-bottom: var(--space-4);
   }
 
-  /* Exercicio */
   .exercise__body {
-    padding: var(--space-5);
+    padding: var(--space-6);
+  }
+
+  .exercise__header {
+    padding: var(--space-4) var(--space-6);
   }
 
   .exercise__footer {
     flex-direction: column;
     gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
   }
 
   .exercise__footer .btn {
@@ -66,12 +70,19 @@
     justify-content: center;
   }
 
-  /* Glossario */
-  .glossary-panel__item {
-    padding: var(--space-4) var(--space-5);
+  .exercise__question {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-6);
   }
 
-  /* Escala — versao compacta */
+  .glossary-panel__item {
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .glossary-panel__header {
+    padding: var(--space-4) var(--space-6);
+  }
+
   .scale-step {
     padding: var(--space-3) var(--space-2);
   }
@@ -85,7 +96,6 @@
     font-size: 0.65rem;
   }
 
-  /* Hero */
   .home-hero__actions {
     flex-direction: column;
   }
@@ -95,7 +105,6 @@
     justify-content: center;
   }
 
-  /* Cabeçalho do modulo */
   .module-header {
     padding-block: var(--space-8);
     margin-bottom: var(--space-8);
@@ -104,6 +113,32 @@
   .module-header__meta {
     flex-direction: column;
     gap: var(--space-2);
+  }
+
+  .sidebar-block {
+    padding: var(--space-5);
+  }
+
+  .teacher-panel {
+    padding: var(--space-6);
+  }
+
+  .lesson-phase {
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .lesson-nav {
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+  }
+
+  .lesson-nav__link {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .scale-progression {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -118,7 +153,7 @@
 
   .exercise__option {
     min-height: 48px;
-    padding: var(--space-4) var(--space-5);
+    padding: var(--space-4) var(--space-6);
   }
 
   .scale-nav__item {
@@ -142,12 +177,12 @@
 
 @media (max-width: 768px) and (orientation: landscape) {
   .home-hero {
-    padding-block: var(--space-8);
+    padding-block: var(--space-10);
   }
 
   .hero-layout {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+    gap: var(--space-8);
   }
 
   .hero-diagram {
@@ -200,3 +235,4 @@
     content: none;
   }
 }
+

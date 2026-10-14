@@ -11,7 +11,7 @@
    ============================================================ */
 
 .home-hero {
-  padding-block: var(--space-16) var(--space-12);
+  padding-block: var(--space-20) var(--space-16);
   position: relative;
   overflow: hidden;
 }
@@ -55,8 +55,8 @@
   font-size: var(--text-md);
   color: var(--color-text-secondary);
   line-height: 1.6;
-  max-width: 50ch;
-  margin-bottom: var(--space-8);
+  max-width: 46ch;
+  margin-bottom: var(--space-10);
 }
 
 .home-hero__actions {
@@ -85,13 +85,13 @@
    ============================================================ */
 
 .axes-section {
-  padding-block: var(--space-16);
+  padding-block: var(--section-gap);
 }
 
 .axes-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
+  gap: var(--card-gap);
 }
 
 /* ============================================================
@@ -102,7 +102,7 @@
   padding-block: var(--space-16);
   background: var(--color-surface);
   border-radius: var(--radius-xl);
-  margin-block: var(--space-4);
+  margin-block: var(--space-6);
 }
 
 .scale-progression {
@@ -200,9 +200,9 @@
    ============================================================ */
 
 .module-header {
-  padding-block: var(--space-12);
+  padding-block: var(--space-14) var(--space-12);
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-14);
 }
 
 .module-header__axis {
@@ -211,7 +211,7 @@
   text-transform: uppercase;
   letter-spacing: 0.09em;
   font-weight: 600;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .module-header__title {
@@ -220,21 +220,21 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .module-header__description {
   font-size: var(--text-md);
   color: var(--color-text-secondary);
-  max-width: 60ch;
+  max-width: 58ch;
   line-height: 1.65;
 }
 
 .module-header__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
-  margin-top: var(--space-6);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
@@ -251,7 +251,7 @@
    ============================================================ */
 
 .lesson {
-  max-width: 780px;
+  max-width: var(--content-max);
 }
 
 .lesson-phase {
@@ -262,6 +262,7 @@
 
 .lesson-phase:last-child {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .lesson-phase__number {
@@ -282,7 +283,7 @@
 
 /* Cabeçalho de fase: rótulo + descrição */
 .lesson-phase__header {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
 .lesson-phase__label {
@@ -317,7 +318,6 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
   margin-block: var(--space-8);
   overflow: hidden;
 }
@@ -334,6 +334,14 @@
 .diagram-container__svg {
   width: 100%;
   display: block;
+}
+
+/* SVG gerado pelo DiagramEngine */
+.diagram-svg {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 400px;
 }
 
 /* Estilos para SVG gerados por JS */
@@ -386,6 +394,7 @@
 @media (max-width: 1024px) {
   .axes-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 
   .scale-progression {
@@ -400,11 +409,12 @@
 
 @media (max-width: 768px) {
   .home-hero {
-    padding-block: var(--space-12) var(--space-8);
+    padding-block: var(--space-14) var(--space-10);
   }
 
   .home-hero__subtitle {
     font-size: var(--text-base);
+    max-width: none;
   }
 
   .hero-diagram {
@@ -419,11 +429,34 @@
   .scale-step__sublabel {
     display: none;
   }
-}
 
-@media (max-width: 480px) {
-  .scale-progression {
-    grid-template-columns: repeat(3, 1fr);
+  .module-header {
+    padding-block: var(--space-10) var(--space-8);
+    margin-bottom: var(--space-10);
+  }
+
+  .lesson-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-nav__link--next {
+    text-align: left;
+  }
+
+  .page-header__title {
+    font-size: var(--text-xl);
+  }
+
+  .lesson-header__title {
+    font-size: var(--text-xl);
+  }
+
+  .page-body {
+    padding-block: var(--space-10);
+  }
+
+  .module-section {
+    margin-bottom: var(--space-10);
   }
 }
 
@@ -431,19 +464,16 @@
    UTILITARIOS DE PAGINA — usados pelos componentes e motores
    ============================================================ */
 
-/* Padding superior/inferior padrão do corpo de uma página */
 .page-body {
-  padding-block: var(--space-12);
+  padding-block: var(--space-14);
 }
 
-/* Breadcrumb com padding superior */
 .page-breadcrumb {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
-/* Cabeçalho genérico de página (glossário, processos, etc.) */
 .page-header {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-12);
 }
 
 .page-header__title {
@@ -458,25 +488,24 @@
 .page-header__description {
   font-size: var(--text-md);
   color: var(--color-text-secondary);
-  max-width: 60ch;
+  max-width: 58ch;
   line-height: 1.65;
 }
 
-/* Heading de seção dentro de uma página */
 .section-heading {
   font-family: var(--font-serif);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 
-/* Parágrafo introdutório de seção */
 .section-intro {
   font-size: var(--text-base);
   color: var(--color-text-secondary);
   max-width: 58ch;
   margin-bottom: 0;
+  line-height: 1.7;
 }
 
 .section-intro--centered {
@@ -484,15 +513,13 @@
   text-align: center;
 }
 
-/* Seção com espaçamento padrão */
 .module-section {
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-14);
 }
 
-/* Seção alternativa com fundo */
 .section--alt {
   background: var(--color-surface);
-  padding-block: var(--space-16);
+  padding-block: var(--section-gap);
 }
 
 /* ============================================================
@@ -500,8 +527,8 @@
    ============================================================ */
 
 .lesson-header {
-  margin-bottom: var(--space-12);
-  padding-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-10);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -511,7 +538,7 @@
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .lesson-header__title {
@@ -520,12 +547,16 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .lesson-header__phenomenon {
+  font-size: var(--text-md);
   font-style: italic;
+  color: var(--color-text-secondary);
   line-height: 1.6;
+  margin-top: var(--space-3);
+  max-width: 58ch;
 }
 
 /* ============================================================
@@ -536,16 +567,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
-  margin-top: var(--space-12);
-  padding-top: var(--space-8);
+  margin-top: var(--space-14);
+  padding-top: var(--space-10);
   border-top: 1px solid var(--color-border);
 }
 
 .lesson-nav__link {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-4) var(--space-5);
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-6);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -590,24 +621,24 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  margin-bottom: var(--space-4);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .sidebar-block__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-3);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .sidebar-block__items {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-2);
 }
 
@@ -651,13 +682,13 @@
    ============================================================ */
 
 .search-bar {
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
 }
 
 .search-bar__input {
   width: 100%;
-  max-width: 420px;
-  padding: 0.625rem 1rem;
+  max-width: 480px;
+  padding: var(--space-3) var(--space-5);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -759,7 +790,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-14);
 }
 
 /* Linha de tags/badges (exemplos, processos, escalas) */

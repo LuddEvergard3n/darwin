@@ -52,15 +52,32 @@
   --text-2xl:  2.441rem;
   --text-3xl:  3.052rem;
 
-  /* --- Espacamento --- */
-  --space-1:   0.25rem;
-  --space-2:   0.5rem;
-  --space-3:   0.75rem;
-  --space-4:   1rem;
-  --space-6:   1.5rem;
-  --space-8:   2rem;
-  --space-12:  3rem;
-  --space-16:  4rem;
+  /* --- Espacamento — escala completa (base 4px) --- */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-14:  3.5rem;    /* 56px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+  /* --- Sistema de largura --- */
+  --container-max:   1200px;   /* container principal */
+  --container-wide:  1400px;   /* container ampliado */
+  --content-max:     780px;    /* coluna de conteúdo (lição, prosa) */
+  --reading-max:     68ch;     /* linha de leitura em prosa corrida */
+  --sidebar-width:   240px;    /* sidebar de módulo */
+
+  /* --- Ritmo de seção (tokens semânticos) --- */
+  --section-gap:     var(--space-20);   /* padding vertical de seções */
+  --section-gap-sm:  var(--space-14);   /* padding vertical de seções compactas */
+  --card-gap:        var(--space-6);    /* gap entre cards em grid */
 
   /* --- Raio de borda --- */
   --radius-sm:  4px;
@@ -79,7 +96,7 @@
   --transition-slow:   400ms ease;
 
   /* --- Linha de leitura --- */
-  --measure: 72ch;
+  --measure: var(--reading-max);
 
   /* --- Z-index --- */
   --z-base:    1;
@@ -140,7 +157,6 @@ p {
 
 /* max-width de leitura apenas em prosa corrida */
 .prose p,
-.lesson-phase p,
 .module-header__description {
   max-width: var(--measure);
 }

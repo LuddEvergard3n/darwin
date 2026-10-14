@@ -4,73 +4,145 @@
       "id": "health",
       "slug": "saude",
       "label": "Saúde",
-      "description": "Como a biologia celular e sistêmica explica doenças, tratamentos e o funcionamento do corpo.",
+      "icon": "health",
+      "description": "Como o conhecimento celular e molecular transforma diagnóstico, prevenção e tratamento de doenças.",
+      "summary": "Cada avanço médico moderno — desde antibióticos a imunoterapia — parte de compreender como células funcionam, se comunicam e falham. A biologia celular é a base da medicina.",
+      "examples": [
+        "Diagnóstico por imagem molecular (PET scan)",
+        "Terapia com células-tronco para lesões cardíacas",
+        "Triagem neonatal de erros inatos do metabolismo",
+        "Monitoramento glicêmico contínuo no diabetes"
+      ],
       "relatedModules": ["cell", "systems", "genetics"],
-      "icon": "health"
+      "relatedProcesses": ["metabolismo", "regulacao", "estrutura"]
     },
     {
       "id": "food",
       "slug": "alimentacao",
       "label": "Alimentação",
-      "description": "Da digestão ao metabolismo: o que acontece com o que você come.",
-      "relatedModules": ["metabolism", "systems", "ecology"],
-      "icon": "food"
+      "icon": "food",
+      "description": "Da digestão à fotossíntese: como a biologia explica o que comemos, como produzimos e como aproveitamos os nutrientes.",
+      "summary": "A segurança alimentar global depende da compreensão de ecossistemas, metabolismo de plantas, solos e ciclos biogeoquímicos. Cada refeição é o resultado de processos biológicos de múltiplas escalas.",
+      "examples": [
+        "Biofortificação — Golden Rice com pró-vitamina A",
+        "Fermentação: pão, queijo, vinagre — controle microbiano",
+        "Índice glicêmico e metabolismo de carboidratos",
+        "Polinização e dependência da biodiversidade na agricultura"
+      ],
+      "relatedModules": ["metabolism", "ecology", "systems"],
+      "relatedProcesses": ["metabolismo", "interacao-ecologica"]
     },
     {
       "id": "genetics-app",
       "slug": "genetica",
       "label": "Genética",
-      "description": "Herança, variação, testes genéticos e edição genômica.",
-      "relatedModules": ["genetics", "evolution"],
-      "icon": "dna"
+      "icon": "dna",
+      "description": "Sequenciamento, edição e diagnóstico genético: como lemos, interpretamos e modificamos a informação hereditária.",
+      "summary": "O sequenciamento do genoma humano transformou a medicina. Hoje, identificar mutações causadoras de doenças, rastrear ancestralidade e editar genes com CRISPR são realidades clínicas e científicas.",
+      "examples": [
+        "Teste BRCA1/BRCA2 para risco de câncer hereditário",
+        "Edição gênica com CRISPR para anemia falciforme",
+        "Sequenciamento fetal não-invasivo (NIPT)",
+        "Farmacogenômica — adaptar doses ao perfil genético"
+      ],
+      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedProcesses": ["informacao", "reproducao"]
     },
     {
       "id": "diseases",
       "slug": "doencas",
       "label": "Doenças",
-      "description": "Patologias como disfunções dos sistemas biológicos.",
-      "relatedModules": ["cell", "genetics", "systems"],
-      "icon": "disease"
+      "icon": "disease",
+      "description": "Infecção, câncer, doenças autoimunes e metabólicas: biologia como chave para entender e tratar o que nos adoece.",
+      "summary": "Doenças são desvios de processos biológicos normais. Compreender a patogênese — do vírus ao tumor — exige conhecer as mesmas vias celulares e moleculares que sustentam a saúde.",
+      "examples": [
+        "Mecanismo de resistência a antibióticos (seleção natural)",
+        "Efeito Warburg — metabolismo alterado no câncer",
+        "Autoimunidade: quando o sistema imune ataca o próprio",
+        "HIV e integração retroviral no genoma do hospedeiro"
+      ],
+      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedProcesses": ["informacao", "metabolismo", "adaptacao"]
     },
     {
       "id": "environment",
       "slug": "ambiente",
       "label": "Ambiente",
-      "description": "Ecossistemas, biodiversidade e os efeitos das ações humanas.",
-      "relatedModules": ["ecology", "evolution"],
-      "icon": "environment"
+      "icon": "environment",
+      "description": "Ciclos biogeoquímicos, mudança climática e impacto humano: como a biologia conecta vida e planeta.",
+      "summary": "O planeta é gerenciado por processos biológicos. A fotossíntese regula o CO₂ atmosférico; os ciclos do nitrogênio e fósforo sustentam a produção de alimentos; a perda de biodiversidade ameaça serviços ecossistêmicos essenciais.",
+      "examples": [
+        "Sequestro de carbono por florestas e oceanos",
+        "Zonas mortas costeiras por excesso de nitrogênio (eutrofização)",
+        "Microplásticos e bioacumulação na cadeia trófica",
+        "Restauração ecológica com espécies-chave (reintrodução de lobos)"
+      ],
+      "relatedModules": ["ecology", "metabolism", "evolution"],
+      "relatedProcesses": ["interacao-ecologica", "metabolismo"]
     },
     {
       "id": "agriculture",
       "slug": "agricultura",
       "label": "Agricultura",
-      "description": "Seleção artificial, organismos transgênicos e produção de alimentos.",
-      "relatedModules": ["genetics", "evolution", "ecology"],
-      "icon": "agriculture"
+      "icon": "agriculture",
+      "description": "Melhoramento genético, biopesticidas e agroecologia: como a biologia aumenta a produção e reduz o impacto ambiental.",
+      "summary": "Alimentar 10 bilhões de pessoas requer aplicar genética, ecologia e fisiologia vegetal. Do desenvolvimento de variedades resistentes à seca ao controle biológico de pragas, a biologia é tecnologia agrícola.",
+      "examples": [
+        "Plantas C4 e CAM — eficiência fotossintética em climas secos",
+        "Fungos micorrízicos como alternativa a fertilizantes fosfatados",
+        "CRISPR para resistência a doenças em culturas",
+        "Controle biológico: Bacillus thuringiensis contra lagartas"
+      ],
+      "relatedModules": ["ecology", "genetics", "metabolism"],
+      "relatedProcesses": ["metabolismo", "adaptacao", "interacao-ecologica"]
     },
     {
       "id": "antibiotics",
       "slug": "antibioticos",
       "label": "Antibióticos",
-      "description": "Resistência bacteriana como exemplo em tempo real de evolução por seleção natural.",
-      "relatedModules": ["evolution", "cell"],
-      "icon": "antibiotics"
+      "icon": "antibiotics",
+      "description": "Resistência antimicrobiana: um exemplo em tempo real de seleção natural com consequências globais para a saúde pública.",
+      "summary": "A crise de resistência a antibióticos é evolução darwiniana em ação. Cada curso de antibiótico mal aplicado é uma experiência de seleção. Compreender a biologia da resistência é essencial para evitar um colapso da medicina moderna.",
+      "examples": [
+        "Mecanismos de resistência: beta-lactamases e bombas de efluxo",
+        "Transferência horizontal de genes entre bactérias",
+        "Antibióticos de último recurso: colistina e vancomicina",
+        "Bacteriófagos como alternativa terapêutica emergente"
+      ],
+      "relatedModules": ["evolution", "genetics", "cell"],
+      "relatedProcesses": ["adaptacao", "informacao", "reproducao"]
     },
     {
       "id": "epidemics",
       "slug": "epidemias",
       "label": "Epidemias",
-      "description": "Como patógenos se espalham, evoluem e interagem com populações humanas.",
-      "relatedModules": ["evolution", "ecology", "genetics"],
-      "icon": "epidemics"
+      "icon": "epidemics",
+      "description": "Emergência de patógenos, transmissão e imunidade coletiva: biologia evolutiva e ecológica aplicadas à saúde pública global.",
+      "summary": "Toda pandemia é um evento de evolução acelerada. O SARS-CoV-2, influenza, HIV — todos exemplificam como mutação, seleção e dinâmicas de hospedeiro moldam o surgimento e a disseminação de doenças infecciosas.",
+      "examples": [
+        "Zoonose: salto de espécie e adaptação ao novo hospedeiro",
+        "Vacinas de mRNA — tecnologia baseada no dogma central",
+        "R₀ e imunidade coletiva — dinâmica populacional da infecção",
+        "Vigilância genômica: rastrear variantes em tempo real"
+      ],
+      "relatedModules": ["evolution", "genetics", "ecology"],
+      "relatedProcesses": ["adaptacao", "informacao", "interacao-ecologica"]
     },
     {
       "id": "biotech",
       "slug": "biotecnologia",
       "label": "Biotecnologia",
-      "description": "CRISPR, vacinas de mRNA, biorremediação e as fronteiras da biologia aplicada.",
-      "relatedModules": ["genetics", "cell"],
-      "icon": "biotech"
+      "icon": "biotech",
+      "description": "CRISPR, mRNA terapêutico, biorremedição e síntese biológica: como manipulamos processos vivos para resolver problemas humanos.",
+      "summary": "A biotecnologia moderna é biologia molecular aplicada. Editar genomas, produzir proteínas recombinantes, usar organismos para descontaminar ambientes ou fabricar combustíveis — tudo parte de compreender como células funcionam.",
+      "examples": [
+        "Insulina recombinante produzida por Escherichia coli",
+        "CAR-T cell therapy — células imunes reprogramadas contra câncer",
+        "Biorremedição: bactérias que degradam hidrocarbonetos",
+        "Evolução dirigida de enzimas industriais (Nobel 2018)"
+      ],
+      "relatedModules": ["genetics", "cell", "evolution"],
+      "relatedProcesses": ["informacao", "metabolismo", "estrutura"]
     }
   ]
 }

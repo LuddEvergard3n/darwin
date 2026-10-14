@@ -3,7 +3,7 @@
     {
       "id": "celula",
       "term": "Célula",
-      "definition": "Unidade estrutural e funcional básica de todos os seres vivos. Pode existir de forma independente (unicelulares) ou como parte de organismos multicelulares.",
+      "definition": "Unidade estrutural e funcional básica de todos os seres vivos. Pode existir de forma independente (unicelulares) ou como parte de organismos multicelulares. Toda célula origina-se de outra célula.",
       "axis": "organization",
       "scale": "cellular",
       "relatedTerms": ["membrana", "proteina", "metabolismo"],
@@ -12,16 +12,16 @@
     {
       "id": "membrana",
       "term": "Membrana plasmática",
-      "definition": "Bicamada lipídica com proteínas que delimita a célula, controla o transporte de substâncias e media a comunicação com o ambiente externo.",
+      "definition": "Bicamada lipídica com proteínas que delimita a célula, controla o transporte de substâncias e media a comunicação com o ambiente externo. Sua estrutura fluido-mosaico permite seletividade e sinalização.",
       "axis": "organization",
       "scale": "molecular",
-      "relatedTerms": ["celula", "proteina"],
+      "relatedTerms": ["celula", "proteina", "transporte-ativo"],
       "modules": ["cell"]
     },
     {
       "id": "dna",
       "term": "DNA",
-      "definition": "Ácido desoxirribonucleico. Molécula de dupla hélice que armazena a informação genética em sequências de nucleotídeos (bases A, T, C, G).",
+      "definition": "Ácido desoxirribonucleico. Molécula de dupla hélice que armazena a informação genética em sequências de nucleotídeos (bases A, T, C, G). Organizado em cromossomos associados a histonas.",
       "axis": "information",
       "scale": "molecular",
       "relatedTerms": ["gene", "proteina", "mutacao"],
@@ -30,110 +30,254 @@
     {
       "id": "gene",
       "term": "Gene",
-      "definition": "Segmento de DNA que codifica uma proteína funcional ou RNA com função regulatória. A unidade hereditária básica.",
+      "definition": "Segmento de DNA que codifica uma proteína funcional ou RNA com função regulatória. A unidade hereditária básica. Inclui promotor, éxons e íntrons; um gene pode gerar múltiplas proteínas por splicing alternativo.",
       "axis": "information",
       "scale": "molecular",
-      "relatedTerms": ["dna", "proteina", "mutacao"],
+      "relatedTerms": ["dna", "proteina", "mutacao", "expressao-genica"],
       "modules": ["genetics"]
     },
     {
       "id": "atp",
       "term": "ATP",
-      "definition": "Adenosina trifosfato. Molécula que funciona como moeda energética universal das células — armazena e transfere energia para reações biológicas.",
+      "definition": "Adenosina trifosfato. Molécula que funciona como moeda energética universal das células — armazena e transfere energia para reações biológicas. A hidrólise libera ~30,5 kJ/mol. Regenerado continuamente pela ATP sintase.",
       "axis": "energy",
       "scale": "molecular",
-      "relatedTerms": ["metabolismo", "fotossintese", "mitocondria"],
+      "relatedTerms": ["metabolismo", "fotossintese", "mitocondria", "respiracao-celular"],
       "modules": ["metabolism"]
     },
     {
       "id": "metabolismo",
       "term": "Metabolismo",
-      "definition": "Conjunto de todas as reações químicas de uma célula ou organismo. Inclui catabolismo (quebra com liberação de energia) e anabolismo (síntese com consumo de energia).",
+      "definition": "Conjunto de todas as reações químicas de uma célula ou organismo. Inclui catabolismo (quebra com liberação de energia) e anabolismo (síntese com consumo de energia). Regulado por enzimas e sinais hormonais.",
       "axis": "energy",
       "scale": "cellular",
-      "relatedTerms": ["atp", "fotossintese", "homeostase"],
+      "relatedTerms": ["atp", "fotossintese", "homeostase", "respiracao-celular"],
       "modules": ["metabolism"]
     },
     {
       "id": "homeostase",
       "term": "Homeostase",
-      "definition": "Capacidade dos sistemas biológicos de manter condições internas relativamente estáveis diante de variações no ambiente externo. Não é estabilidade estática, mas regulação dinâmica contínua.",
+      "definition": "Capacidade dos sistemas biológicos de manter condições internas relativamente estáveis diante de variações no ambiente externo. Opera por feedback negativo. Não é estabilidade estática, mas regulação dinâmica contínua.",
       "axis": "energy",
       "scale": "system",
-      "relatedTerms": ["metabolismo", "atp"],
+      "relatedTerms": ["metabolismo", "feedback", "sistema-nervoso"],
       "modules": ["systems"]
     },
     {
       "id": "selecao-natural",
       "term": "Seleção natural",
-      "definition": "Mecanismo evolutivo pelo qual indivíduos com características mais adaptadas ao ambiente sobrevivem e reproduzem mais, transmitindo essas características às gerações seguintes.",
+      "definition": "Mecanismo evolutivo pelo qual indivíduos com características mais adaptadas ao ambiente sobrevivem e reproduzem mais, transmitindo essas características às gerações seguintes. Requer variação, hereditariedade e seleção diferencial.",
       "axis": "evolution",
       "scale": "population",
-      "relatedTerms": ["adaptacao", "mutacao", "ecossistema"],
+      "relatedTerms": ["adaptacao", "mutacao", "especiacao", "deriva-genetica"],
       "modules": ["evolution"]
     },
     {
       "id": "ecossistema",
       "term": "Ecossistema",
-      "definition": "Sistema formado pela comunidade de organismos de uma área e os componentes abióticos (físicos e químicos) com os quais interagem.",
+      "definition": "Sistema formado pela comunidade de organismos de uma área e os componentes abióticos com que interagem. Tem propriedades emergentes — estabilidade, produtividade, resiliência — ausentes nos organismos individuais.",
       "axis": "evolution",
       "scale": "ecosystem",
-      "relatedTerms": ["cadeia-alimentar", "selecao-natural", "fotossintese"],
+      "relatedTerms": ["cadeia-alimentar", "selecao-natural", "fotossintese", "nicho"],
       "modules": ["ecology"]
     },
     {
       "id": "mutacao",
       "term": "Mutação",
-      "definition": "Alteração permanente na sequência de DNA. Pode ser pontual (um nucleotídeo) ou estrutural (segmentos). Pode ser neutra, deletéria ou benéfica dependendo do contexto ambiental.",
+      "definition": "Alteração permanente na sequência de DNA. Pode ser pontual (substituição de nucleotídeo), frameshift (inserção/deleção) ou estrutural (inversão, translocação cromossômica). Pode ser neutra, deletéria ou benéfica.",
       "axis": "information",
       "scale": "molecular",
-      "relatedTerms": ["dna", "gene", "selecao-natural"],
+      "relatedTerms": ["dna", "gene", "selecao-natural", "cancer"],
       "modules": ["genetics", "evolution"]
     },
     {
       "id": "fotossintese",
       "term": "Fotossíntese",
-      "definition": "Processo pelo qual organismos fotoautotróficos convertem energia luminosa em energia química, sintetizando moléculas orgânicas a partir de CO₂ e água.",
+      "definition": "Processo pelo qual organismos fotoautotróficos convertem energia luminosa em energia química. Ocorre em cloroplastos — reações de luz nos tilacoides, ciclo de Calvin no estroma. Produz O₂ e compostos orgânicos a partir de CO₂ e água.",
       "axis": "energy",
       "scale": "cellular",
-      "relatedTerms": ["atp", "metabolismo", "cadeia-alimentar"],
+      "relatedTerms": ["atp", "metabolismo", "cadeia-alimentar", "ciclo-carbono"],
       "modules": ["metabolism", "ecology"]
     },
     {
       "id": "proteina",
       "term": "Proteína",
-      "definition": "Macromolécula composta por cadeias de aminoácidos. Realiza virtualmente todas as funções moleculares da célula: estrutura, catálise, sinalização, transporte, defesa.",
+      "definition": "Macromolécula composta por cadeias de aminoácidos codificadas por genes. Realiza virtualmente todas as funções moleculares da célula: estrutura, catálise (enzimas), sinalização, transporte, defesa imunológica.",
       "axis": "organization",
       "scale": "molecular",
-      "relatedTerms": ["gene", "dna", "celula"],
+      "relatedTerms": ["gene", "dna", "celula", "expressao-genica"],
       "modules": ["cell", "genetics"]
     },
     {
       "id": "mitocondria",
       "term": "Mitocôndria",
-      "definition": "Organela de dupla membrana responsável pela respiração celular aeróbica e produção da maior parte do ATP. Possui DNA próprio — evidência de origem endossimbiótica.",
+      "definition": "Organela de dupla membrana responsável pela respiração celular aeróbica e produção da maior parte do ATP. Possui DNA próprio — evidência de origem endossimbiótica (ancestral procarionte incorporado). Forma redes dinâmicas por fusão e fissão.",
       "axis": "energy",
       "scale": "cellular",
-      "relatedTerms": ["atp", "metabolismo", "celula"],
+      "relatedTerms": ["atp", "metabolismo", "celula", "respiracao-celular"],
       "modules": ["cell", "metabolism"]
     },
     {
       "id": "adaptacao",
       "term": "Adaptação",
-      "definition": "Característica hereditária que aumenta a aptidão de um organismo em seu ambiente. Resultado da seleção natural ao longo de gerações.",
+      "definition": "Característica hereditária que aumenta a aptidão de um organismo em seu ambiente. Resultado da seleção natural ao longo de gerações. Nunca é perfeita — é sempre uma solução local para um ambiente específico, com restrições evolutivas.",
       "axis": "evolution",
       "scale": "organism",
-      "relatedTerms": ["selecao-natural", "mutacao", "ecossistema"],
+      "relatedTerms": ["selecao-natural", "mutacao", "especiacao"],
       "modules": ["evolution"]
     },
     {
       "id": "cadeia-alimentar",
       "term": "Cadeia alimentar",
-      "definition": "Sequência linear de organismos na qual cada um serve de alimento ao seguinte, representando o fluxo de energia e matéria no ecossistema.",
+      "definition": "Sequência linear de organismos na qual cada um serve de alimento ao seguinte, representando o fluxo de energia e matéria no ecossistema. Organizada em níveis tróficos; cada transferência perde ~90% da energia como calor.",
       "axis": "evolution",
       "scale": "ecosystem",
-      "relatedTerms": ["ecossistema", "fotossintese", "adaptacao"],
+      "relatedTerms": ["ecossistema", "fotossintese", "adaptacao", "nivel-trofico"],
       "modules": ["ecology"]
+    },
+    {
+      "id": "expressao-genica",
+      "term": "Expressão gênica",
+      "definition": "Processo pelo qual a informação contida em um gene é usada para sintetizar um produto funcional — RNA ou proteína. Inclui transcrição (DNA → RNA) e tradução (RNA → proteína). Regulada por fatores de transcrição, epigenética e sinais ambientais.",
+      "axis": "information",
+      "scale": "molecular",
+      "relatedTerms": ["gene", "proteina", "dna", "epigenetica"],
+      "modules": ["genetics", "cell"]
+    },
+    {
+      "id": "epigenetica",
+      "term": "Epigenética",
+      "definition": "Modificações herdáveis na expressão gênica que não alteram a sequência de DNA. Incluem metilação do DNA e modificações de histonas. Explicam como células com DNA idêntico têm identidades distintas (diferenciação celular).",
+      "axis": "information",
+      "scale": "molecular",
+      "relatedTerms": ["expressao-genica", "diferenciacao", "cromatina"],
+      "modules": ["genetics", "cell"]
+    },
+    {
+      "id": "especiacao",
+      "term": "Especiação",
+      "definition": "Processo pelo qual uma população se divide em duas ou mais espécies reprodutivamente isoladas. Na especiação alopátrica, ocorre por barreira geográfica; na simpátrica, sem barreira, por seleção disruptiva ou poliploidia.",
+      "axis": "evolution",
+      "scale": "population",
+      "relatedTerms": ["selecao-natural", "adaptacao", "deriva-genetica", "isolamento-reproductivo"],
+      "modules": ["evolution"]
+    },
+    {
+      "id": "deriva-genetica",
+      "term": "Deriva genética",
+      "definition": "Mudança aleatória na frequência de alelos em uma população, não causada por seleção. Mais intensa em populações pequenas. Inclui efeito fundador e gargalos populacionais. Pode fixar alelos deletérios ou eliminar alelos benéficos por acaso.",
+      "axis": "evolution",
+      "scale": "population",
+      "relatedTerms": ["selecao-natural", "mutacao", "especiacao"],
+      "modules": ["evolution"]
+    },
+    {
+      "id": "respiracao-celular",
+      "term": "Respiração celular",
+      "definition": "Oxidação de moléculas orgânicas (principalmente glicose) para produzir ATP. A respiração aeróbica ocorre em três etapas: glicólise (citoplasma), ciclo de Krebs e cadeia transportadora de elétrons (mitocôndria). Produz ~30–32 ATP por glicose.",
+      "axis": "energy",
+      "scale": "cellular",
+      "relatedTerms": ["atp", "mitocondria", "metabolismo", "fotossintese"],
+      "modules": ["metabolism"]
+    },
+    {
+      "id": "feedback",
+      "term": "Feedback (retroalimentação)",
+      "definition": "Mecanismo pelo qual o produto ou efeito de um processo regula o próprio processo. Feedback negativo: o produto inibe o processo, restaurando o equilíbrio (base da homeostase). Feedback positivo: o produto amplifica o processo (coagulação, parto, potencial de ação).",
+      "axis": "organization",
+      "scale": "system",
+      "relatedTerms": ["homeostase", "sinalização", "hormônios"],
+      "modules": ["systems"]
+    },
+    {
+      "id": "nicho",
+      "term": "Nicho ecológico",
+      "definition": "Conjunto de condições ambientais e recursos que uma espécie utiliza em um ecossistema — não apenas onde vive (habitat), mas como vive. Inclui papel funcional na teia alimentar, tolerâncias físicas e interações com outras espécies.",
+      "axis": "evolution",
+      "scale": "organism",
+      "relatedTerms": ["ecossistema", "adaptacao", "competicao", "cadeia-alimentar"],
+      "modules": ["ecology", "evolution"]
+    },
+    {
+      "id": "nivel-trofico",
+      "term": "Nível trófico",
+      "definition": "Posição de um organismo na cadeia alimentar baseada em sua fonte de energia. Produtores (N1): fixam energia solar. Consumidores primários (N2): herbívoros. Consumidores secundários (N3): carnívoros. Cada nível transfere apenas ~10% da energia ao seguinte.",
+      "axis": "evolution",
+      "scale": "ecosystem",
+      "relatedTerms": ["cadeia-alimentar", "ecossistema", "fotossintese"],
+      "modules": ["ecology"]
+    },
+    {
+      "id": "potencial-de-acao",
+      "term": "Potencial de ação",
+      "definition": "Sinal elétrico propagado ao longo do axônio de um neurônio. Gerado pela abertura em cascata de canais de Na⁺ (despolarização) e K⁺ (repolarização). Na bainha de mielina, a condução é saltatória — o sinal 'pula' entre nódulos de Ranvier, aumentando a velocidade.",
+      "axis": "organization",
+      "scale": "cellular",
+      "relatedTerms": ["neuronio", "sinapse", "membrana", "feedback"],
+      "modules": ["systems"]
+    },
+    {
+      "id": "sinapse",
+      "term": "Sinapse",
+      "definition": "Junção especializada entre dois neurônios (ou entre neurônio e célula-alvo) onde a informação é transmitida quimicamente. O neurônio pré-sináptico libera neurotransmissores por exocitose; o pós-sináptico os recebe por receptores específicos.",
+      "axis": "organization",
+      "scale": "cellular",
+      "relatedTerms": ["potencial-de-acao", "neurotransmissor", "plasticidade-sinaptica"],
+      "modules": ["systems"]
+    },
+    {
+      "id": "ciclo-carbono",
+      "term": "Ciclo do carbono",
+      "definition": "Ciclo biogeoquímico que descreve o fluxo do carbono entre a atmosfera (CO₂), biosfera (organismos), litosfera (rochas, combustíveis fósseis) e hidrosfera (oceanos). Regulado por fotossíntese, respiração, decomposição e atividade humana.",
+      "axis": "evolution",
+      "scale": "ecosystem",
+      "relatedTerms": ["fotossintese", "respiracao-celular", "ecossistema", "cadeia-alimentar"],
+      "modules": ["ecology", "metabolism"]
+    },
+    {
+      "id": "celula-tronco",
+      "term": "Célula-tronco",
+      "definition": "Célula indiferenciada capaz de se auto-renovar e se diferenciar em múltiplos tipos celulares. Totipotentes (zigoto) se diferenciam em qualquer tipo; pluripotentes (embrionárias) se diferenciam em tecidos do embrião; multipotentes são mais restritas.",
+      "axis": "organization",
+      "scale": "cellular",
+      "relatedTerms": ["diferenciacao", "epigenetica", "celula"],
+      "modules": ["cell"]
+    },
+    {
+      "id": "diferenciacao",
+      "term": "Diferenciação celular",
+      "definition": "Processo pelo qual células com DNA idêntico adquirem morfologia e função radicalmente diferentes. Controlado por regulação da expressão gênica via fatores de transcrição e modificações epigenéticas. Geralmente irreversível em condições normais.",
+      "axis": "organization",
+      "scale": "cellular",
+      "relatedTerms": ["epigenetica", "expressao-genica", "celula-tronco"],
+      "modules": ["cell", "genetics"]
+    },
+    {
+      "id": "servico-ecossistemico",
+      "term": "Serviço ecossistêmico",
+      "definition": "Benefício que os ecossistemas fornecem a humanos: provisão (alimentos, água, madeira), regulação (clima, inundações, doenças), suporte (ciclagem de nutrientes, formação de solo) e cultural (recreação, valores espirituais). Valorados em trilhões de dólares/ano.",
+      "axis": "evolution",
+      "scale": "ecosystem",
+      "relatedTerms": ["ecossistema", "biodiversidade", "ciclo-carbono"],
+      "modules": ["ecology"]
+    },
+    {
+      "id": "coevolucao",
+      "term": "Coevolução",
+      "definition": "Processo evolutivo no qual duas ou mais espécies influenciam reciprocamente a evolução uma da outra ao longo do tempo. Exemplos: predador-presa (corrida armamentista), parasita-hospedeiro, flor-polinizador (mutualismo obrigatório crescentemente especializado).",
+      "axis": "evolution",
+      "scale": "population",
+      "relatedTerms": ["adaptacao", "selecao-natural", "nicho", "especiacao"],
+      "modules": ["ecology", "evolution"]
+    },
+    {
+      "id": "zoonose",
+      "term": "Zoonose",
+      "definition": "Doença infecciosa transmitida de animais vertebrados a humanos (ou vice-versa). Responsável por ~60% das doenças infecciosas humanas emergentes. O salto entre espécies depende de mutações que adaptam o patógeno ao novo hospedeiro.",
+      "axis": "evolution",
+      "scale": "organism",
+      "relatedTerms": ["mutacao", "selecao-natural", "adaptacao", "especiacao"],
+      "modules": ["evolution", "ecology"]
     }
   ]
 }

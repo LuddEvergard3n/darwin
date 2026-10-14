@@ -31,7 +31,10 @@ const AXIS_LABELS = {
  */
 const render = (container, params) => {
   const { moduleId } = params;
-  const data = State.getValue('data.modules');
+  const data         = State.getValue('data.modules');
+  const processData  = State.getValue('data.processes');
+  const scaleData    = State.getValue('data.scales');
+  const appData      = State.getValue('data.applications');
 
   if (!data) {
     container.innerHTML = `<div class="container page-body"><p>Dados não carregados.</p></div>`;
@@ -44,11 +47,16 @@ const render = (container, params) => {
     container.innerHTML = `
       <div class="container page-body">
         <p class="section-label" style="color: var(--color-accent-rare);">Módulo não encontrado</p>
-        <a href="#/" class="btn btn--secondary" class="error-action">Voltar ao início</a>
+        <a href="#/" class="btn btn--secondary error-action">Voltar ao início</a>
       </div>
     `;
     return;
   }
+
+  // Funções de lookup de label pelo ID — fallback para slug formatado
+  const processLabel = (id) => processData?.processes?.find(p => p.id === id)?.label ?? _formatSlug(id);
+  const scaleLabel   = (id) => scaleData?.scales?.find(s => s.id === id)?.label ?? _formatSlug(id);
+  const appLabel     = (id) => appData?.applications?.find(a => a.id === id || a.slug === id)?.label ?? _formatSlug(id);
 
   const axisColor = AXIS_COLORS[mod.axis] ?? 'var(--color-primary)';
   const axisLabel = AXIS_LABELS[mod.axis] ?? mod.axis;
@@ -102,7 +110,7 @@ const render = (container, params) => {
             <h3 class="sidebar-block__title">Processos</h3>
             <div class="sidebar-block__items">
               ${mod.processes.map(p => `
-                <a href="#/processo/${p}" class="tag">${_formatSlug(p)}</a>
+                <a href="#/processo/${p}" class="tag">${processLabel(p)}</a>
               `).join('')}
             </div>
           </div>
@@ -111,7 +119,7 @@ const render = (container, params) => {
             <h3 class="sidebar-block__title">Escalas</h3>
             <div class="sidebar-block__items">
               ${mod.scales.map(s => `
-                <a href="#/escala/${s}" class="badge badge--neutral">${_formatSlug(s)}</a>
+                <a href="#/escala/${s}" class="badge badge--neutral">${scaleLabel(s)}</a>
               `).join('')}
             </div>
           </div>
@@ -120,7 +128,7 @@ const render = (container, params) => {
             <h3 class="sidebar-block__title">Aplicações</h3>
             <div class="sidebar-block__items">
               ${mod.applications.map(app => `
-                <a href="#/aplicacao/${app}" class="tag">${_formatSlug(app)}</a>
+                <a href="#/aplicacao/${app}" class="tag">${appLabel(app)}</a>
               `).join('')}
             </div>
           </div>

@@ -8,10 +8,10 @@
       "title": "Associando estrutura e função",
       "question": "Associe cada organela com sua função principal.",
       "items": [
-        { "id": "a", "text": "Mitocôndria",      "matchId": "1" },
-        { "id": "b", "text": "Ribossomo",         "matchId": "2" },
-        { "id": "c", "text": "Lisossomo",         "matchId": "3" },
-        { "id": "d", "text": "Aparelho de Golgi", "matchId": "4" }
+        { "id": "a", "text": "Mitocôndria",       "matchId": "1" },
+        { "id": "b", "text": "Ribossomo",          "matchId": "2" },
+        { "id": "c", "text": "Lisossomo",          "matchId": "3" },
+        { "id": "d", "text": "Aparelho de Golgi",  "matchId": "4" }
       ],
       "matches": [
         { "id": "1", "text": "Produção de ATP por respiração aeróbica" },
@@ -34,17 +34,105 @@
       "title": "Sequência de transporte",
       "question": "Ordene os eventos do transporte de uma molécula de glicose do sangue até o interior da célula.",
       "steps": [
-        { "id": "a", "text": "A glicose se liga a um receptor proteico na membrana",         "order": 2 },
-        { "id": "b", "text": "A glicose circula no sangue",                                   "order": 1 },
-        { "id": "c", "text": "A proteína transportadora sofre mudança conformacional",         "order": 3 },
-        { "id": "d", "text": "A glicose é liberada no citoplasma",                            "order": 4 },
-        { "id": "e", "text": "A glicose é fosforilada e entra no metabolismo",                "order": 5 }
+        { "id": "a", "text": "A glicose se liga a um receptor proteico na membrana",        "order": 2 },
+        { "id": "b", "text": "A glicose circula no sangue",                                  "order": 1 },
+        { "id": "c", "text": "A proteína transportadora sofre mudança conformacional",        "order": 3 },
+        { "id": "d", "text": "A glicose é liberada no citoplasma",                           "order": 4 },
+        { "id": "e", "text": "A glicose é fosforilada e entra no metabolismo",               "order": 5 }
       ],
       "teacherGuide": {
         "objective": "Compreender o transporte facilitado como processo sequencial",
         "centralConcept": "Seletividade da membrana e proteínas de transporte",
         "scaleRelation": "Relação entre molécula (glicose) e escala celular (metabolismo)",
         "estimatedMinutes": 8
+      }
+    },
+    {
+      "id": "ex-cell-03",
+      "module": "cell",
+      "lesson": "cell-types",
+      "type": "analysis",
+      "title": "Diferenciação ou mutação?",
+      "question": "Um pesquisador observa que células-tronco embrionárias se tornam neurônios em um prato de cultura, enquanto células de leucemia continuam se dividindo sem se diferenciar. Qual afirmação melhor distingue esses dois fenômenos?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Diferenciação e câncer são o mesmo processo — ambos envolvem mudança de identidade celular.",
+          "isCorrect": false,
+          "feedback": "Diferenciação é um processo regulado e programado; o câncer é uma desregulação do ciclo celular. São fenômenos opostos: diferenciação leva à especialização e geralmente ao término da divisão; o câncer representa proliferação descontrolada e bloqueio da especialização."
+        },
+        {
+          "id": "b",
+          "text": "A diferenciação muda os genes da célula; o câncer não altera os genes.",
+          "isCorrect": false,
+          "feedback": "Incorreto. A diferenciação não muda os genes — o DNA é idêntico em todas as células do organismo. O que muda é quais genes são expressos (epigenética, fatores de transcrição). O câncer, ao contrário, frequentemente envolve mutações nos genes que controlam o ciclo celular."
+        },
+        {
+          "id": "c",
+          "text": "Na diferenciação, células com o mesmo DNA passam a expressar genes diferentes; no câncer, células perdem o controle da divisão por acúmulo de mutações.",
+          "isCorrect": true,
+          "feedback": "Exato. Diferenciação é regulação da expressão gênica — mesmo genoma, diferentes fenótipos. O câncer resulta de mutações em genes que controlam o ciclo celular (oncogenes, supressores de tumor), desacoplando crescimento e diferenciação."
+        },
+        {
+          "id": "d",
+          "text": "Células-tronco se diferenciam porque têm mais DNA do que células maduras.",
+          "isCorrect": false,
+          "feedback": "Todas as células somáticas de um organismo têm o mesmo complemento de DNA (com exceção de eritrócitos maduros, que perdem o núcleo). A capacidade de diferenciação está relacionada ao estado epigenético da cromatina, não à quantidade de DNA."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir diferenciação celular normal de transformação cancerosa",
+        "centralConcept": "Expressão gênica diferencial versus desregulação do ciclo celular",
+        "scaleRelation": "Processos moleculares com consequência na escala de tecido e organismo",
+        "mediationSuggestion": "Perguntar: 'Se os genes são idênticos, o que pode ser diferente entre uma célula-tronco e um neurônio?'",
+        "estimatedMinutes": 12
+      }
+    },
+    {
+      "id": "ex-cell-04",
+      "module": "cell",
+      "lesson": "cell-nucleus",
+      "type": "ordering",
+      "title": "Do gene à proteína no núcleo",
+      "question": "Ordene as etapas do processamento do mRNA, desde a transcrição no núcleo até a saída para o citoplasma.",
+      "steps": [
+        { "id": "a", "text": "A RNA polimerase II se liga ao promotor e inicia a transcrição",           "order": 1 },
+        { "id": "b", "text": "O pré-mRNA recebe a capa 5' (metilguanosina)",                             "order": 2 },
+        { "id": "c", "text": "O espliceossomo remove os íntrons do pré-mRNA",                           "order": 3 },
+        { "id": "d", "text": "A cauda poli-A 3' é adicionada ao mRNA maduro",                           "order": 4 },
+        { "id": "e", "text": "O mRNA maduro é exportado pelo poro nuclear para o citoplasma",           "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar as etapas do processamento do mRNA eucariótico",
+        "centralConcept": "Vantagem do núcleo: processamento antes da tradução",
+        "scaleRelation": "Nível molecular — a sequência é essencial para que a proteína correta seja produzida",
+        "estimatedMinutes": 8
+      }
+    },
+    {
+      "id": "ex-cell-05",
+      "module": "cell",
+      "lesson": "cell-organelas",
+      "type": "association",
+      "title": "Rota de uma proteína secretada",
+      "question": "Associe cada compartimento celular à etapa correspondente na rota de síntese e secreção de uma proteína.",
+      "items": [
+        { "id": "a", "text": "Retículo endoplasmático rugoso",  "matchId": "1" },
+        { "id": "b", "text": "Vesícula de transporte",           "matchId": "2" },
+        { "id": "c", "text": "Aparelho de Golgi",                "matchId": "3" },
+        { "id": "d", "text": "Membrana plasmática",              "matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Síntese e inserção da proteína na membrana do retículo" },
+        { "id": "2", "text": "Transporte da proteína entre compartimentos" },
+        { "id": "3", "text": "Modificação, triagem e empacotamento da proteína" },
+        { "id": "4", "text": "Fusão da vesícula e liberação da proteína para o exterior" }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar a rota secretória e o papel de cada organela",
+        "centralConcept": "Tráfego vesicular e compartimentalização funcional",
+        "scaleRelation": "Escala molecular (proteínas) e celular (organelas) até a escala tecidual (secreção hormonal)",
+        "estimatedMinutes": 10
       }
     },
     {
@@ -65,6 +153,130 @@
       }
     },
     {
+      "id": "ex-gen-02",
+      "module": "genetics",
+      "lesson": "gen-dna-structure",
+      "type": "analysis",
+      "title": "Compactação e acesso ao gene",
+      "question": "Uma célula muscular e uma célula pancreática exócrina do mesmo organismo têm DNA idêntico, mas a célula pancreática produz grandes quantidades de enzimas digestivas enquanto a célula muscular não. Qual mecanismo molecular melhor explica essa diferença?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A célula pancreática tem mais cópias dos genes que codificam enzimas digestivas.",
+          "isCorrect": false,
+          "feedback": "O número de cópias de cada gene é o mesmo em todas as células somáticas do organismo. A amplificação gênica ocorre em situações específicas (como no desenvolvimento de ovócitos), mas não é o mecanismo geral de diferenciação."
+        },
+        {
+          "id": "b",
+          "text": "Os genes de enzimas digestivas estão em regiões de eucromatina aberta na célula pancreática e em heterocromatina condensada na célula muscular.",
+          "isCorrect": true,
+          "feedback": "Correto. O estado de compactação da cromatina — controlado por modificações de histonas e metilação do DNA — determina se um gene está acessível para transcrição. Genes em eucromatina podem ser transcritos; genes em heterocromatina estão silenciados. Essa é a base epigenética da diferenciação."
+        },
+        {
+          "id": "c",
+          "text": "A célula muscular degrada ativamente os mRNAs de enzimas digestivas para evitar sua expressão.",
+          "isCorrect": false,
+          "feedback": "Embora a regulação pós-transcricional exista (microRNAs, por exemplo), o mecanismo primário de silenciamento durante a diferenciação é epigenético — ocorre no nível da cromatina, impedindo a transcrição, não apenas degradando o mRNA."
+        },
+        {
+          "id": "d",
+          "text": "As células musculares perderam os genes de enzimas digestivas ao longo do desenvolvimento.",
+          "isCorrect": false,
+          "feedback": "Células somáticas diferenciadas não perdem genes (com raras exceções como eritrócitos maduros, que perdem o núcleo inteiro). A diferenciação é um processo epigenético — o genoma permanece intacto."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Conectar a estrutura da cromatina à regulação da expressão gênica",
+        "centralConcept": "Epigenética como mecanismo de diferenciação celular",
+        "scaleRelation": "Nível molecular (histonas, metilação) com consequência na escala tecidual",
+        "mediationSuggestion": "Perguntar: 'Se o DNA é o mesmo, o que pode estar diferente entre as duas células?'",
+        "estimatedMinutes": 12
+      }
+    },
+    {
+      "id": "ex-gen-03",
+      "module": "genetics",
+      "lesson": "gen-genes",
+      "type": "ordering",
+      "title": "Da transcrição ao splicing",
+      "question": "Ordene as etapas que transformam um gene com íntrons em uma proteína funcional.",
+      "steps": [
+        { "id": "a", "text": "RNA polimerase transcreve o gene inteiro, íntrons e éxons",         "order": 1 },
+        { "id": "b", "text": "O espliceossomo remove os íntrons do pré-mRNA",                     "order": 2 },
+        { "id": "c", "text": "Os éxons são unidos formando o mRNA maduro",                        "order": 3 },
+        { "id": "d", "text": "O mRNA é exportado para o citoplasma",                              "order": 4 },
+        { "id": "e", "text": "Os ribossomos traduzem o mRNA em cadeia polipeptídica",              "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar o processamento do pré-mRNA e a função do espliceossomo",
+        "centralConcept": "Splicing como etapa essencial entre transcrição e tradução em eucariotos",
+        "scaleRelation": "Nível molecular — o erro de splicing causa doenças (β-talassemia, alguns cânceres)",
+        "estimatedMinutes": 8
+      }
+    },
+    {
+      "id": "ex-gen-04",
+      "module": "genetics",
+      "lesson": "gen-inheritance",
+      "type": "analysis",
+      "title": "Probabilidade de herança",
+      "question": "Dois pais heterozigotos (Aa × Aa) para uma doença autossômica recessiva têm um filho. Qual a probabilidade de o filho ser afetado pela doença (genótipo aa)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0% — filhos de pais heterozigotos nunca manifestam a doença.",
+          "isCorrect": false,
+          "feedback": "Incorreto. Pais heterozigotos (Aa) são portadores mas não são afetados. Eles podem, no entanto, transmitir o alelo recessivo a — se o filho herdar dois alelos a (um de cada genitor), será afetado."
+        },
+        {
+          "id": "b",
+          "text": "25% — conforme previsto pela lei de segregação de Mendel.",
+          "isCorrect": true,
+          "feedback": "Correto. O cruzamento Aa × Aa gera proporção 1 AA : 2 Aa : 1 aa. O genótipo aa (afetado) ocorre com probabilidade 1/4 = 25%. Cada gameta carrega aleatoriamente um alelo — a probabilidade de herdar a de cada genitor é 1/2, e como são eventos independentes, a probabilidade conjunta é 1/2 × 1/2 = 1/4."
+        },
+        {
+          "id": "c",
+          "text": "50% — metade dos filhos será afetada.",
+          "isCorrect": false,
+          "feedback": "50% é a proporção de filhos heterozigotos (Aa) — portadores, mas não afetados. A probabilidade de afetação (aa) é 25%."
+        },
+        {
+          "id": "d",
+          "text": "100% — se ambos os pais carregam o alelo, todos os filhos serão afetados.",
+          "isCorrect": false,
+          "feedback": "Para uma doença recessiva, é preciso herdar dois alelos recessivos. Pais heterozigotos também carregam o alelo dominante A, que confere fenótipo normal quando presente. Apenas o genótipo aa é afetado."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Aplicar a lei de segregação de Mendel ao aconselhamento genético",
+        "centralConcept": "Herança autossômica recessiva e quadrado de Punnett",
+        "scaleRelation": "Nível molecular (alelos) com consequência direta na saúde do organismo",
+        "mediationSuggestion": "Pedir que o aluno monte o quadrado de Punnett antes de responder",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-gen-05",
+      "module": "genetics",
+      "lesson": "gen-mutation",
+      "type": "comparison",
+      "title": "Tipos de mutação e consequências",
+      "question": "Classifique cada característica como exclusiva de mutação pontual sinônima (S), mutação frameshift (F) ou aplicável a ambas (A).",
+      "items": [
+        { "id": "a", "text": "Altera a sequência de nucleotídeos do DNA",               "answer": "A", "explanation": "Ambos os tipos alteram nucleotídeos — seja por substituição (pontual) ou por inserção/deleção (frameshift)." },
+        { "id": "b", "text": "Muda o aminoácido codificado",                            "answer": "F", "explanation": "A mutação sinônima (silenciosa) não muda o aminoácido — o código genético é degenerado, múltiplos códons codificam o mesmo aminoácido. O frameshift muda todos os aminoácidos a partir do ponto da mutação." },
+        { "id": "c", "text": "Geralmente não altera a função da proteína",               "answer": "S", "explanation": "Mutações sinônimas são geralmente neutras pois o aminoácido não muda. Mutações frameshift quase sempre destroem a função da proteína ao deslocar o quadro de leitura." },
+        { "id": "d", "text": "Pode ser causada por radiação ultravioleta",              "answer": "A", "explanation": "UV causa dímeros de timina que podem gerar substituições (pontuais) ou, se mal reparados, deleções. Outros agentes físicos e químicos causam ambos os tipos." },
+        { "id": "e", "text": "Afeta todos os aminoácidos a partir do ponto da mutação", "answer": "F", "explanation": "O deslocamento do quadro de leitura muda a interpretação de todos os códons seguintes. Mutações pontuais afetam apenas o aminoácido codificado pelo códon alterado." }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir os mecanismos e consequências de diferentes tipos de mutação",
+        "centralConcept": "Mutações e seu impacto na proteína dependem do tipo de alteração",
+        "scaleRelation": "Nível molecular com consequência direta na função proteica e na saúde",
+        "estimatedMinutes": 12
+      }
+    },
+    {
       "id": "ex-met-01",
       "module": "metabolism",
       "lesson": "met-comparison",
@@ -72,17 +284,296 @@
       "title": "Fotossíntese vs Respiração celular",
       "question": "Classifique cada característica como exclusiva da fotossíntese (F), da respiração celular (R) ou de ambas (A).",
       "items": [
-        { "id": "a", "text": "Produz ATP",                       "answer": "A", "explanation": "Ambos os processos produzem ATP, mas por caminhos diferentes." },
-        { "id": "b", "text": "Consome CO₂",                      "answer": "F", "explanation": "Apenas a fotossíntese usa CO₂ como matéria-prima." },
-        { "id": "c", "text": "Ocorre na mitocôndria",            "answer": "R", "explanation": "A respiração aeróbica ocorre na mitocôndria; a fotossíntese ocorre no cloroplasto." },
-        { "id": "d", "text": "Envolve transporte de elétrons",   "answer": "A", "explanation": "Ambos utilizam cadeias de transporte de elétrons em suas membranas." },
-        { "id": "e", "text": "Libera oxigênio",                  "answer": "F", "explanation": "O O₂ é subproduto da fotossíntese; a respiração o consome." },
-        { "id": "f", "text": "Depende de enzimas",               "answer": "A", "explanation": "Todos os processos metabólicos são catalisados por enzimas." }
+        { "id": "a", "text": "Produz ATP",                     "answer": "A", "explanation": "Ambos os processos produzem ATP, mas por caminhos diferentes." },
+        { "id": "b", "text": "Consome CO₂",                    "answer": "F", "explanation": "Apenas a fotossíntese usa CO₂ como matéria-prima." },
+        { "id": "c", "text": "Ocorre na mitocôndria",          "answer": "R", "explanation": "A respiração aeróbica ocorre na mitocôndria; a fotossíntese ocorre no cloroplasto." },
+        { "id": "d", "text": "Envolve transporte de elétrons", "answer": "A", "explanation": "Ambos utilizam cadeias de transporte de elétrons em suas membranas." },
+        { "id": "e", "text": "Libera oxigênio",                "answer": "F", "explanation": "O O₂ é subproduto da fotossíntese; a respiração o consome." },
+        { "id": "f", "text": "Depende de enzimas",             "answer": "A", "explanation": "Todos os processos metabólicos são catalisados por enzimas." }
       ],
       "teacherGuide": {
         "objective": "Identificar diferenças e complementaridades entre fotossíntese e respiração",
         "centralConcept": "Os dois processos são complementares no ciclo do carbono",
         "scaleRelation": "Processos celulares com impacto direto na escala ecossistema",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-met-02",
+      "module": "metabolism",
+      "lesson": "met-respiration",
+      "type": "ordering",
+      "title": "Etapas da respiração celular",
+      "question": "Ordene as etapas da respiração aeróbica da glicose, do citoplasma ao produto final.",
+      "steps": [
+        { "id": "a", "text": "Glicólise: glicose é quebrada em 2 piruvatos no citoplasma",                    "order": 1 },
+        { "id": "b", "text": "Piruvato entra na mitocôndria e é convertido em acetil-CoA",                    "order": 2 },
+        { "id": "c", "text": "Ciclo de Krebs: acetil-CoA é oxidado a CO₂, gerando NADH e FADH₂",             "order": 3 },
+        { "id": "d", "text": "Cadeia transportadora de elétrons bombeia prótons através da membrana interna", "order": 4 },
+        { "id": "e", "text": "ATP sintase usa o gradiente de prótons para fosforilar ADP em ATP",            "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar a sequência das três etapas da respiração aeróbica",
+        "centralConcept": "A respiração é um processo em cascata que maximiza extração de energia da glicose",
+        "scaleRelation": "Nível molecular (NADH, FADH₂) com consequência na função celular e no organismo",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-met-03",
+      "module": "metabolism",
+      "lesson": "met-energy",
+      "type": "analysis",
+      "title": "Por que o corpo usa ATP em vez de glicose diretamente?",
+      "question": "Por que as células usam ATP como intermediário energético em vez de usar diretamente a glicose para impulsionar reações biológicas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A glicose é tóxica para as células em altas concentrações, por isso precisa ser transformada.",
+          "isCorrect": false,
+          "feedback": "Embora a hiperglicemia cause danos (como no diabetes), esse não é o motivo evolutivo para o uso de ATP. O ATP resolve um problema termodinâmico: como acoplar reações de forma controlada."
+        },
+        {
+          "id": "b",
+          "text": "ATP é uma molécula universal de transferência de energia — uma 'moeda' padronizada que pode ser usada por qualquer reação que precise de energia, independente da fonte.",
+          "isCorrect": true,
+          "feedback": "Correto. O ATP funciona como intermediário energético universal porque desacopla as reações de geração de energia das reações que consomem energia. A célula pode obter ATP de glicose, gorduras ou proteínas, e usá-lo para qualquer finalidade — contração muscular, síntese proteica, transporte ativo."
+        },
+        {
+          "id": "c",
+          "text": "A glicose não contém energia suficiente para impulsionar reações biológicas.",
+          "isCorrect": false,
+          "feedback": "A glicose contém energia química abundante — a combustão de 1 mol de glicose libera ~2.870 kJ. O problema não é a quantidade de energia, mas como liberá-la de forma controlada e acoplada a reações específicas."
+        },
+        {
+          "id": "d",
+          "text": "ATP é produzido mais rapidamente do que a glicose pode ser transportada.",
+          "isCorrect": false,
+          "feedback": "Embora a velocidade de regeneração do ATP seja importante (especialmente em exercício), a razão fundamental para seu uso como intermediário é termodinâmica: permite acoplar reações exergônicas e endergônicas de forma modular."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Compreender o papel do ATP como intermediário termodinâmico universal",
+        "centralConcept": "Acoplamento energético e universalidade do ATP",
+        "scaleRelation": "Nível molecular com consequência para toda a biologia celular",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-met-04",
+      "module": "metabolism",
+      "lesson": "met-atp",
+      "type": "association",
+      "title": "Inibidores metabólicos",
+      "question": "Associe cada substância ao mecanismo de ação sobre a produção de ATP.",
+      "items": [
+        { "id": "a", "text": "Cianeto",       "matchId": "1" },
+        { "id": "b", "text": "Oligomicina",   "matchId": "2" },
+        { "id": "c", "text": "Dinitrofenol",  "matchId": "3" },
+        { "id": "d", "text": "Rotenona",      "matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Bloqueia o complexo IV (citocromo oxidase), impedindo que elétrons sejam transferidos ao O₂" },
+        { "id": "2", "text": "Inibe diretamente a ATP sintase (complexo V)" },
+        { "id": "3", "text": "Desacopla o gradiente de prótons da síntese de ATP, dissipando energia como calor" },
+        { "id": "4", "text": "Bloqueia o complexo I (NADH desidrogenase), impedindo a entrada de elétrons na cadeia" }
+      ],
+      "teacherGuide": {
+        "objective": "Associar inibidores clássicos aos seus alvos na cadeia respiratória",
+        "centralConcept": "A cadeia respiratória é um alvo farmacológico e toxicológico",
+        "scaleRelation": "Nível molecular com consequência imediata para a viabilidade celular e do organismo",
+        "estimatedMinutes": 12
+      }
+    },
+    {
+      "id": "ex-met-05",
+      "module": "metabolism",
+      "lesson": "met-photosynthesis",
+      "type": "ordering",
+      "title": "Etapas da fotossíntese",
+      "question": "Ordene os eventos que transformam luz solar em carboidrato na folha.",
+      "steps": [
+        { "id": "a", "text": "Clorofila absorve fótons e elétrons são excitados a estado de alta energia",            "order": 1 },
+        { "id": "b", "text": "Fotólise da água: 2H₂O → 4H⁺ + 4e⁻ + O₂ — O₂ é liberado",                           "order": 2 },
+        { "id": "c", "text": "Elétrons fluem pela cadeia fotossintética gerando ATP e NADPH",                        "order": 3 },
+        { "id": "d", "text": "RuBisCO fixa CO₂ atmosférico em 3-fosfoglicerato no ciclo de Calvin",                 "order": 4 },
+        { "id": "e", "text": "ATP e NADPH reduzem o 3-fosfoglicerato a gliceraldeído-3-fosfato (G3P)",              "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir as reações de luz das reações do ciclo de Calvin",
+        "centralConcept": "A fotossíntese acopla energia luminosa à fixação de carbono em duas etapas",
+        "scaleRelation": "Nível molecular (clorofila, RuBisCO) com consequência para o ecossistema (O₂, carbono orgânico)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-sys-01",
+      "module": "systems",
+      "lesson": "sys-homeostasis",
+      "type": "analysis",
+      "title": "Febre: homeostase ou falha homeostática?",
+      "question": "Durante uma infecção bacteriana, a temperatura corporal de um paciente sobe de 36,8°C para 39,2°C e se mantém estável nesse valor. O sistema imunológico libera citocinas que elevam o set point hipotalâmico. Como classificar esse fenômeno do ponto de vista homeostático?",
+      "options": [
+        {
+          "id": "a",
+          "text": "É uma falha homeostática — o corpo perdeu o controle da temperatura.",
+          "isCorrect": false,
+          "feedback": "A febre não é uma falha de controle — é uma regulação ativa do set point. O hipotálamo está funcionando normalmente, mas com um ponto de referência diferente. O tremor que aquece o corpo e a vasoconstrição periférica que reduz a perda de calor são evidências de que o controle ainda está ativo."
+        },
+        {
+          "id": "b",
+          "text": "É homeostase regulada — o set point foi deliberadamente elevado como resposta imune adaptativa.",
+          "isCorrect": true,
+          "feedback": "Correto. A febre é uma reprogramação do set point, não uma perda de controle. As citocinas (como a IL-1β e a PGE₂) sinalizam ao hipotálamo para elevar a temperatura-alvo. O organismo então usa os mesmos mecanismos homeostáticos — tremores, vasoconstrição — para atingir o novo set point. Temperaturas ligeiramente elevadas dificultam a replicação de patógenos e potencializam a resposta imune."
+        },
+        {
+          "id": "c",
+          "text": "É feedback positivo — o aumento de temperatura causa mais infecção, que causa mais febre.",
+          "isCorrect": false,
+          "feedback": "Feedback positivo amplificaria o desvio progressivamente. A febre, ao contrário, estabiliza em um novo valor (39–40°C) — o que indica um novo set point, não amplificação descontrolada. O feedback positivo real seria uma hipertermia sem limite, como na hipertermia maligna anestésica."
+        },
+        {
+          "id": "d",
+          "text": "Não há relação com homeostase — febre é puramente causada pelas bactérias.",
+          "isCorrect": false,
+          "feedback": "As bactérias não causam febre diretamente — elas ativam macrófagos que liberam citocinas (pirógenos endógenos). São essas moléculas do próprio sistema imunológico que reprogramam o termostato hipotalâmico. A febre é uma resposta do organismo, não um dano direto do patógeno."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir falha homeostática de regulação ativa do set point",
+        "centralConcept": "Homeostase inclui a capacidade de reprogramar o set point adaptativamente",
+        "scaleRelation": "Moléculas (citocinas, PGE₂) → sistema nervoso (hipotálamo) → organismo (temperatura corporal)",
+        "mediationSuggestion": "Perguntar: 'Se a febre fosse uma falha de controle, esperaríamos tremores?'",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-sys-02",
+      "module": "systems",
+      "lesson": "sys-digestive",
+      "type": "ordering",
+      "title": "Do pão ao ATP muscular",
+      "question": "Ordene as etapas que transformam o amido do pão em ATP disponível para a contração muscular.",
+      "steps": [
+        { "id": "a", "text": "Amilase salivar inicia a hidrólise do amido na boca",                         "order": 1 },
+        { "id": "b", "text": "Enzimas pancreáticas completam a digestão do amido em glicose no intestino",  "order": 2 },
+        { "id": "c", "text": "Glicose é absorvida pelas células intestinais e entra no sangue portal",      "order": 3 },
+        { "id": "d", "text": "Células musculares captam glicose via transportadores GLUT",                  "order": 4 },
+        { "id": "e", "text": "Glicose é oxidada por glicólise, Krebs e cadeia respiratória, gerando ATP",   "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Integrar digestão e metabolismo celular em uma cadeia funcional",
+        "centralConcept": "A digestão fornece substrato para o metabolismo energético celular",
+        "scaleRelation": "Do organismo (ingestão) ao celular (mitocôndria) ao molecular (ATP)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-sys-03",
+      "module": "systems",
+      "lesson": "sys-circulatory",
+      "type": "association",
+      "title": "Componentes do sistema circulatório",
+      "question": "Associe cada componente do sistema circulatório à sua função principal.",
+      "items": [
+        { "id": "a", "text": "Hemoglobina",          "matchId": "1" },
+        { "id": "b", "text": "Endotélio vascular",   "matchId": "2" },
+        { "id": "c", "text": "Válvulas cardíacas",   "matchId": "3" },
+        { "id": "d", "text": "Capilares",            "matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Transporte cooperativo de O₂ dos pulmões aos tecidos" },
+        { "id": "2", "text": "Regulação do tônus vascular por produção de óxido nítrico" },
+        { "id": "3", "text": "Garantir fluxo unidirecional do sangue pelo coração" },
+        { "id": "4", "text": "Local de troca de gases, nutrientes e metabólitos com os tecidos" }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar a função de componentes-chave do sistema circulatório",
+        "centralConcept": "O sistema circulatório é um sistema de distribuição e troca",
+        "scaleRelation": "Nível molecular (hemoglobina, NO) ao sistêmico (circulação pulmonar e sistêmica)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-sys-04",
+      "module": "systems",
+      "lesson": "sys-respiratory",
+      "type": "ordering",
+      "title": "Do alvéolo à mitocôndria",
+      "question": "Ordene o caminho do oxigênio desde o ar atmosférico até ser usado na mitocôndria de uma célula muscular.",
+      "steps": [
+        { "id": "a", "text": "O₂ difunde dos alvéolos para os capilares pulmonares por diferença de pressão parcial", "order": 1 },
+        { "id": "b", "text": "O₂ se liga à hemoglobina nas hemácias",                                               "order": 2 },
+        { "id": "c", "text": "Sangue oxigenado é bombeado pelo ventrículo esquerdo para a circulação sistêmica",     "order": 3 },
+        { "id": "d", "text": "O₂ difunde dos capilares para o tecido muscular e entra nas células",                 "order": 4 },
+        { "id": "e", "text": "O₂ é o aceptor final de elétrons na cadeia respiratória da mitocôndria",              "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Integrar sistemas respiratório, circulatório e metabolismo celular",
+        "centralConcept": "O O₂ percorre três sistemas antes de ser usado na mitocôndria",
+        "scaleRelation": "Do organismo (pulmão, coração) ao celular (mitocôndria) ao molecular (cadeia respiratória)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-sys-05",
+      "module": "systems",
+      "lesson": "sys-nervous",
+      "type": "ordering",
+      "title": "Do estímulo ao movimento",
+      "question": "Ordene os eventos do arco reflexo de retirada de um estímulo doloroso.",
+      "steps": [
+        { "id": "a", "text": "Receptor nociceptivo na pele detecta o estímulo e dispara potencial de ação",           "order": 1 },
+        { "id": "b", "text": "Potencial de ação viaja pelo neurônio aferente até o corno dorsal da medula espinhal",  "order": 2 },
+        { "id": "c", "text": "Sinapse com interneurônio na medula ativa o neurônio motor",                           "order": 3 },
+        { "id": "d", "text": "Potencial de ação viaja pelo neurônio eferente até o músculo flexor",                  "order": 4 },
+        { "id": "e", "text": "Neurotransmissor (acetilcolina) liberado na junção neuromuscular contrai o músculo",    "order": 5 }
+      ],
+      "teacherGuide": {
+        "objective": "Fixar os componentes e a sequência do arco reflexo",
+        "centralConcept": "O reflexo ocorre na medula espinhal sem processamento cortical — daí a velocidade",
+        "scaleRelation": "Nível molecular (neurotransmissores, canais iônicos) ao sistêmico (circuito neural)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-sys-06",
+      "module": "systems",
+      "lesson": "sys-integration",
+      "type": "analysis",
+      "title": "Estresse e o eixo HPA",
+      "question": "Um estudante antes de uma prova importante percebe coração acelerado, mãos suadas e dificuldade de digestão. Qual sequência de eventos neuroendócrinos melhor explica esses sintomas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O sistema parassimpático é ativado, aumentando fluxo sanguíneo para os órgãos digestivos e reduzindo a frequência cardíaca.",
+          "isCorrect": false,
+          "feedback": "O sistema parassimpático ('descansar e digerir') tem efeito oposto ao descrito. Na situação de estresse, o sistema simpático ('lutar ou fugir') é que é ativado — acelerando o coração e inibindo a digestão."
+        },
+        {
+          "id": "b",
+          "text": "A amígdala percebe a ameaça e ativa o sistema nervoso simpático, que libera adrenalina na medula adrenal, acelerando o coração e redistribuindo o fluxo sanguíneo para músculos — inibindo a digestão.",
+          "isCorrect": true,
+          "feedback": "Correto. A sequência é: percepção de ameaça (amígdala) → ativação hipotalâmica → sistema nervoso simpático → medula adrenal libera adrenalina (e noradrenalina) → receptores β₁ aceleram coração; receptores α₁ contraem vasos esplâncnicos, reduzindo fluxo digestivo; sudorese palmar por receptores muscarínicos nas glândulas sudoríparas."
+        },
+        {
+          "id": "c",
+          "text": "O hipotálamo libera cortisol diretamente na circulação em resposta ao estresse agudo.",
+          "isCorrect": false,
+          "feedback": "O cortisol é produzido pelo córtex adrenal, não pelo hipotálamo. O hipotálamo libera CRH, que estimula a hipófise a liberar ACTH, que então estimula as glândulas adrenais a produzir cortisol — o eixo HPA. Esse processo leva minutos a horas; os sintomas descritos são da resposta simpático-adrenal imediata (segundos)."
+        },
+        {
+          "id": "d",
+          "text": "O sistema digestório é afetado porque o estresse eleva o pH gástrico, paralisando a digestão.",
+          "isCorrect": false,
+          "feedback": "O estresse tende a elevar a produção de ácido gástrico (via ativação do nervo vago em estresse crônico), não a reduzi-la. O sintoma digestivo agudo (falta de apetite, náusea) ocorre principalmente porque o fluxo sanguíneo é redirecionado para músculos, não pelo pH."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Conectar a percepção emocional à resposta fisiológica via sistema nervoso autônomo",
+        "centralConcept": "Eixo simpático-adrenal: resposta imediata ao estresse",
+        "scaleRelation": "Nível molecular (adrenalina, receptores) → sistêmico (coração, digestão) → comportamental",
+        "mediationSuggestion": "Perguntar: 'Por que faz sentido inibir a digestão em uma situação de perigo?'",
         "estimatedMinutes": 15
       }
     },
@@ -96,7 +587,7 @@
       "steps": [
         { "id": "a", "text": "Capim (Poaceae)", "order": 1 },
         { "id": "b", "text": "Gafanhoto",       "order": 2 },
-        { "id": "c", "text": "Sapo",            "order": 3 },
+        { "id": "c", "text": "Sapo",             "order": 3 },
         { "id": "d", "text": "Serpente",         "order": 4 },
         { "id": "e", "text": "Gavião",           "order": 5 }
       ],
@@ -105,6 +596,135 @@
         "centralConcept": "Energia flui em um único sentido: produtor > consumidores",
         "scaleRelation": "Organismos individuais como componentes de relações ecossistêmicas",
         "estimatedMinutes": 8
+      }
+    },
+    {
+      "id": "ex-eco-02",
+      "module": "ecology",
+      "lesson": "eco-ecosystem",
+      "type": "analysis",
+      "title": "Cascata trófica em Yellowstone",
+      "question": "Após a reintrodução dos lobos em Yellowstone em 1995, observou-se regeneração das matas ciliares, redução da erosão das margens dos rios e até alteração no curso de alguns cursos d'água. Qual conceito ecológico melhor explica esse efeito amplo causado por uma única espécie?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sucessão ecológica — a floresta estava em processo natural de recuperação independente dos lobos.",
+          "isCorrect": false,
+          "feedback": "A sucessão ecológica é um processo gradual e independente de predadores de topo. Os dados de Yellowstone mostram correlação temporal direta com a reintrodução dos lobos e a regeneração da vegetação — o que aponta para um mecanismo ativo, não uma sucessão espontânea."
+        },
+        {
+          "id": "b",
+          "text": "Espécie-chave e cascata trófica — a remoção ou adição de uma espécie de topo tem efeitos em cascata sobre múltiplos níveis tróficos, incluindo o componente abiótico.",
+          "isCorrect": true,
+          "feedback": "Correto. Os lobos são espécie-chave: ao predar e ameaçar alces, mudaram o comportamento destes (evitar as margens dos rios). Com menos pastejo, a vegetação ribeirinha se regenerou, estabilizando bancos de rio, atraindo castores e pássaros. Esse efeito em cascata do topo para a base da cadeia, com consequências abióticas, é a definição de cascata trófica."
+        },
+        {
+          "id": "c",
+          "text": "Competição interespecífica — lobos e alces competem pelos mesmos recursos.",
+          "isCorrect": false,
+          "feedback": "Lobos e alces têm uma relação de predação, não de competição. A competição ocorre entre espécies que usam os mesmos recursos limitados (alimento, espaço). O efeito observado em Yellowstone é de controle top-down via predação, não de exclusão competitiva."
+        },
+        {
+          "id": "d",
+          "text": "Bioacumulação — substâncias dos lobos se acumularam na cadeia e alteraram o ecossistema.",
+          "isCorrect": false,
+          "feedback": "Bioacumulação refere-se à concentração de poluentes ao longo da cadeia alimentar (como DDT em aves de topo). Não tem relação com o fenômeno observado em Yellowstone, que é puramente ecológico — comportamental e estrutural."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Compreender o conceito de espécie-chave e cascata trófica",
+        "centralConcept": "Espécies de topo têm influência desproporcional sobre toda a estrutura do ecossistema",
+        "scaleRelation": "Do organismo (comportamento do alce) ao ecossistema (estrutura do rio)",
+        "mediationSuggestion": "Pedir que o aluno trace o caminho causal completo: lobo → alce → vegetação → rio",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-eco-03",
+      "module": "ecology",
+      "lesson": "eco-relations",
+      "type": "association",
+      "title": "Tipos de interação ecológica",
+      "question": "Associe cada interação ao par de espécies que melhor a exemplifica.",
+      "items": [
+        { "id": "a", "text": "Mutualismo obrigatório",    "matchId": "1" },
+        { "id": "b", "text": "Parasitismo",               "matchId": "2" },
+        { "id": "c", "text": "Competição interespecífica","matchId": "3" },
+        { "id": "d", "text": "Comensalismo",              "matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Figueira e vespa-da-figueira — cada espécie depende da outra para se reproduzir" },
+        { "id": "2", "text": "Plasmodium (malária) e humano — um se beneficia, o outro é prejudicado" },
+        { "id": "3", "text": "Leões e hienas disputando a mesma carcaça — ambos perdem recursos" },
+        { "id": "4", "text": "Rêmora e tubarão — rêmora obtém transporte e alimento; tubarão não é afetado" }
+      ],
+      "teacherGuide": {
+        "objective": "Classificar interações ecológicas usando o critério de efeito sobre cada espécie",
+        "centralConcept": "Interações ecológicas definem estrutura e dinâmica das comunidades",
+        "scaleRelation": "Do organismo (comportamento) à população (dinâmica) ao ecossistema (estrutura)",
+        "estimatedMinutes": 10
+      }
+    },
+    {
+      "id": "ex-eco-04",
+      "module": "ecology",
+      "lesson": "eco-cycles",
+      "type": "comparison",
+      "title": "Ciclo do carbono vs ciclo do nitrogênio",
+      "question": "Classifique cada característica como exclusiva do ciclo do carbono (C), do ciclo do nitrogênio (N) ou de ambos (A).",
+      "items": [
+        { "id": "a", "text": "Tem fase gasosa atmosférica importante",                              "answer": "A", "explanation": "Tanto o CO₂ atmosférico (carbono) quanto o N₂ (nitrogênio, 78% da atmosfera) têm fase gasosa central no ciclo." },
+        { "id": "b", "text": "Depende de bactérias fixadoras para entrar na cadeia alimentar",       "answer": "N", "explanation": "O nitrogênio atmosférico (N₂) não pode ser usado diretamente por plantas — precisa ser fixado por bactérias (Rhizobium, Azotobacter) em amônio. O carbono entra pelo CO₂ via fotossíntese, sem necessidade de bactérias." },
+        { "id": "c", "text": "É diretamente afetado pela queima de combustíveis fósseis",           "answer": "C", "explanation": "A queima libera carbono fixado há milhões de anos como CO₂. A queima tem efeito indireto mínimo no ciclo do nitrogênio (óxidos de nitrogênio são subprodutos da combustão, mas em quantidade muito menor)." },
+        { "id": "d", "text": "Decompositores são essenciais para sua reciclagem",                   "answer": "A", "explanation": "Em ambos os ciclos, decompositores (fungos, bactérias) mineralizam a matéria orgânica, devolvendo carbono (como CO₂) e nitrogênio (como amônio) ao ambiente abiótico." },
+        { "id": "e", "text": "Pode levar a eutrofização de corpos d'água quando em excesso",        "answer": "N", "explanation": "O excesso de nitrogênio (e fósforo) por escoamento agrícola é o principal causador de eutrofização. O excesso de carbono (CO₂) causa acidificação oceânica, não eutrofização diretamente." }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir os mecanismos dos ciclos do carbono e do nitrogênio",
+        "centralConcept": "Cada elemento tem um ciclo com particularidades — o nitrogênio depende de bactérias; o carbono depende da fotossíntese",
+        "scaleRelation": "Do molecular (NH₄⁺, CO₂) ao global (atmosfera, oceanos, eutrofização)",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-eco-05",
+      "module": "ecology",
+      "lesson": "eco-human-impact",
+      "type": "analysis",
+      "title": "Extinção e serviços ecossistêmicos",
+      "question": "A abelha-do-mel (Apis mellifera) é responsável por polinizar cerca de 35% dos alimentos consumidos mundialmente. Se sua população colapsasse globalmente, qual seria o efeito ecossistêmico mais imediato e direto?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O ciclo do carbono seria interrompido, pois as abelhas produzem CO₂ pela respiração.",
+          "isCorrect": false,
+          "feedback": "A contribuição da respiração das abelhas ao ciclo global do carbono é negligenciável. A relação entre abelhas e ciclos biogeoquímicos é indireta — via plantas que dependem de polinização para se reproduzir e continuar fixando carbono."
+        },
+        {
+          "id": "b",
+          "text": "A produção de aproximadamente um terço dos alimentos dependentes de polinização seria comprometida, afetando diretamente a segurança alimentar global.",
+          "isCorrect": true,
+          "feedback": "Correto. A polinização é um serviço ecossistêmico direto: sem polinizadores, plantas que dependem de polinização cruzada não se reproduzem. Frutas, legumes, nozes e muitas oleaginosas dependem de polinizadores. O colapso de abelhas representaria perda de bilhões de dólares em produção agrícola e ameaça à diversidade alimentar."
+        },
+        {
+          "id": "c",
+          "text": "Outras espécies de polinizadores substituiriam as abelhas imediatamente, sem impacto na produção.",
+          "isCorrect": false,
+          "feedback": "Embora outros polinizadores existam (borboletas, moscas, pássaros, morcegos), eles não têm a eficiência, abundância e amplitude de plantas atendidas pelas abelhas. A substituição não seria imediata nem completa — muitas culturas têm alta dependência específica de abelhas."
+        },
+        {
+          "id": "d",
+          "text": "O impacto seria restrito a flores ornamentais — culturas alimentares usam polinização pelo vento.",
+          "isCorrect": false,
+          "feedback": "Culturas anemófilas (polinizadas pelo vento) incluem trigo, milho e arroz — os grandes gramíneos. Mas frutas (maçã, morango, abacate), legumes (tomate, pimentão), oleaginosas (girassol, canola) e muitos outros dependem de polinização por insetos. A afirmação subestima muito a dependência da produção alimentar de polinizadores."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Conectar perda de biodiversidade a serviços ecossistêmicos concretos",
+        "centralConcept": "Biodiversidade funcional sustenta serviços dos quais a civilização humana depende",
+        "scaleRelation": "Do organismo (abelha) ao ecossistema (polinização) ao global (segurança alimentar)",
+        "mediationSuggestion": "Perguntar: 'O que você comeu hoje que dependeu de um polinizador?'",
+        "estimatedMinutes": 12
       }
     },
     {
@@ -146,6 +766,120 @@
         "scaleRelation": "Processo populacional com consequência direta para saúde pública",
         "mediationSuggestion": "Perguntar: 'Se o antibiótico causasse as mutações, o que esperaríamos observar diferente?'",
         "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-evo-02",
+      "module": "evolution",
+      "lesson": "evo-variation",
+      "type": "comparison",
+      "title": "Fontes de variação genética",
+      "question": "Classifique cada característica como exclusiva da mutação (M), exclusiva da deriva genética (D) ou aplicável a ambas (A).",
+      "items": [
+        { "id": "a", "text": "Introduz alelos genuinamente novos na população",                   "answer": "M", "explanation": "Somente mutações criam novas sequências de DNA. A deriva genética apenas altera a frequência de alelos já existentes — não cria novos." },
+        { "id": "b", "text": "Tem efeito maior em populações pequenas",                           "answer": "D", "explanation": "Em populações pequenas, flutuações aleatórias têm impacto proporcional maior — a deriva é mais intensa. Mutações ocorrem na mesma taxa independente do tamanho da população." },
+        { "id": "c", "text": "Pode eliminar alelos da população",                                 "answer": "A", "explanation": "Mutações que reduzem aptidão podem ser eliminadas por seleção — processo lento. A deriva pode eliminar alelos ao acaso, especialmente em populações pequenas — processo rápido e independente de aptidão." },
+        { "id": "d", "text": "Opera independente do ambiente (não é seleção)",                    "answer": "A", "explanation": "Mutações ocorrem aleatoriamente, sem direção adaptativa. A deriva também ocorre ao acaso. Ambas são forças evolutivas não-seletivas." },
+        { "id": "e", "text": "Causou a baixa diversidade genética de populações fora da África",  "answer": "D", "explanation": "A saída da África há ~60.000 anos foi um gargalo (bottleneck) — poucos indivíduos fundaram as populações de outros continentes. A deriva genética nesse evento reduziu a diversidade. Mutações acumuladas desde então não compensam a perda." }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir mutação e deriva genética como mecanismos evolutivos distintos",
+        "centralConcept": "Variação pode ser criada (mutação) ou redistribuída (deriva) — ambas alimentam a evolução",
+        "scaleRelation": "Do molecular (SNPs, mutações) ao populacional (frequências alélicas) ao biogeográfico",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-evo-03",
+      "module": "evolution",
+      "lesson": "evo-adaptation",
+      "type": "association",
+      "title": "Homologia e analogia",
+      "question": "Classifique cada par de estruturas como homólogas (H — mesmo ancestral, funções podem diferir) ou análogas (A — mesma função, ancestral diferente).",
+      "items": [
+        { "id": "a", "text": "Braço humano e asa de baleia",                    "matchId": "1" },
+        { "id": "b", "text": "Asa de borboleta e asa de morcego",               "matchId": "2" },
+        { "id": "c", "text": "Olho de vertebrado e olho de polvo",              "matchId": "3" },
+        { "id": "d", "text": "Espinha dorsal de humano e espinha de tubarão",   "matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Homólogas — ambas são membros anteriores de vertebrados com a mesma estrutura óssea básica" },
+        { "id": "2", "text": "Análogas — asas com a mesma função (voo), mas evoluídas independentemente em linhagens muito distantes" },
+        { "id": "3", "text": "Análogas — estrutura convergente; cefalópodes e vertebrados desenvolveram olhos de câmara independentemente" },
+        { "id": "4", "text": "Homólogas — ambas são estruturas axiais de vertebrados, com ancestralidade comum" }
+      ],
+      "teacherGuide": {
+        "objective": "Distinguir homologia de analogia como evidências de evolução",
+        "centralConcept": "Homologia revela ancestralidade; analogia revela pressões seletivas similares",
+        "scaleRelation": "Do organismo (morfologia) ao evolutivo (árvore da vida)",
+        "estimatedMinutes": 12
+      }
+    },
+    {
+      "id": "ex-evo-04",
+      "module": "evolution",
+      "lesson": "evo-speciation",
+      "type": "analysis",
+      "title": "Especiação alopátrica nos tentilhões",
+      "question": "Os tentilhões das Galápagos (radiação adaptativa de Darwin) descendem de um único ancestral que colonizou as ilhas vindos do continente sul-americano. Hoje existem 14 espécies com bicos adaptados a diferentes alimentos. Qual sequência de eventos melhor explica essa diversificação?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mutações aleatórias nos bicos ocorreram nas ilhas e foram herdadas pelos descendentes.",
+          "isCorrect": false,
+          "feedback": "Mutações sozinhas não explicam a diversificação — elas fornecem a matéria-prima, mas sem seleção diferencial nas diferentes ilhas, não haveria diversificação direcionada. A chave é que cada ilha tem recursos diferentes, exercendo pressões seletivas distintas."
+        },
+        {
+          "id": "b",
+          "text": "Isolamento geográfico entre ilhas permitiu que cada população acumulasse mutações e sofresse pressões seletivas distintas; ao divergir o suficiente, tornaram-se espécies.",
+          "isCorrect": true,
+          "feedback": "Correto. A especiação alopátrica requer isolamento (as ilhas fornecem isso naturalmente) + tempo + seleção diferencial. Cada ilha tem recursos diferentes — sementes duras vs. insetos vs. cactos — que favorecem morfologias de bico distintas. Com o tempo, as populações divergem tanto que, mesmo que se encontrem, não se reproduzem mais."
+        },
+        {
+          "id": "c",
+          "text": "Os ancestrais chegaram às ilhas já com bicos diferentes e foram para ilhas distintas conforme seu bico.",
+          "isCorrect": false,
+          "feedback": "O registro fóssil e a genômica revelam que todos os tentilhões das Galápagos descendem de um único ancestral (provavelmente o tentilhão-de-sementes-terrestre da América do Sul). A diversidade de bicos é resultado de evolução nas ilhas, não de colonização por grupos já diferentes."
+        },
+        {
+          "id": "d",
+          "text": "A competição entre tentilhões nas mesmas ilhas levou ao desenvolvimento de bicos diferentes para evitar conflito direto.",
+          "isCorrect": false,
+          "feedback": "Embora a competição possa reforçar a divergência depois que as populações entram em contato novamente (deslocamento de caracteres), a diversificação inicial ocorreu por isolamento geográfico — cada ilha sendo colonizada por poucos indivíduos que então evoluíram independentemente."
+        }
+      ],
+      "teacherGuide": {
+        "objective": "Aplicar o modelo de especiação alopátrica a um caso concreto",
+        "centralConcept": "Isolamento + tempo + seleção diferencial = especiação",
+        "scaleRelation": "Do organismo (morfologia do bico) à população (frequências alélicas) ao evolutivo (árvore filogenética)",
+        "mediationSuggestion": "Pedir que o aluno liste as condições necessárias para a especiação e verifique se cada uma está presente no caso",
+        "estimatedMinutes": 15
+      }
+    },
+    {
+      "id": "ex-evo-05",
+      "module": "evolution",
+      "lesson": "evo-integrator",
+      "type": "association",
+      "title": "Evolução em cada módulo",
+      "question": "Associe cada fenômeno biológico ao módulo do Darwin onde seu fundamento evolutivo é mais diretamente explicado.",
+      "items": [
+        { "id": "a", "text": "Todas as células usam ATP como moeda energética",                  "matchId": "1" },
+        { "id": "b", "text": "O mesmo código genético em bactérias e humanos",                   "matchId": "2" },
+        { "id": "c", "text": "Bactérias resistentes sobrevivem à seleção pelo antibiótico",       "matchId": "3" },
+        { "id": "d", "text": "Cíclidos do Lago Vitória divergiram em 500 espécies em 15.000 anos","matchId": "4" }
+      ],
+      "matches": [
+        { "id": "1", "text": "Metabolismo — a universalidade do ATP evidencia ancestralidade comum e conservação evolutiva das vias energéticas" },
+        { "id": "2", "text": "Evolução (evo-integrator) — universalidade do código genético como evidência máxima de ancestralidade comum" },
+        { "id": "3", "text": "Evolução (seleção natural) — seleção diferencial sobre variação preexistente é o mecanismo central" },
+        { "id": "4", "text": "Evolução (especiação) — radiação adaptativa alopátrica em isolamento lacustre" }
+      ],
+      "teacherGuide": {
+        "objective": "Usar o módulo de evolução para integrar todos os outros módulos do Darwin",
+        "centralConcept": "Evolução como princípio unificador — cada módulo faz mais sentido à luz da evolução",
+        "scaleRelation": "Do molecular ao ecossistêmico — a evolução opera em todas as escalas",
+        "estimatedMinutes": 12
       }
     }
   ]

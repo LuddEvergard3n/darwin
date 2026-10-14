@@ -158,85 +158,170 @@ const render = (container, params) => {
 
 /**
  * Constroi o SVG do diagrama de escalas para o hero.
- * Retorna o elemento SVG.
+ * Retorna o elemento SVG com círculos proporcionais, ícones e rótulos.
  * @param {Array} scales - array de objetos de escala
  * @returns {SVGElement}
  */
 const buildHeroDiagram = (scales) => {
-  const ns = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', '0 0 480 400');
+  const ns     = 'http://www.w3.org/2000/svg';
+  const W      = 420;
+  const H      = 480;
+  const svg    = document.createElementNS(ns, 'svg');
+
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.setAttribute('aria-label', 'Diagrama das escalas biológicas, de molecular a ecossistema');
   svg.setAttribute('role', 'img');
   svg.classList.add('hero-diagram');
 
-  const sortedScales = [...scales].sort((a, b) => a.order - b.order);
-  const totalScales  = sortedScales.length;
-  const centerX      = 240;
-  const startY       = 40;
-  const stepY        = 50;
-  const maxRadius    = 36;
-  const minRadius    = 8;
+  const sorted   = [...scales].sort((a, b) => a.order - b.order);
+  const total    = sorted.length;
+  const centerX  = 155;
+  const startY   = 44;
+  const stepY    = (H - 60) / (total - 1);
+  const minR     = 8;
+  const maxR     = 44;
 
-  sortedScales.forEach((scale, i) => {
-    const y      = startY + i * stepY;
-    // Raio cresce com a ordem (molecular menor, ecosistema maior)
-    const ratio  = i / (totalScales - 1);
-    const radius = minRadius + ratio * (maxRadius - minRadius);
+  // Defs: marcador de seta
+  const defs   = document.createElementNS(ns, 'defs');
+  const marker = document.createElementNS(ns, 'marker');
+  marker.setAttribute('id', 'hero-arrow');
+  marker.setAttribute('viewBox', '0 0 8 8');
+  marker.setAttribute('refX', '7');
+  marker.setAttribute('refY', '4');
+  marker.setAttribute('markerWidth', '5');
+  marker.setAttribute('markerHeight', '5');
+  marker.setAttribute('orient', 'auto-start-reverse');
+  const mp = document.createElementNS(ns, 'path');
+  mp.setAttribute('d', 'M 0 1 L 7 4 L 0 7 Z');
+  mp.setAttribute('fill', '#C9D3C8');
+  marker.appendChild(mp);
+  defs.appendChild(marker);
+  svg.appendChild(defs);
+
+  sorted.forEach((scale, i) => {
+    const y     = startY + i * stepY;
+    const ratio = i / (total - 1);
+    const r     = Math.round(minR + ratio * (maxR - minR));
 
     const g = document.createElementNS(ns, 'g');
     g.classList.add('scale-node');
     g.setAttribute('role', 'link');
     g.setAttribute('tabindex', '0');
-    g.setAttribute('aria-label', `Escala ${scale.label}: ${scale.sublabel}`);
+    g.setAttribute('aria-label', `Escala ${scale.label}`);
     g.setAttribute('data-scale', scale.id);
+    g.style.cursor = 'pointer';
 
-    // Linha de conexao (exceto no ultimo)
-    if (i < totalScales - 1) {
-      const line = document.createElementNS(ns, 'line');
+    // Linha de conexão
+    if (i < total - 1) {
+      const nextR = Math.round(minR + ((i + 1) / (total - 1)) * (maxR - minR));
+      const nextY = startY + (i + 1) * stepY;
+      const line  = document.createElementNS(ns, 'line');
       line.setAttribute('x1', centerX);
-      line.setAttribute('y1', y + radius);
+      line.setAttribute('y1', y + r + 3);
       line.setAttribute('x2', centerX);
-      line.setAttribute('y2', y + stepY - minRadius - (i + 1) / (totalScales - 1) * (maxRadius - minRadius));
+      line.setAttribute('y2', nextY - nextR - 3);
       line.setAttribute('stroke', '#D9E1D8');
       line.setAttribute('stroke-width', '1.5');
       line.setAttribute('stroke-dasharray', '4 3');
+      line.setAttribute('marker-end', 'url(#hero-arrow)');
       svg.appendChild(line);
     }
 
-    // Circulo da escala
+    // Halo
+    const halo = document.createElementNS(ns, 'circle');
+    halo.setAttribute('cx', centerX);
+    halo.setAttribute('cy', y);
+    halo.setAttribute('r', r + 6);
+    halo.setAttribute('fill', `${scale.color}18`);
+    halo.setAttribute('stroke', 'none');
+    g.appendChild(halo);
+
+    // Círculo principal
     const circle = document.createElementNS(ns, 'circle');
     circle.setAttribute('cx', centerX);
     circle.setAttribute('cy', y);
-    circle.setAttribute('r', radius);
+    circle.setAttribute('r', r);
     circle.setAttribute('fill', '#FAFBF8');
     circle.setAttribute('stroke', scale.color);
-    circle.setAttribute('stroke-width', '1.5');
+    circle.setAttribute('stroke-width', '2');
     g.appendChild(circle);
 
-    // Label da escala (direita)
-    const labelX = centerX + radius + 12;
-    const text = document.createElementNS(ns, 'text');
-    text.setAttribute('x', labelX);
-    text.setAttribute('y', y + 4);
-    text.setAttribute('font-family', 'var(--font-sans, system-ui)');
-    text.setAttribute('font-size', '12');
-    text.setAttribute('font-weight', '500');
-    text.setAttribute('fill', '#5D6B61');
-    text.textContent = scale.label;
-    g.appendChild(text);
+    // Ícone SVG inline dentro do círculo
+    const iconPaths = {
+      molecule:   'M4 10 a3 3 0 1 1 6 0 a3 3 0 1 1-6 0 M13 6 a2 2 0 1 1 4 0 a2 2 0 1 1-4 0 M13 14 a2 2 0 1 1 4 0 a2 2 0 1 1-4 0 M10 10 L14 7 M10 10 L14 14',
+      cell:       'M10 10 m-8 0 a8 8 0 1 1 16 0 a8 8 0 1 1-16 0 M10 10 m-3.5 0 a3.5 3.5 0 1 1 7 0 a3.5 3.5 0 1 1-7 0',
+      tissue:     'M2 2 h6 v6 h-6Z M12 2 h6 v6 h-6Z M2 12 h6 v6 h-6Z M12 12 h6 v6 h-6Z',
+      system:     'M10 2 v16 M2 10 h16 M5 5 Q10 2 15 5 M5 15 Q10 18 15 15',
+      organism:   'M10 1 C4 1 1 6 1 10 C1 15 4 19 10 19 C16 19 19 15 19 10 C19 6 16 1 10 1 M4 10 Q10 6 16 10 Q10 14 4 10',
+      population: 'M5 7 a3 3 0 1 1 .01 0 M15 7 a3 3 0 1 1 .01 0 M10 14 a3 3 0 1 1 .01 0 M2 17 a2 2 0 1 1 .01 0 M18 17 a2 2 0 1 1 .01 0',
+      ecosystem:  'M1 18 Q10 2 19 18 M1 18 L19 18 M6 13 a1.5 1.5 0 1 1 .01 0 M14 9 a1.5 1.5 0 1 1 .01 0',
+    };
+    const iconSize = Math.max(12, Math.min(r * 1.1, 20));
+    const iconOff  = iconSize / 2;
+    const iconG    = document.createElementNS(ns, 'g');
+    iconG.setAttribute('transform', `translate(${centerX - iconOff}, ${y - iconOff})`);
+    iconG.setAttribute('stroke', scale.color);
+    iconG.setAttribute('stroke-width', '1.5');
+    iconG.setAttribute('fill', 'none');
+    // Scale icon path to actual icon size
+    const iconSvg = document.createElementNS(ns, 'svg');
+    iconSvg.setAttribute('width', String(iconSize));
+    iconSvg.setAttribute('height', String(iconSize));
+    iconSvg.setAttribute('viewBox', '0 0 20 20');
+    const iconPath = document.createElementNS(ns, 'path');
+    iconPath.setAttribute('d', iconPaths[scale.icon] ?? iconPaths.cell);
+    iconSvg.appendChild(iconPath);
+    iconG.appendChild(iconSvg);
+    g.appendChild(iconG);
 
-    // Sublabel (ordem de grandeza)
-    const sublabel = document.createElementNS(ns, 'text');
-    sublabel.setAttribute('x', labelX);
-    sublabel.setAttribute('y', y + 17);
-    sublabel.setAttribute('font-family', 'var(--font-mono, monospace)');
-    sublabel.setAttribute('font-size', '9');
-    sublabel.setAttribute('fill', '#7A877E');
-    sublabel.textContent = scale.sublabel;
-    g.appendChild(sublabel);
+    // Label e sublabel à direita
+    const lx = centerX + r + 14;
 
-    // Interatividade
+    const labelEl = document.createElementNS(ns, 'text');
+    labelEl.setAttribute('x', lx);
+    labelEl.setAttribute('y', y - (scale.sublabel ? 6 : 0));
+    labelEl.setAttribute('font-family', "'Source Sans 3', system-ui, sans-serif");
+    labelEl.setAttribute('font-size', '13');
+    labelEl.setAttribute('font-weight', '600');
+    labelEl.setAttribute('fill', '#233128');
+    labelEl.setAttribute('dominant-baseline', 'central');
+    labelEl.textContent = scale.label;
+    g.appendChild(labelEl);
+
+    const subEl = document.createElementNS(ns, 'text');
+    subEl.setAttribute('x', lx);
+    subEl.setAttribute('y', y + 10);
+    subEl.setAttribute('font-family', "'DM Mono', monospace");
+    subEl.setAttribute('font-size', '10');
+    subEl.setAttribute('fill', scale.color);
+    subEl.setAttribute('dominant-baseline', 'central');
+    subEl.textContent = scale.sublabel ?? '';
+    g.appendChild(subEl);
+
+    // Exemplo (primeiro da lista)
+    if (scale.examples?.[0] && r >= 18) {
+      const exEl = document.createElementNS(ns, 'text');
+      exEl.setAttribute('x', lx);
+      exEl.setAttribute('y', y + 25);
+      exEl.setAttribute('font-family', "'Source Sans 3', system-ui, sans-serif");
+      exEl.setAttribute('font-size', '10');
+      exEl.setAttribute('fill', '#7A877E');
+      exEl.setAttribute('dominant-baseline', 'central');
+      exEl.textContent = scale.examples[0];
+      g.appendChild(exEl);
+    }
+
+    // Hover
+    g.addEventListener('mouseenter', () => {
+      circle.setAttribute('fill', `${scale.color}12`);
+      circle.setAttribute('stroke-width', '2.5');
+    });
+    g.addEventListener('mouseleave', () => {
+      circle.setAttribute('fill', '#FAFBF8');
+      circle.setAttribute('stroke-width', '2');
+    });
+
+    // Navegação
     g.addEventListener('click', () => Router.push(`#/escala/${scale.id}`));
     g.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -250,6 +335,7 @@ const buildHeroDiagram = (scales) => {
 
   return svg;
 };
+
 
 /** Renderiza um card de modulo compacto. */
 const _renderModuleCard = (m) => `
