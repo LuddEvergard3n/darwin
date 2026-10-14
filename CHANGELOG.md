@@ -6,6 +6,21 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [Unreleased] — Recuperação técnica
+
+### Corrigido
+
+- Executor Node voltou a rodar e informar resultados reais.
+- Exercício de fluxo, categorias de comparação e referências órfãs do glossário foram corrigidos.
+- Falha de carregamento de dados agora oferece recuperação explícita.
+
+### Adicionado
+
+- Progresso local, catálogo editorial inicial, manifesto, Service Worker e servidor local em Node.js.
+- A revisão científica permanece explicitamente pendente até a conferência por lição e fonte.
+
+---
+
 ## [1.1.0] — 2026-03-13
 
 ### Adicionado

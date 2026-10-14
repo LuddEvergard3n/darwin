@@ -21,23 +21,24 @@ Darwin is not organized as a conventional encyclopedia. It presents biology as a
 - Inline SVG scientific diagrams.
 - JSON as the content source of truth.
 - Hash-based client-side routing.
+- Local progress storage and an installable offline shell.
 - No framework, bundler, backend, or required external dependency.
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8080
+npm run serve
 ```
 
-Open `http://localhost:8080`. Native modules require an HTTP server.
+Open `http://127.0.0.1:8082/`. Native modules, the Service Worker, and data requests require an HTTP server; opening `index.html` directly is not supported.
 
 ## Tests
 
 ```bash
-node tests/test-runner.js
+npm test
 ```
 
-The current test runner is still under development; a clean Node.js execution is required before the project should be presented as complete.
+The test runner validates data integrity, cross-file references, exercise contracts, editorial source references, required runtime files, and deterministic ordering logic. It is not a substitute for browser, accessibility, or scientific peer review.
 
 ## Structure
 
@@ -51,9 +52,13 @@ tests/        Data and engine checks
 docs/         Pedagogy, content model, module system, and visual system
 ```
 
-## Project status
+## Editorial status
 
-Darwin is intentionally labeled as a work in progress. Content breadth, diagram coverage, and the automated test runner still need validation before a stable release.
+`data/editorial.json` records the shared sources used to begin traceability. Existing lessons are marked as pending until each claim, diagram, activity, and quantitative statement has been reviewed against a specific source. The project does not present that pending work as a completed scientific review.
+
+## Offline use
+
+The first visit must happen online. The application shell and essential local data are cached for later use; content that has not been cached can show an offline-unavailable response instead of a broken page. Progress remains in browser local storage and is not sent to a service.
 
 ## Live version
 

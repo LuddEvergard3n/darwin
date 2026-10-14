@@ -1,0 +1,9 @@
+{
+  "name": "darwin-atlas-processos-da-vida",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/test-runner.js",
+    "serve": "node server.js"
+  }
+}

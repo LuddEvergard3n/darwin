@@ -1,0 +1,10 @@
+{
+  "name": "Darwin — Atlas dos Processos da Vida",
+  "short_name": "Darwin",
+  "start_url": "./index.html#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ed",
+  "theme_color": "#3F6B4B",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

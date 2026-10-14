@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Darwin — Atlas dos Processos da Vida. Sistema navegavel de Biologia: da molecula ao ecossistema.">
   <meta name="theme-color" content="#3F6B4B">
+  <link rel="manifest" href="manifest.webmanifest">
 
   <!-- Open Graph -->
   <meta property="og:title"       content="Darwin — Atlas dos Processos da Vida">
@@ -39,7 +40,7 @@
           Darwin<span>.</span>
         </a>
 
-        <ul class="site-nav__links" role="list">
+        <ul id="site-nav-links" class="site-nav__links" role="list">
           <li>
             <a href="#/" data-nav-link="home">Início</a>
           </li>
@@ -142,6 +143,11 @@
 
   <!-- Modulo principal — type=module habilita ES modules nativos -->
   <script type="module" src="js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+  </script>
 
 </body>
 </html>

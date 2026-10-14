@@ -1,0 +1,16 @@
+{
+  "sources": [
+    { "id": "openstax-biology-2e", "author": "OpenStax", "title": "Biology 2e", "year": 2020, "type": "open textbook", "url": "https://openstax.org/details/books/biology-2e", "scope": "biologia geral", "limitations": "Livro introdutório; dados quantitativos contemporâneos exigem fonte específica." },
+    { "id": "ncbi-molecular-cell", "author": "Alberts, B. et al.", "title": "Molecular Biology of the Cell", "year": 2002, "type": "reference book", "url": "https://www.ncbi.nlm.nih.gov/books/NBK21054/", "scope": "biologia celular e molecular", "limitations": "Edição histórica; não deve sustentar dados contemporâneos isoladamente." },
+    { "id": "ncbi-genetics", "author": "National Library of Medicine", "title": "Understanding Genetics", "year": 2010, "type": "educational reference", "url": "https://www.ncbi.nlm.nih.gov/books/NBK132184/", "scope": "genética humana e conceitos básicos", "limitations": "Síntese educacional, não substitui diretrizes clínicas atualizadas." },
+    { "id": "openstax-ecology", "author": "OpenStax", "title": "Biology 2e: Ecology", "year": 2020, "type": "open textbook", "url": "https://openstax.org/books/biology-2e/pages/44-introduction", "scope": "ecologia e evolução", "limitations": "Exemplos e estatísticas devem ser atualizados quando aplicados a políticas ou territórios específicos." }
+  ],
+  "moduleSources": {
+    "cell": ["openstax-biology-2e", "ncbi-molecular-cell"],
+    "genetics": ["openstax-biology-2e", "ncbi-genetics"],
+    "metabolism": ["openstax-biology-2e", "ncbi-molecular-cell"],
+    "systems": ["openstax-biology-2e"],
+    "ecology": ["openstax-ecology", "openstax-biology-2e"],
+    "evolution": ["openstax-ecology", "openstax-biology-2e"]
+  }
+}
