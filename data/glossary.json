@@ -39,7 +39,7 @@
     {
       "id": "atp",
       "term": "ATP",
-      "definition": "Adenosina trifosfato. Molécula que funciona como moeda energética universal das células — armazena e transfere energia para reações biológicas. A hidrólise libera ~30,5 kJ/mol. Regenerado continuamente pela ATP sintase.",
+      "definition": "Adenosina trifosfato. Molécula que transfere energia para reações biológicas. A energia livre associada à sua hidrólise depende das condições celulares; ATP é regenerado continuamente por diferentes vias metabólicas.",
       "axis": "energy",
       "scale": "molecular",
       "relatedTerms": ["metabolismo", "fotossintese", "mitocondria", "respiracao-celular"],
@@ -129,7 +129,7 @@
     {
       "id": "cadeia-alimentar",
       "term": "Cadeia alimentar",
-      "definition": "Sequência linear de organismos na qual cada um serve de alimento ao seguinte, representando o fluxo de energia e matéria no ecossistema. Organizada em níveis tróficos; cada transferência perde ~90% da energia como calor.",
+      "definition": "Sequência linear de organismos na qual cada um serve de alimento ao seguinte, representando transferências de matéria e energia no ecossistema. Em cada transferência, apenas uma parte da energia fica disponível para o nível seguinte; a proporção varia conforme o sistema e o modo de medição.",
       "axis": "evolution",
       "scale": "ecosystem",
       "relatedTerms": ["ecossistema", "fotossintese", "adaptacao", "nivel-trofico"],
@@ -255,7 +255,7 @@
     {
       "id": "servico-ecossistemico",
       "term": "Serviço ecossistêmico",
-      "definition": "Benefício que os ecossistemas fornecem a humanos: provisão (alimentos, água, madeira), regulação (clima, inundações, doenças), suporte (ciclagem de nutrientes, formação de solo) e cultural (recreação, valores espirituais). Valorados em trilhões de dólares/ano.",
+      "definition": "Benefício que os ecossistemas fornecem a humanos: provisão (alimentos, água, madeira), regulação (clima, inundações, doenças), suporte (ciclagem de nutrientes, formação de solo) e cultural (recreação, valores espirituais). Valores econômicos estimados dependem de método, território e período.",
       "axis": "evolution",
       "scale": "ecosystem",
       "relatedTerms": ["ecossistema", "ciclo-carbono"],
@@ -273,7 +273,7 @@
     {
       "id": "zoonose",
       "term": "Zoonose",
-      "definition": "Doença infecciosa transmitida de animais vertebrados a humanos (ou vice-versa). Responsável por ~60% das doenças infecciosas humanas emergentes. O salto entre espécies depende de mutações que adaptam o patógeno ao novo hospedeiro.",
+      "definition": "Infecção que pode ser transmitida entre animais e seres humanos. A emergência de uma zoonose depende de interações entre hospedeiro, agente, ambiente e exposição; mudanças genéticas do agente podem ser relevantes, mas não são uma explicação suficiente isoladamente.",
       "axis": "evolution",
       "scale": "organism",
       "relatedTerms": ["mutacao", "selecao-natural", "adaptacao", "especiacao"],

@@ -1,5 +1,9 @@
 # Modelo de Conteúdo — Darwin
 
+## Estado editorial
+
+`data/editorial.json` mantém o catálogo compartilhado de fontes e a relação inicial por módulo. Durante o carregamento, entidades recebem `lastReviewed`, `reviewStatus`, `sources` e `modelLimitations`. O estado `pending` informa que o conteúdo ainda não passou por revisão científica item a item e não pode ser confundido com validação editorial concluída.
+
 ## Estrutura de dados
 
 Todo o conteúdo do Darwin é declarativo e vive em arquivos JSON dentro de `data/`. Nenhum conteúdo está hardcoded nos engines ou componentes.

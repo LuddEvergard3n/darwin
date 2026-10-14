@@ -695,7 +695,7 @@
       "lesson": "eco-human-impact",
       "type": "analysis",
       "title": "Extinção e serviços ecossistêmicos",
-      "question": "A abelha-do-mel (Apis mellifera) é responsável por polinizar cerca de 35% dos alimentos consumidos mundialmente. Se sua população colapsasse globalmente, qual seria o efeito ecossistêmico mais imediato e direto?",
+      "question": "Muitas culturas dependem, em diferentes graus, de polinização animal. Se populações de polinizadores entrassem em colapso em uma região, qual seria um efeito ecológico mais imediato e direto?",
       "options": [
         {
           "id": "a",
@@ -801,7 +801,7 @@
       "title": "Homologia e analogia",
       "question": "Classifique cada par de estruturas como homólogas (H — mesmo ancestral, funções podem diferir) ou análogas (A — mesma função, ancestral diferente).",
       "items": [
-        { "id": "a", "text": "Braço humano e asa de baleia",                    "matchId": "1" },
+        { "id": "a", "text": "Braço humano e nadadeira de baleia",              "matchId": "1" },
         { "id": "b", "text": "Asa de borboleta e asa de morcego",               "matchId": "2" },
         { "id": "c", "text": "Olho de vertebrado e olho de polvo",              "matchId": "3" },
         { "id": "d", "text": "Espinha dorsal de humano e espinha de tubarão",   "matchId": "4" }
@@ -825,7 +825,7 @@
       "lesson": "evo-speciation",
       "type": "analysis",
       "title": "Especiação alopátrica nos tentilhões",
-      "question": "Os tentilhões das Galápagos (radiação adaptativa de Darwin) descendem de um único ancestral que colonizou as ilhas vindos do continente sul-americano. Hoje existem 14 espécies com bicos adaptados a diferentes alimentos. Qual sequência de eventos melhor explica essa diversificação?",
+      "question": "Os tentilhões das Galápagos são um caso clássico de radiação adaptativa: populações descendentes de um ancestral colonizador se diversificaram em ilhas, com bicos associados a dietas distintas. Qual sequência de eventos melhor explica essa diversificação?",
       "options": [
         {
           "id": "a",
@@ -871,7 +871,7 @@
         { "id": "a", "text": "Todas as células usam ATP como moeda energética",                  "matchId": "1" },
         { "id": "b", "text": "O mesmo código genético em bactérias e humanos",                   "matchId": "2" },
         { "id": "c", "text": "Bactérias resistentes sobrevivem à seleção pelo antibiótico",       "matchId": "3" },
-        { "id": "d", "text": "Cíclidos do Lago Vitória divergiram em 500 espécies em 15.000 anos","matchId": "4" }
+        { "id": "d", "text": "Cíclidos africanos exibem diversificação rápida em diferentes lagos", "matchId": "4" }
       ],
       "matches": [
         { "id": "1", "text": "Metabolismo — a universalidade do ATP evidencia ancestralidade comum e conservação evolutiva das vias energéticas" },

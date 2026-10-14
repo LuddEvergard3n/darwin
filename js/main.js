@@ -65,17 +65,23 @@ const loadAllData = async () => {
   }
   if (loaded.editorial && loaded.modules) {
     const { moduleSources = {} } = loaded.editorial;
+    const annotate = (item, sourceIds = []) => {
+      item.lastReviewed ??= null;
+      item.reviewStatus ??= 'pending';
+      item.sources ??= sourceIds;
+      item.modelLimitations ??= 'Síntese didática; confira as fontes e o contexto de aplicação.';
+    };
     loaded.modules.modules.forEach(module => {
-      module.lastReviewed ??= null;
-      module.reviewStatus ??= 'pending';
-      module.sources ??= moduleSources[module.id] ?? [];
+      annotate(module, moduleSources[module.id] ?? []);
       module.lessons.forEach(lesson => {
-        lesson.lastReviewed ??= null;
-        lesson.reviewStatus ??= 'pending';
-        lesson.sources ??= module.sources;
-        lesson.modelLimitations ??= 'Representação didática; ver fontes e contexto da lição.';
+        annotate(lesson, module.sources);
       });
     });
+    loaded.exercises?.exercises.forEach(exercise => annotate(exercise, moduleSources[exercise.module] ?? []));
+    loaded.glossary?.glossary.forEach(item => annotate(item, moduleSources[item.modules?.[0]] ?? []));
+    loaded.processes?.processes.forEach(item => annotate(item, moduleSources[item.modules?.[0]] ?? []));
+    loaded.applications?.applications.forEach(item => annotate(item));
+    loaded.scales?.scales.forEach(item => annotate(item));
   }
   State.loadData(loaded);
 };
